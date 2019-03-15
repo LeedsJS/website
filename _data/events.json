@@ -1,5 +1,19 @@
 {
+    "2019-02-27": {
+        "title": "testy test test",
+        "blurb": "this is a test, there's nothing really here",
+        "talk_1": "test1",
+        "talk_2": "test2"
+    },
+    "2019-01-27": {
+        "title": "testy test test",
+        "blurb": "this is a test, there's nothing really here",
+        "talk_1": "test1",
+        "talk_2": "test2"
+    },
     "2019-03-27": {
+        "title": "testy test test",
+        "blurb": "this is a test, there's nothing really here",
         "talk_1": "test1",
         "talk_2": "test2"
     }

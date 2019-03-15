@@ -1,10 +1,10 @@
 {
     "test1": {
-        "name": "test1",
-        "speaker": "luke_bonaccorsi"
+        "title": "test1",
+        "speaker": "luke-bonaccorsi"
     },
     "test2": {
-        "name": "test2",
-        "speaker": "not_me"
+        "title": "test2",
+        "speaker": "not-me"
     }
 }

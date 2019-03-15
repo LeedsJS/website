@@ -1,0 +1,12 @@
+---
+permalink: speakers/index.html
+---
+<ul>
+{% for speaker_id, speaker in speakers | dictsort %}
+    <li>
+        <h2><a href="/speakers/{{ speaker_id }}">{{ speaker.name }}</a></h2>
+        <p>{{ speaker.bio }}</p>
+        <p><a href="/speakers/{{ speaker_id }}">Read more</a></p>
+    </li>
+{% endfor %}
+</ul>

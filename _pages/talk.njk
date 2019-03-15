@@ -1,0 +1,10 @@
+---
+pagination:
+    data: talks
+    size: 1
+permalink: talks/{{ pagination.items[0] }}/index.html
+---
+{% for talk_id in pagination.items %}
+    <h1>{{ talks[talk_id].title }}</h1>
+    <p>{{ talks[talk_id].abstract }}</p>
+{% endfor %}

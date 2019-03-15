@@ -1,6 +1,7 @@
+{% set next_event = events | datesort | objfirst %}
 <div>
-    {{ talks[next_event.talk_1].name }}
-    {{ talks[next_event.talk_1].speaker }}
-    {{ talks[next_event.talk_2].name }}
-    {{ talks[next_event.talk_2].speaker }}
+    {{ talks[next_event.talk_1].title }}
+    {{ speakers[talks[next_event.talk_1].speaker].name }}
+    {{ talks[next_event.talk_2].title }}
+    {{ speakers[talks[next_event.talk_2].speaker].name }}
 </div>
