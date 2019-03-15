@@ -1,0 +1,24 @@
+{
+  "name": "website-eleventy",
+  "version": "1.0.0",
+  "description": "The LeedsJS website built in Eleventy",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx eleventy",
+    "serve": "npx eleventy --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeedsJS/website-eleventy.git"
+  },
+  "author": "Luke Bonaccorsi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LeedsJS/website-eleventy/issues"
+  },
+  "homepage": "https://github.com/LeedsJS/website-eleventy#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.7.1",
+    "moment": "^2.24.0"
+  }
+}
