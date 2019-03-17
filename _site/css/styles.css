@@ -10,11 +10,20 @@ body {
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background: #F7DF1E;
+    background: #f1d608;
 }
 
 h1 {
     margin: 16px 0px;
+}
+
+a {
+    text-decoration: underline;
+    color: #000000;
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 .page-header {
@@ -52,6 +61,11 @@ h1 {
 }
 .page-header__navigation li:first-child::before {
     content: "";
+}
+
+.page-header__navigation a {
+    font-size: 20px;
+    white-space: nowrap;
 }
 
 .page-main {
