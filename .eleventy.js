@@ -1,6 +1,9 @@
 const moment = require('moment');
 
 module.exports = function(eleventyConfig) {
+    eleventyConfig.addPassthroughCopy("_site/img");
+    eleventyConfig.addPassthroughCopy("_site/css");
+
     eleventyConfig.addNunjucksFilter("datesort", function(obj) {
         const newObj = {};
 
@@ -25,7 +28,8 @@ module.exports = function(eleventyConfig) {
 
     return {
         templateFormats: [
-            "njk"
+            "njk",
+            "md"
         ],
 
         pathPrefix: "/",
@@ -34,7 +38,7 @@ module.exports = function(eleventyConfig) {
         dataTemplateEngine: "njk",
         passthroughFileCopy: true,
         dir: {
-            input: "_pages",
+            input: "_site",
             includes: "../_includes",
             data: "../_data",
             output: "_build"

@@ -1,9 +1,43 @@
 <!doctype html>
 <html>
     <head>
-        <title>{{ renderData.title or title}}</title>
+    <title>
+        {{
+            events[pagination.items[0]].title or
+            speakers[pagination.items[0]].name or
+            talks[pagination.items[0]].title or
+            title
+        }} - LeedsJS
+    </title>
+        <link rel="stylesheet" href="{{ '/css/styles.css' | url }}">
     </head>
     <body>
-        {{ content | safe }}
+        <header class="page-header">
+            <a href="{{ '/' | url }}" class="page-header__logo-link">
+                <img src="{{ '/img/logo.png' | url }}" width="150" height="150" alt="LeedsJS Logo"  class="page-header__logo-image" />
+            </a>
+            <nav class="page-header__navigation">
+                <ul>
+                    <li>
+                        <a href="{{ '/' | url }}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{{ '/events' | url }}">Events</a>
+                    </li>
+                    <li>
+                        <a href="{{ '/talks' | url }}">Talks</a>
+                    </li>
+                    <li>
+                        <a href="{{ '/speakers' | url }}">Speakers</a>
+                    </li>
+                    <li>
+                        <a href="{{ '/code-of-conduct' | url }}">Code of Conduct</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="page-main">
+            {{ content | safe }}
+        </main>
     </body>
 </html>

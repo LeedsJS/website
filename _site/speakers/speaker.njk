@@ -1,13 +1,16 @@
 ---
+layout: layouts/base.njk
 pagination:
     data: speakers
     size: 1
 permalink: speakers/{{ pagination.items[0] }}/index.html
 ---
 {% for speaker_id in pagination.items %}
+<div class="card">
     <h1>{{ speakers[speaker_id].name }}</h1>
     <p>{{ speakers[speaker_id].bio }}</p>
     {% if speakers[speaker_id].twitter %}
     <p><a href="https://twitter.com/{{ speakers[speaker_id].twitter }}">{{ speakers[speaker_id].twitter }}</a></p>
     {% endif %}
+</div>
 {% endfor %}

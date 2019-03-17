@@ -1,11 +1,12 @@
 ---
+layout: layouts/base.njk
 pagination:
   data: events
   size: 1
 permalink: events/{{ pagination.items[0] | slug }}/index.html
 ---
 {% for event_id in pagination.items %}
-<div>
+<div class="card">
     {{ talks[events[event_id].talk_1].name }}
     {{ speakers[talks[events[event_id].talk_1].speaker].name }}
     {{ talks[events[event_id].talk_2].name }}

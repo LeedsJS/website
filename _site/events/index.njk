@@ -1,9 +1,11 @@
 ---
+title: Events
+layout: layouts/list.njk
 permalink: events/index.html
 ---
 <ul>
 {% for event_id, event in events | datesort %}
-    <li>
+    <li class="card">
         <h2><a href="/events/{{ event_id }}">{{ event.title }}</a></h2>
         <p>{{ event.blurb }}</p>
         <p><a href="/events/{{ event_id }}">Event details</a></p>

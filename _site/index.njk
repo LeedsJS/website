@@ -1,5 +1,9 @@
+---
+title: Home
+layout: layouts/base.njk
+---
 {% set next_event = events | datesort | objfirst %}
-<div>
+<div class="card">
     {{ talks[next_event.talk_1].title }}
     {{ speakers[talks[next_event.talk_1].speaker].name }}
     {{ talks[next_event.talk_2].title }}
