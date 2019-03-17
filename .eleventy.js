@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 module.exports = function(eleventyConfig) {
     eleventyConfig.addNunjucksFilter("datesort", function(obj) {
         const newObj = {};
@@ -15,6 +17,11 @@ module.exports = function(eleventyConfig) {
      eleventyConfig.addNunjucksFilter("objfirst", function (obj) {
          return obj[Object.keys(obj)[0]];
      });
+
+    const today = moment();
+    eleventyConfig.addNunjucksFilter("isfutureevent", function (date) {
+        return today.isSameOrBefore(date, 'day');
+    });
 
     return {
         templateFormats: [

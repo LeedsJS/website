@@ -10,5 +10,9 @@ permalink: events/{{ pagination.items[0] | slug }}/index.html
     {{ speakers[talks[events[event_id].talk_1].speaker].name }}
     {{ talks[events[event_id].talk_2].name }}
     {{ speakers[talks[events[event_id].talk_2].speaker].name }}
+    {% if event_id | isfutureevent %}
+      <script src='https://js.tito.io/v1' async></script>
+      <tito-button event="leedsjs/{{ event_id }}"></tito-button>
+    {% endif %}
 </div>
 {% endfor %}
