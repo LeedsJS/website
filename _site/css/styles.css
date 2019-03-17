@@ -72,6 +72,7 @@ a:hover {
     padding: 16px 16px 0px;
     width: 75%;
     min-width: 288px;
+    max-width: 750px;
     margin: 0px auto;
 }
 

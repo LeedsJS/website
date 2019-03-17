@@ -6,14 +6,20 @@ pagination:
 permalink: events/{{ pagination.items[0] | slug }}/index.html
 ---
 {% for event_id in pagination.items %}
+<h1>{{ events[event_id].title }}</h1>
 <div class="card">
-    {{ talks[events[event_id].talk_1].name }}
-    {{ speakers[talks[events[event_id].talk_1].speaker].name }}
-    {{ talks[events[event_id].talk_2].name }}
-    {{ speakers[talks[events[event_id].talk_2].speaker].name }}
-    {% if event_id | isfutureevent %}
-      <script src='https://js.tito.io/v1' async></script>
-      <tito-button event="leedsjs/{{ event_id }}"></tito-button>
+  {{ talks[events[event_id].talk_1].name }}
+  {{ speakers[talks[events[event_id].talk_1].speaker].name }}
+  {{ talks[events[event_id].talk_2].name }}
+  {{ speakers[talks[events[event_id].talk_2].speaker].name }}
+  {% if event_id | isfutureevent  %}
+    {% if events[event_id].tito_event %}
+      {% include "tito-bitton.njk" %}
+
     {% endif %}
+  {% else %}
+    {% set mailchimp_form_title = "Register to hear about future events" %}
+  {% endif %}
+  {% include "mailchimp-form.njk" %}
 </div>
 {% endfor %}

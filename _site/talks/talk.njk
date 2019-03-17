@@ -6,8 +6,8 @@ pagination:
 permalink: talks/{{ pagination.items[0] }}/index.html
 ---
 {% for talk_id in pagination.items %}
+<h1>{{ talks[talk_id].title }}</h1>
 <div class="card">
-    <h1>{{ talks[talk_id].title }}</h1>
     <p>{{ talks[talk_id].abstract }}</p>
 </div>
 {% endfor %}
