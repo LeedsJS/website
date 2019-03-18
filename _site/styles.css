@@ -103,6 +103,10 @@ a:hover {
     box-sizing: border-box;
 }
 
+.mailchimp-form__response {
+    margin-bottom: 16px;
+}
+
 button, input[type="submit"] {
     color: #000000;
     background: #F1D608;
@@ -115,4 +119,8 @@ button, input[type="submit"] {
     box-sizing: border-box;
     display: block;
     margin-bottom: 16px;
+}
+
+.hidden {
+    display: none;
 }

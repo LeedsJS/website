@@ -46,6 +46,8 @@ function installMailchimp() {
         jsonp(url, data, (data) => {
             const response = document.querySelector('#mailchimp-response');
 
+            response.classList.remove('hidden');
+
             if (data && data.result === 'success') {
                 response.innerHTML = data.msg;
             } else if (data && data.result === 'error') {
