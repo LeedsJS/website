@@ -100,13 +100,19 @@ a:hover {
     padding: 8px;
     font-size: 16px;
     margin-bottom: 16px;
+    box-sizing: border-box;
 }
 
-button {
+button, input[type="submit"] {
     color: #000000;
     background: #F1D608;
     border: 0;
     padding: 12px;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: bold;
     border-radius: 4px;
+    width: 75%;
+    box-sizing: border-box;
+    display: block;
+    margin-bottom: 16px;
 }
