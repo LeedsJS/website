@@ -119,6 +119,7 @@ button, input[type="submit"] {
     box-sizing: border-box;
     display: block;
     margin-bottom: 16px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .hidden {
