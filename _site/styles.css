@@ -89,3 +89,24 @@ a:hover {
     list-style: none;
     margin-bottom: 16px;
 }
+
+.mailchimp-form__label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.mailchimp-form__email {
+    width: 75%;
+    padding: 8px;
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+button {
+    color: #000000;
+    background: #F1D608;
+    border: 0;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 4px;
+}

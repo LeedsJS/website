@@ -1,15 +1,17 @@
 <!doctype html>
 <html>
     <head>
-    <title>
-        {{
-            events[pagination.items[0]].title or
-            speakers[pagination.items[0]].name or
-            talks[pagination.items[0]].title or
-            title
-        }} - LeedsJS
-    </title>
-        <link rel="stylesheet" href="{{ '/css/styles.css' | url }}">
+        <title>
+            {{
+                events[pagination.items[0]].title or
+                speakers[pagination.items[0]].name or
+                talks[pagination.items[0]].title or
+                title
+            }} // LeedsJS
+        </title>
+        <link rel="stylesheet" href="{{ '/styles.css' | url }}">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta charset="UTF-8">
     </head>
     <body>
         <header class="page-header">
@@ -39,5 +41,6 @@
         <main class="page-main">
             {{ content | safe }}
         </main>
+<script type="text/javascript" src="{{ '/script.js' | url }}"></script>
     </body>
 </html>

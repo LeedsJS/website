@@ -2,7 +2,8 @@ const moment = require('moment');
 
 module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("_site/img");
-    eleventyConfig.addPassthroughCopy("_site/css");
+    eleventyConfig.addPassthroughCopy("_site/styles.css");
+    eleventyConfig.addPassthroughCopy("_site/script.js");
 
     eleventyConfig.addNunjucksFilter("datesort", function(obj) {
         const newObj = {};

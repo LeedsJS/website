@@ -13,10 +13,8 @@ permalink: events/{{ pagination.items[0] | slug }}/index.html
   {{ talks[events[event_id].talk_2].name }}
   {{ speakers[talks[events[event_id].talk_2].speaker].name }}
   {% if event_id | isfutureevent  %}
-    {% if events[event_id].tito_event %}
-      {% include "tito-bitton.njk" %}
-
-    {% endif %}
+    {% set tito_event_id = event_id %}
+    {% include "tito-button.njk" %}
   {% else %}
     {% set mailchimp_form_title = "Register to hear about future events" %}
   {% endif %}
