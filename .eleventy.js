@@ -22,9 +22,13 @@ module.exports = function(eleventyConfig) {
          return obj[Object.keys(obj)[0]];
      });
 
-    const today = moment();
+
     eleventyConfig.addNunjucksFilter("isfutureevent", function (date) {
-        return today.isSameOrBefore(date, 'day');
+        return moment().isSameOrBefore(date, 'day');
+    });
+
+    eleventyConfig.addNunjucksFilter("date", function (date, format = "YYYY-MM-DD") {
+        return moment(date).format(format);
     });
 
     return {

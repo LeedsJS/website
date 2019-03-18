@@ -1,10 +1,14 @@
 {
-    "test1": {
+    "test_1": {
         "title": "test1",
-        "speaker": "luke-bonaccorsi"
+        "speaker": "luke-bonaccorsi",
+        "abstract": "test description",
+        "date": "2019-02-27"
     },
-    "test2": {
+    "test_2": {
         "title": "test2",
-        "speaker": "not-me"
+        "speaker": "not-me",
+        "abstract": "test description",
+        "date": "2019-02-27"
     }
 }

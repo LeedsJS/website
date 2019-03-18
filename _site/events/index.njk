@@ -7,6 +7,7 @@ permalink: events/index.html
 {% for event_id, event in events | datesort %}
     <li class="card">
         <h2><a href="/events/{{ event_id }}">{{ event.title }}</a></h2>
+        <p>{{ event.date | date("Do MMMM YYYY") }}</p>
         <p>{{ event.blurb }}</p>
         <p><a href="/events/{{ event_id }}">Event details</a></p>
     </li>
