@@ -11,6 +11,7 @@ body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     background: #f1d608;
+    font-size: 18px;
 }
 
 h1 {
@@ -76,6 +77,10 @@ a:hover {
     margin: 0px auto;
 }
 
+.page-main a {
+    color: #0000ee;
+}
+
 .page-main > ul {
     margin: 0;
     padding: 0;
@@ -88,6 +93,10 @@ a:hover {
     border-radius: 4px;
     list-style: none;
     margin-bottom: 16px;
+}
+
+.card li {
+    line-height: 24px;
 }
 
 .mailchimp-form__label {
