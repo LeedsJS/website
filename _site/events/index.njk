@@ -4,7 +4,7 @@ layout: layouts/list.njk
 permalink: events/index.html
 ---
 <ul>
-{% for event_id, event in events | datesort %}
+{% for event_id, event in events | objsort("date", true) %}
     <li class="card">
         <h2><a href="/events/{{ event_id }}">{{ event.title }}</a></h2>
         <p>{{ event.date | date("Do MMMM YYYY") }}</p>

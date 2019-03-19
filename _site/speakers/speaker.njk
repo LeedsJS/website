@@ -6,11 +6,29 @@ pagination:
 permalink: speakers/{{ pagination.items[0] }}/index.html
 ---
 {% for speaker_id in pagination.items %}
-<h1>{{ speakers[speaker_id].name }}</h1>
+{% set speaker = speakers[speaker_id] %}
+<h1>{{ speaker.name }}</h1>
 <div class="card">
-    <p>{{ speakers[speaker_id].bio }}</p>
-    {% if speakers[speaker_id].twitter %}
-    <p><a href="https://twitter.com/{{ speakers[speaker_id].twitter }}">{{ speakers[speaker_id].twitter }}</a></p>
+    {% if speaker.picture %}
+        <img src="/img/speakers/{{ speaker.picture }}" width="300" height="300" alt="Picture of {{ speaker.name }}" />
+    {% endif %}
+    <p>{{ speaker.bio }}</p>
+    {% if speaker.links %}
+    <h2>Links</h2>
+    <ul>
+        {% for site, url in speaker.links | dictsort %}
+            <li><a href="{{ url }}" target="_blank">{{ site }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% set speaker_talks = talks | filterobj("speaker", speaker_id) | objsort("title") %}
+    {% if speaker_talks | ispopulatedobject %}
+    <h2>Talks</h2>
+    <ul>
+        {% for talk_id, talk in speaker_talks %}
+            <li><a href="/talks/{{ talk_id }}">{{ talk.title }}</a></li>
+        {% endfor %}
+    </ul>
     {% endif %}
 </div>
 {% endfor %}

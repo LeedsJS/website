@@ -5,15 +5,20 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("_site/styles.css");
     eleventyConfig.addPassthroughCopy("_site/script.js");
 
-    eleventyConfig.addNunjucksFilter("datesort", function(obj) {
+    eleventyConfig.addNunjucksFilter("objsort", function(obj, key, reverse = false) {
         const newObj = {};
 
-        Object.keys(obj)
-            .sort()
-            .reverse()
-            .forEach((key) => {
-                newObj[key] = obj[key];
-            });
+        let sortedKeys = Object.keys(obj)
+            .sort((a, b) => {
+                return obj[a][key] > obj[b][key];
+            })
+
+        if (reverse) {
+            sortedKeys = sortedKeys.reverse();
+        }
+        sortedKeys.forEach((key) => {
+            newObj[key] = obj[key];
+        });
 
         return newObj;
     });
@@ -29,6 +34,22 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.addNunjucksFilter("date", function (date, format = "YYYY-MM-DD") {
         return moment(date).format(format);
+    });
+
+    eleventyConfig.addNunjucksFilter("filterobj", function (obj, searchKey, match,) {
+        const newObj = {};
+
+        Object.keys(obj).forEach((key) => {
+            if (obj[key][searchKey] === match) {
+                newObj[key] = obj[key];
+            }
+        });
+
+        return newObj;
+    });
+
+    eleventyConfig.addNunjucksFilter("ispopulatedobject", function(obj) {
+        return Object.keys(obj).length > 0;
     });
 
     return {

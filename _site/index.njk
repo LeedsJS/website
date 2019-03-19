@@ -2,10 +2,10 @@
 title: Home
 layout: layouts/base.njk
 ---
-{% set next_event = events | datesort | objfirst %}
+{% set next_event = events | objsort("date", true) | objfirst %}
 <div class="card">
-    {{ talks[next_event.talk_1].title }}
-    {{ speakers[talks[next_event.talk_1].speaker].name }}
-    {{ talks[next_event.talk_2].title }}
-    {{ speakers[talks[next_event.talk_2].speaker].name }}
+    {{ talks[next_event.talks[0]].title }}
+    {{ speakers[talks[next_event.talks[0]].speaker].name }}
+    {{ talks[next_event.talks[1]].title }}
+    {{ speakers[talks[next_event.talks[1]].speaker].name }}
 </div>

@@ -1,13 +1,13 @@
 {
     "test_1": {
-        "title": "test1",
+        "title": "Hello",
         "speaker": "luke-bonaccorsi",
         "abstract": "test description",
         "date": "2019-02-27"
     },
     "test_2": {
-        "title": "test2",
-        "speaker": "not-me",
+        "title": "Yo",
+        "speaker": "luke-bonaccorsi",
         "abstract": "test description",
         "date": "2019-02-27"
     }

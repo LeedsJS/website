@@ -76,7 +76,7 @@ a:hover {
     margin: 0px auto;
 }
 
-.page-main ul {
+.page-main > ul {
     margin: 0;
     padding: 0;
 }
@@ -107,7 +107,7 @@ a:hover {
     margin-bottom: 16px;
 }
 
-button, input[type="submit"] {
+.button, button, input[type="submit"] {
     color: #000000;
     background: #F1D608;
     border: 0;
@@ -120,6 +120,14 @@ button, input[type="submit"] {
     display: block;
     margin-bottom: 16px;
     font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    text-decoration: none;
+}
+
+.button:hover,
+button:hover,
+input[type="submit"]:hover {
+    background: #f7de1b;
 }
 
 .hidden {

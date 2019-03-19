@@ -4,7 +4,7 @@ layout: layouts/list.njk
 permalink: speakers/index.html
 ---
 <ul>
-{% for speaker_id, speaker in speakers | dictsort %}
+{% for speaker_id, speaker in speakers | objsort("name") %}
     <li class="card">
         <h2><a href="/speakers/{{ speaker_id }}">{{ speaker.name }}</a></h2>
         <p>{{ speaker.bio }}</p>
