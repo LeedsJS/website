@@ -14,7 +14,7 @@ body {
     font-size: 18px;
 }
 
-h1 {
+h1, h2, h3 {
     margin: 16px 0px;
 }
 
@@ -25,6 +25,10 @@ a {
 
 a:hover {
     text-decoration: none;
+}
+
+p, ul {
+    margin: 0 0 16px;
 }
 
 .page-header {
@@ -142,4 +146,31 @@ input[type="submit"]:hover {
 
 .hidden {
     display: none;
+}
+
+.speaker-picture {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 16px;
+}
+
+.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.embed-container iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+@media (min-width: 750px) {
+    .speaker-picture {
+        float: right;
+        margin-left: 16px;
+    }
 }

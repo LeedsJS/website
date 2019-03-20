@@ -10,8 +10,9 @@ permalink: speakers/{{ pagination.items[0] }}/index.html
 <h1>{{ speaker.name }}</h1>
 <div class="card">
     {% if speaker.picture %}
-        <img src="/img/speakers/{{ speaker.picture }}" width="300" height="300" alt="Picture of {{ speaker.name }}" />
+        <img src="/img/speakers/{{ speaker.picture }}" class="speaker-picture" alt="Picture of {{ speaker.name }}" />
     {% endif %}
+    <h2>Bio</h2>
     <p>{{ speaker.bio }}</p>
     {% if speaker.links %}
     <h2>Links</h2>

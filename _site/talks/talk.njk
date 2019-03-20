@@ -6,8 +6,22 @@ pagination:
 permalink: talks/{{ pagination.items[0] }}/index.html
 ---
 {% for talk_id in pagination.items %}
-<h1>{{ talks[talk_id].title }}</h1>
+{% set talk = talks[talk_id] %}
+<h1>{{ talk.title }}</h1>
 <div class="card">
-    <p>{{ talks[talk_id].abstract }}</p>
+    <p>Given on {{ talk.date | date("Do MMM YYYY") }} by <a href="/speakers/{{ talk.speaker }}">{{ speakers[talk.speaker].name }}</a></p>
+    <h2>Abstract</h2>
+    <p>{{ talk.abstract }}</p>
+    {% if talk.youtube_video_id %}
+    <h2>Video</h2>
+    <div class="embed-container">
+        <iframe
+            src="https://www.youtube.com/embed/{{ talk.youtube_video_id }}"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+        ></iframe>
+    </div>
+    {% endif %}
 </div>
 {% endfor %}
