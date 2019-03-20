@@ -131,6 +131,7 @@ a:hover {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .button:hover,
