@@ -1,6 +1,7 @@
-const moment = require('moment');
-
 module.exports = function(eleventyConfig) {
+    const moment = require('moment');
+    const markdownIt = require('markdown-it');
+
     eleventyConfig.addPassthroughCopy("_site/img");
     eleventyConfig.addPassthroughCopy("_site/styles.css");
     eleventyConfig.addPassthroughCopy("_site/script.js");
@@ -51,6 +52,12 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addNunjucksFilter("ispopulatedobject", function(obj) {
         return Object.keys(obj).length > 0;
     });
+
+    eleventyConfig.addNunjucksFilter("markdown", function(string) {
+        const md = new markdownIt();
+
+        return md.render(string);
+    })
 
     return {
         templateFormats: [

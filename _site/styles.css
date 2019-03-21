@@ -14,7 +14,13 @@ body {
     font-size: 18px;
 }
 
-h1, h2, h3 {
+h2, h3 {
+    margin: 32px 0px 16px;
+}
+
+h1,
+h2:first-child,
+h3:first-child {
     margin: 16px 0px;
 }
 

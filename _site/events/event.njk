@@ -3,21 +3,40 @@ layout: layouts/base.njk
 pagination:
   data: events
   size: 1
+  alias: event_id
 permalink: events/{{ pagination.items[0] | slug }}/index.html
+renderData:
+  title: Event - {{ events[event_id].title }}
 ---
-{% for event_id in pagination.items %}
-<h1>{{ events[event_id].title }}</h1>
+{% set event = events[event_id] %}
+{% set videos = [] %}
+<h1>{{ event.title }}</h1>
 <div class="card">
-  {% for talk_id in events[event_id].talks %}
-    <h3>{{ talks[talk_id].title }}</h3>
-    <p>{{ speakers[talks[talk_id].speaker].name }}</p>
-  {% endfor %}
+  <p><b>Date:</b> {{ event.date | date("Do MMMM YYYY") }}</p>
+  <p><b>Time:</b> {{ event.time }}</p>
+  {{ event.blurb | markdown | safe }}
   {% if event_id | isfutureevent  %}
     {% set tito_event_id = event_id %}
     {% include "tito-button.njk" %}
   {% else %}
     {% set mailchimp_form_title = "Register to hear about future events" %}
   {% endif %}
+  <h2>Talks</h2>
+  {% for talk_id in event.talks %}
+    {% set talk = talks[talk_id] %}
+    {% if talk.youtube_video_id %}
+      {% set videos = (videos.push(talk.youtube_video_id), videos) %}
+    {% endif %}
+    <h3>{{ talk.title }}</h3>
+    <p><b>Speaker:</b> <a href="/speakers/{{ talk.speaker }}">{{ speakers[talk.speaker].name }}</a></p>
+    {{ talk.abstract | markdown | safe }}
+  {% endfor %}
+  {% if videos.length > 0 %}
+    <h2>Videos</h2>
+    {% for youtube_video_id in videos %}
+        {% include "youtube-video.njk" %}
+    {% endfor %}
+  {% endif %}
   {% include "mailchimp-form.njk" %}
+
 </div>
-{% endfor %}

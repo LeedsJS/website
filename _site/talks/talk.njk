@@ -3,25 +3,21 @@ layout: layouts/base.njk
 pagination:
     data: talks
     size: 1
-permalink: talks/{{ pagination.items[0] }}/index.html
+    alias: talk_id
+permalink: talks/{{ talk_id }}/index.html
+renderData:
+    title: Talk - {{ talks[talk_id].title }}
 ---
-{% for talk_id in pagination.items %}
 {% set talk = talks[talk_id] %}
 <h1>{{ talk.title }}</h1>
 <div class="card">
-    <p>Given on {{ talk.date | date("Do MMM YYYY") }} by <a href="/speakers/{{ talk.speaker }}">{{ speakers[talk.speaker].name }}</a></p>
+    <p><b>Date:</b> {{ talk.date | date("Do MMM YYYY") }}</p>
+    <p><b>Speaker:</b> <a href="/speakers/{{ talk.speaker }}">{{ speakers[talk.speaker].name }}</a></p>
     <h2>Abstract</h2>
-    <p>{{ talk.abstract }}</p>
+    {{ talk.abstract | markdown | safe }}
     {% if talk.youtube_video_id %}
     <h2>Video</h2>
-    <div class="embed-container">
-        <iframe
-            src="https://www.youtube.com/embed/{{ talk.youtube_video_id }}"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-        ></iframe>
-    </div>
+    {% set youtube_video_id = talk.youtube_video_id %}
+    {% include "youtube-video.njk" %}
     {% endif %}
 </div>
-{% endfor %}

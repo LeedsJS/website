@@ -3,9 +3,11 @@ layout: layouts/base.njk
 pagination:
     data: speakers
     size: 1
-permalink: speakers/{{ pagination.items[0] }}/index.html
+    alias: speaker_id
+permalink: speakers/{{ speaker_id }}/index.html
+renderData:
+    title: Speaker - {{ speakers[speaker_id].name }}
 ---
-{% for speaker_id in pagination.items %}
 {% set speaker = speakers[speaker_id] %}
 <h1>{{ speaker.name }}</h1>
 <div class="card">
@@ -13,7 +15,7 @@ permalink: speakers/{{ pagination.items[0] }}/index.html
         <img src="/img/speakers/{{ speaker.picture }}" class="speaker-picture" alt="Picture of {{ speaker.name }}" />
     {% endif %}
     <h2>Bio</h2>
-    <p>{{ speaker.bio }}</p>
+    {{ speaker.bio | markdown | safe }}
     {% if speaker.links %}
     <h2>Links</h2>
     <ul>
@@ -32,4 +34,3 @@ permalink: speakers/{{ pagination.items[0] }}/index.html
     </ul>
     {% endif %}
 </div>
-{% endfor %}
