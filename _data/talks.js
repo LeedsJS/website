@@ -7,7 +7,6 @@ module.exports = () => {
 
 When I started writing a chatbot a few years ago, I had no idea that it would grow to be my own JavaScript-based home automation system, controlling my lamps, curtains and heating. In this talk I’ll share journey and current progress, as well as things that I’d like to do with it in the future. By the end of I hope to have inspired you to try using JavaScript for some of your own automation.`,
             "date": "2019-02-27",
-            "youtube_video_id": "vDzy6NXROPM"
         },
         "test_2": {
             "title": "Yo",

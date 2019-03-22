@@ -33,6 +33,9 @@
         </header>
         <main class="page-main">
             {{ content | safe }}
+            <div class="card">
+                {% include "mailchimp-form.njk" %}
+            </div>
         </main>
 <script type="text/javascript" src="{{ '/script.js' | url }}"></script>
     </body>

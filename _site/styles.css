@@ -115,7 +115,7 @@ p, ul {
 }
 
 .mailchimp-form__email {
-    width: 75%;
+    width: 100%;
     padding: 8px;
     font-size: 16px;
     margin-bottom: 16px;
@@ -134,7 +134,7 @@ p, ul {
     font-size: 18px;
     font-weight: bold;
     border-radius: 4px;
-    width: 75%;
+    width: 100%;
     box-sizing: border-box;
     display: block;
     margin-bottom: 16px;
@@ -172,6 +172,22 @@ input[type="submit"]:hover {
     width: 100%;
     height: 100%;
     position: absolute;
+}
+
+.center {
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+}
+
+.button-container .button {
+    margin-right: 16px;
+}
+
+.button-container .button:last-child {
+    margin-right: 0;
 }
 
 @media (min-width: 750px) {

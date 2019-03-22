@@ -24,13 +24,18 @@ module.exports = function(eleventyConfig) {
         return newObj;
     });
 
-     eleventyConfig.addNunjucksFilter("objfirst", function (obj) {
-         return obj[Object.keys(obj)[0]];
+     eleventyConfig.addNunjucksFilter("objfirstkey", function (obj) {
+        return Object.keys(obj)[0];
      });
 
 
     eleventyConfig.addNunjucksFilter("isfutureevent", function (date) {
         return moment().isSameOrBefore(date, 'day');
+    });
+
+    eleventyConfig.addNunjucksFilter("ticketsreleased", function (date) {
+        const releaseDate = moment(date).subtract(7, 'days').hour(9).minute(30);
+        return moment().isSameOrAfter(releaseDate);
     });
 
     eleventyConfig.addNunjucksFilter("date", function (date, format = "YYYY-MM-DD") {

@@ -8,7 +8,7 @@ permalink: events/index.html
     <li class="card">
         <h2><a href="/events/{{ event_id }}">{{ event.title }}</a></h2>
         <p>{{ event.date | date("Do MMMM YYYY") }} {{ event.time }}</p>
-        <p>{{ event.short_blurb }}</p>
+        {{ event.short_blurb | markdown | safe }}
         <p><a href="/events/{{ event_id }}">Event details</a></p>
     </li>
 {% endfor %}

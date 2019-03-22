@@ -2,10 +2,34 @@
 title: Home
 layout: layouts/base.njk
 ---
-{% set next_event = events | objsort("date", true) | objfirst %}
+{% set event_id = events | objsort("date", true) | objfirstkey %}
+{% set event = events[event_id] %}
+<div class="card center">
+    {% if event.date | isfutureevent %}
+        <p>Our next event is...</p>
+        <h1>{{ event.title }}</h1>
+        {{ event.short_blurb | markdown | safe }}
+        <h2>Talks</h2>
+        {% for talk_id in event.talks %}
+            <h3>{{ talks[talk_id].title }}</h3>
+            <p>By <a href="/speakers/{{ talks[talk_id].speaker }}">{{ speakers[talks[talk_id].speaker].name }}</a></p>
+        {% endfor %}
+        </ul>
+        <div class="button-container">
+            {% if event.date | ticketsreleased %}
+                {% set tito_event_id = event_id %}
+                {% include "tito-button.njk" %}
+            {% endif %}
+            <a href="/events/{{ event_id }}" class="button">More details</a>
+        </div>
+    {% else %}
+        <h1>Our next event will be announced shortly</h1>
+        <p>We're not quite ready to announce our next event, but you can sign up to our mailing list to be notified.</p>
+        <a href="#mailchimp-form" class="button">Register to stay updated</a>
+    {% endif %}
+</div>
 <div class="card">
-    {{ talks[next_event.talks[0]].title }}
-    {{ speakers[talks[next_event.talks[0]].speaker].name }}
-    {{ talks[next_event.talks[1]].title }}
-    {{ speakers[talks[next_event.talks[1]].speaker].name }}
+    <h2>About us</h2>
+    <p>LeedsJS is a free, monthly meetup based in Leeds. We focus on JavaScript in all it's forms, whether that's frontend development, Node.js or hardware.</p>
+    <p>We meet on the last Wednesday of the month, with 2 talks separated by a break for food and chatting.</p>
 </div>

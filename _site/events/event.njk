@@ -15,11 +15,13 @@ renderData:
   <p><b>Date:</b> {{ event.date | date("Do MMMM YYYY") }}</p>
   <p><b>Time:</b> {{ event.time }}</p>
   {{ event.blurb | markdown | safe }}
-  {% if event_id | isfutureevent  %}
-    {% set tito_event_id = event_id %}
-    {% include "tito-button.njk" %}
-  {% else %}
-    {% set mailchimp_form_title = "Register to hear about future events" %}
+  {% if event.date | isfutureevent  %}
+    {% if event.date | ticketsreleased %}
+      {% set tito_event_id = event_id %}
+      {% include "tito-button.njk" %}
+    {% else %}
+      <a href="#mailchimp-form" class="button">Register to stay updated</a>
+    {% endif %}
   {% endif %}
   <h2>Talks</h2>
   {% for talk_id in event.talks %}
@@ -37,6 +39,4 @@ renderData:
         {% include "youtube-video.njk" %}
     {% endfor %}
   {% endif %}
-  {% include "mailchimp-form.njk" %}
-
 </div>
