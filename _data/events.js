@@ -9,12 +9,12 @@ module.exports = () => {
                 "test_2"
             ],
             "sponsors": [
-                "sponsor_1",
-                "sponsor_2",
-                "sponsor_3"
+                "sky-betting-and-gaming",
+                "bruntwood",
+                "jetbrains"
             ],
             "date": "2019-02-27",
-            "time": "18:30"
+            "time": "18:30 - 20:30"
         },
         "2019-01-27": {
             "title": "testy test test",
@@ -25,12 +25,12 @@ module.exports = () => {
                 "test_2"
             ],
             "sponsors": [
-                "sponsor_1",
-                "sponsor_2",
-                "sponsor_3"
+                "sky-betting-and-gaming",
+                "bruntwood",
+                "jetbrains"
             ],
             "date": "2019-01-27",
-            "time": "18:30"
+            "time": "18:30 - 20:30"
         },
         "2019-03-27": {
             "title": "testy test test",
@@ -40,12 +40,12 @@ module.exports = () => {
                 "test_2"
             ],
             "sponsors": [
-                "sponsor_1",
-                "sponsor_2",
-                "sponsor_3"
+                "sky-betting-and-gaming",
+                "bruntwood",
+                "jetbrains"
             ],
-            "date": "2019-03-20",
-            "time": "18:30"
+            "date": "2019-03-27",
+            "time": "18:30 - 20:30"
         }
     };
 }

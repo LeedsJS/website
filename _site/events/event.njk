@@ -33,6 +33,17 @@ renderData:
     <p><b>Speaker:</b> <a href="/speakers/{{ talk.speaker }}">{{ speakers[talk.speaker].name }}</a></p>
     {{ talk.abstract | markdown | safe }}
   {% endfor %}
+  {% if event.sponsors.length > 0 %}
+    <h2>Sponsors</h2>
+    {% for sponsor_id in event.sponsors %}
+      <h3>{{ sponsors[sponsor_id].name }}</h3>
+      <p><b>Website:</b> <a href="{{ sponsors[sponsor_id].url }}" target="_blank">{{ sponsors[sponsor_id].url }}</a></p>
+      <img class="event-sponsor-logo" src="/img/sponsors/{{ sponsors[sponsor_id].logo }}" alt="{{ sponsors[sponsor_id].name }} logo" />
+    {% endfor %}
+  {% endif %}
+  {% if event.date | isfutureevent  %}
+    {% include "venue.njk" %}
+  {% endif %}
   {% if videos.length > 0 %}
     <h2>Videos</h2>
     {% for youtube_video_id in videos %}

@@ -33,8 +33,9 @@ a:hover {
     text-decoration: none;
 }
 
-p, ul {
+p, ul, address {
     margin: 0 0 16px;
+    font-style: normal;
 }
 
 .page-header {
@@ -154,7 +155,7 @@ input[type="submit"]:hover {
     display: none;
 }
 
-.speaker-picture {
+.speaker-picture, .event-sponsor-logo {
     width: 100%;
     max-width: 300px;
     margin-bottom: 16px;
