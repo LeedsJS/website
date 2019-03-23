@@ -1,10 +1,10 @@
-module.exports = function(eleventyConfig) {
-    const moment = require('moment');
-    const markdownIt = require('markdown-it');
+const moment = require('moment');
+const markdownIt = require('markdown-it');
 
-    eleventyConfig.addPassthroughCopy("_site/img");
-    eleventyConfig.addPassthroughCopy("_site/styles.css");
-    eleventyConfig.addPassthroughCopy("_site/script.js");
+module.exports = function(eleventyConfig) {
+    eleventyConfig.addPassthroughCopy("site/img");
+    eleventyConfig.addPassthroughCopy("site/styles.css");
+    eleventyConfig.addPassthroughCopy("site/script.js");
 
     eleventyConfig.addNunjucksFilter("objsort", function(obj, key, reverse = false) {
         const newObj = {};
@@ -76,10 +76,10 @@ module.exports = function(eleventyConfig) {
         dataTemplateEngine: "njk",
         passthroughFileCopy: true,
         dir: {
-            input: "_site",
-            includes: "../_includes",
-            data: "../_data",
-            output: "_build"
+            input: "site",
+            includes: "../includes",
+            data: "../data",
+            output: "build"
         }
     }
 }
