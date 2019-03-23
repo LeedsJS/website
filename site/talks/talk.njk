@@ -16,8 +16,8 @@ renderData:
     <h2>Abstract</h2>
     {{ talk.abstract | markdown | safe }}
     {% if talk.youtube_video_id %}
-    <h2>Video</h2>
-    {% set youtube_video_id = talk.youtube_video_id %}
-    {% include "youtube-video.njk" %}
+        <h2>Video</h2>
+        {% set youtube_video_id = talk.youtube_video_id %}
+        {% include "youtube-video.njk" %}
     {% endif %}
 </div>

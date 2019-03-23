@@ -1,53 +1,53 @@
 ---
 layout: layouts/base.njk
 pagination:
-  data: events
-  size: 1
-  alias: event_id
+    data: events
+    size: 1
+    alias: event_id
 permalink: events/{{ pagination.items[0] | slug }}/index.html
 renderData:
-  title: Event - {{ events[event_id].title }}
+    title: Event - {{ events[event_id].title }}
 ---
 {% set event = events[event_id] %}
 {% set videos = [] %}
 <h1>{{ event.title }}</h1>
 <div class="card">
-  <p><b>Date:</b> {{ event.date | date("Do MMMM YYYY") }}</p>
-  <p><b>Time:</b> {{ event.time }}</p>
-  {{ event.blurb | markdown | safe }}
-  {% if event.date | isfutureevent  %}
-    {% if event.date | ticketsreleased %}
-      {% set tito_event_id = event_id %}
-      {% include "tito-button.njk" %}
-    {% else %}
-      <a href="#mailchimp-form" class="button">Register to stay updated</a>
+    <p><b>Date:</b> {{ event.date | date("Do MMMM YYYY") }}</p>
+    <p><b>Time:</b> {{ event.time }}</p>
+    {{ event.blurb | markdown | safe }}
+    {% if event.date | isfutureevent    %}
+        {% if event.date | ticketsreleased %}
+            {% set tito_event_id = event_id %}
+            {% include "tito-button.njk" %}
+        {% else %}
+            <a href="#mailchimp-form" class="button">Register to stay updated</a>
+        {% endif %}
     {% endif %}
-  {% endif %}
-  <h2>Talks</h2>
-  {% for talk_id in event.talks %}
-    {% set talk = talks[talk_id] %}
-    {% if talk.youtube_video_id %}
-      {% set videos = (videos.push(talk.youtube_video_id), videos) %}
+    <h2>Talks</h2>
+    {% for talk_id in event.talks %}
+        {% set talk = talks[talk_id] %}
+        {% if talk.youtube_video_id %}
+            {% set videos = (videos.push(talk.youtube_video_id), videos) %}
+        {% endif %}
+        <h3>{{ talk.title }}</h3>
+        <p><b>Speaker:</b> <a href="/speakers/{{ talk.speaker }}">{{ speakers[talk.speaker].name }}</a></p>
+        {{ talk.abstract | markdown | safe }}
+    {% endfor %}
+    {% if event.sponsors.length > 0 %}
+        <h2>Sponsors</h2>
+        {% for sponsor_id in event.sponsors %}
+            <h3>{{ sponsors[sponsor_id].name }}</h3>
+            <p><b>Website:</b> <a href="{{ sponsors[sponsor_id].url }}" target="_blank">{{ sponsors[sponsor_id].url }}</a></p>
+            <img class="event-sponsor-logo" src="/img/sponsors/{{ sponsors[sponsor_id].logo }}" alt="{{ sponsors[sponsor_id].name }} logo" />
+        {% endfor %}
     {% endif %}
-    <h3>{{ talk.title }}</h3>
-    <p><b>Speaker:</b> <a href="/speakers/{{ talk.speaker }}">{{ speakers[talk.speaker].name }}</a></p>
-    {{ talk.abstract | markdown | safe }}
-  {% endfor %}
-  {% if event.sponsors.length > 0 %}
-    <h2>Sponsors</h2>
-    {% for sponsor_id in event.sponsors %}
-      <h3>{{ sponsors[sponsor_id].name }}</h3>
-      <p><b>Website:</b> <a href="{{ sponsors[sponsor_id].url }}" target="_blank">{{ sponsors[sponsor_id].url }}</a></p>
-      <img class="event-sponsor-logo" src="/img/sponsors/{{ sponsors[sponsor_id].logo }}" alt="{{ sponsors[sponsor_id].name }} logo" />
-    {% endfor %}
-  {% endif %}
-  {% if event.date | isfutureevent  %}
-    {% include "venue.njk" %}
-  {% endif %}
-  {% if videos.length > 0 %}
-    <h2>Videos</h2>
-    {% for youtube_video_id in videos %}
-        {% include "youtube-video.njk" %}
-    {% endfor %}
-  {% endif %}
+    {% if event.date | isfutureevent    %}
+        {% include "venue.njk" %}
+    {% endif %}
+    {% if videos.length > 0 %}
+        <h2>Videos</h2>
+        {% for youtube_video_id in videos %}
+                {% include "youtube-video.njk" %}
+        {% endfor %}
+    {% endif %}
 </div>
