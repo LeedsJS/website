@@ -58,3 +58,7 @@ function installMailchimp() {
         });
     });
 }
+
+Array.prototype.forEach.call(document.querySelectorAll('iframe'), (el) => {
+    el.src = el.dataset.src;
+});
