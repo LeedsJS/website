@@ -16,7 +16,7 @@ layout: layouts/base.njk
         {% endfor %}
         </ul>
         <div class="button-container">
-            {% if event.date | ticketsreleased %}
+            {% if event.ticket_date | ticketsreleased %}
                 {% set tito_event_id = event_id %}
                 {% include "tito-button.njk" %}
             {% endif %}

@@ -16,7 +16,7 @@ renderData:
     <p><b>Time:</b> {{ event.time }}</p>
     {{ event.blurb | markdown | safe }}
     {% if event.date | isfutureevent    %}
-        {% if event.date | ticketsreleased %}
+        {% if event.ticket_date | ticketsreleased %}
             {% set tito_event_id = event_id %}
             {% include "tito-button.njk" %}
         {% else %}

@@ -14,7 +14,9 @@ module.exports = () => {
                 "jetbrains"
             ],
             "date": "2019-02-27",
-            "time": "18:30 - 20:30"
+            "time": "18:30 - 20:30",
+            "ticket_date": "2019-02-20",
+            "announce_date": "2019-02-01"
         },
         "2019-01-27": {
             "title": "testy test test",
@@ -30,7 +32,9 @@ module.exports = () => {
                 "jetbrains"
             ],
             "date": "2019-01-27",
-            "time": "18:30 - 20:30"
+            "time": "18:30 - 20:30",
+            "ticket_date": "2019-01-20",
+            "announce_date": "2019-01-01"
         },
         "2019-03-27": {
             "title": "testy test test",
@@ -45,7 +49,9 @@ module.exports = () => {
                 "jetbrains"
             ],
             "date": "2019-03-27",
-            "time": "18:30 - 20:30"
+            "time": "18:30 - 20:30",
+            "ticket_date": "2019-03-20",
+            "announce_date": "2019-03-01"
         }
     };
 }

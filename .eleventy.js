@@ -34,8 +34,7 @@ module.exports = function(eleventyConfig) {
     });
 
     eleventyConfig.addNunjucksFilter("ticketsreleased", function (date) {
-        const releaseDate = moment(date).subtract(7, 'days').hour(9).minute(30);
-        return moment().isSameOrAfter(releaseDate);
+        return moment().isSameOrAfter(date);
     });
 
     eleventyConfig.addNunjucksFilter("date", function (date, format = "YYYY-MM-DD") {
