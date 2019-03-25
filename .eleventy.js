@@ -63,6 +63,16 @@ module.exports = function(eleventyConfig) {
         return md.render(string);
     })
 
+    eleventyConfig.addNunjucksFilter("jsonstringify", function (obj) {
+        return JSON.stringify(obj, null, 4);
+    });
+
+    eleventyConfig.addNunjucksFilter("setobjproperty", function (obj, key, value) {
+        obj[key] = value;
+
+        return obj;
+    });
+
     return {
         templateFormats: [
             "njk",

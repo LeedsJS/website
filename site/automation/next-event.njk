@@ -1,0 +1,4 @@
+---
+permalink: automation/next-event.json
+---
+{% set event_id = events | objsort("date", true) | objfirstkey %}{% set event = events[event_id] %}{{ event | setobjproperty('id', event_id) | jsonstringify | safe }}

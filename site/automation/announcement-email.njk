@@ -15,6 +15,9 @@ permalink: automation/announcement-email.html
     <p>By <a href="https://leedsjs.netlify.com/speakers/{{ talks[talk_id].speaker }}">{{ speakers[talks[talk_id].speaker].name }}</a></p>
 {% endfor %}
 </ul>
+{% if not (event.ticket_date | ticketsreleased) %}
+    <p><b>Tickets will be available from 10:00 AM on {{ event.ticket_date | date("Do MMMM YYYY") }}</b></p>
+{% endif %}
 <a href="https://leedsjs.netlify.com/events/{{ event_id }}" class="button">More details</a>
 {% set show_map = false %}
 {% include "venue.njk" %}

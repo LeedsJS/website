@@ -52,6 +52,23 @@ module.exports = () => {
             "time": "18:30 - 20:30",
             "ticket_date": "2019-03-20",
             "announce_date": "2019-03-01"
-        }
+        },
+         "2019-04-27": {
+             "title": "testy test test",
+             "short_blurb": "this is a test, there's nothing really here",
+             "blurb": "this is a test, there's nothing really here",
+             "talks": [
+                 "test_2"
+             ],
+             "sponsors": [
+                 "sky-betting-and-gaming",
+                 "bruntwood",
+                 "jetbrains"
+             ],
+             "date": "2019-04-27",
+             "time": "18:30 - 20:30",
+             "ticket_date": "2019-04-20",
+             "announce_date": "2019-04-01"
+         }
     };
 }
