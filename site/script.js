@@ -59,6 +59,14 @@ function installMailchimp() {
     });
 }
 
-Array.prototype.forEach.call(document.querySelectorAll('iframe'), (el) => {
-    el.src = el.dataset.src;
-});
+window.addEventListener('scroll', () => {
+    const screenBottom = window.scrollY + window.innerHeight;
+
+    Array.prototype.forEach.call(document.querySelectorAll('iframe'), (el) => {
+        if ((el.getBoundingClientRect().top - window.innerHeight) <= 0 && !el.dataset.loaded) {
+            el.dataset.loaded = true;
+            el.src = el.dataset.src;
+        }
+    });
+}, { passive: true })
+
