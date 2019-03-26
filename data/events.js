@@ -65,7 +65,7 @@ module.exports = () => {
                  "bruntwood",
                  "jetbrains"
              ],
-             "date": "2019-03-27",
+             "date": "2019-03-28",
              "time": "18:30 - 20:30",
              "ticket_date": "2019-03-25",
              "announce_date": "2019-03-22"
