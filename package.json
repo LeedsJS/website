@@ -21,8 +21,10 @@
   "homepage": "https://github.com/LeedsJS/website-eleventy#readme",
   "dependencies": {
     "@11ty/eleventy": "^0.7.1",
+    "dotenv": "^7.0.0",
     "find": "^0.3.0",
     "moment": "^2.24.0",
+    "moment-timezone": "^0.5.23",
     "purify-css": "^1.2.5",
     "sharp": "^0.22.0"
   }
