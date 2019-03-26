@@ -67,7 +67,7 @@ module.exports = () => {
              ],
              "date": "2019-04-27",
              "time": "18:30 - 20:30",
-             "ticket_date": "2019-03-26",
+             "ticket_date": "2019-03-25",
              "announce_date": "2019-03-22"
          }
     };
