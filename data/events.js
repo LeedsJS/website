@@ -48,7 +48,7 @@ module.exports = () => {
                 "bruntwood",
                 "jetbrains"
             ],
-            "date": "2019-03-27",
+            "date": "2019-03-23",
             "time": "18:30 - 20:30",
             "ticket_date": "2019-03-20",
             "announce_date": "2019-03-01"
@@ -68,7 +68,7 @@ module.exports = () => {
              "date": "2019-04-27",
              "time": "18:30 - 20:30",
              "ticket_date": "2019-04-20",
-             "announce_date": "2019-04-01"
+             "announce_date": "2019-03-26"
          }
     };
 }
