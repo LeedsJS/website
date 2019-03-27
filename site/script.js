@@ -59,7 +59,7 @@ function installMailchimp() {
     });
 }
 
-window.addEventListener('scroll', () => {
+function checkIframes() {
     const screenBottom = window.scrollY + window.innerHeight;
 
     Array.prototype.forEach.call(document.querySelectorAll('iframe'), (el) => {
@@ -68,5 +68,9 @@ window.addEventListener('scroll', () => {
             el.src = el.dataset.src;
         }
     });
-}, { passive: true })
+}
+
+checkIframes();
+
+window.addEventListener('scroll', checkIframes, { passive: true })
 
