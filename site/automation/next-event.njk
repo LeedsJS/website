@@ -1,4 +1,40 @@
 ---
 permalink: automation/next-event.json
 ---
-{% set event_id = events | objsort("date", true) | objfirstkey %}{% set event = events[event_id] %}{{ event | setobjproperty('id', event_id) | jsonstringify | safe }}
+{% set event_id = events | objsort("date", true) | objfirstkey %}{% set event = events[event_id] %}
+{
+    "id": "{{ event_id }}",
+    "title": "{{ event.title | safe }}",
+    "short_blurb": "{{ event.short_blurb | safe}}",
+    "blurb": "{{ event.blurb | safe }}",
+    "talks": [
+        {% set i = 0 %}
+        {% for talk_id in event.talks %}
+            {% set talk = talks[talk_id] %}
+            {% set speaker = speakers[talk.speaker] %}
+            {
+                "name": "{{ talk.title | safe }}",
+                "speaker": {
+                    "name": "{{ speaker.name }}"
+                    {% if speaker.twitter %}
+                        ,
+                        "twitter": "{{speaker.twitter}}"
+                    {% endif %}
+                }
+            }
+            {% if i < event.talks.length - 1 %}
+            ,
+            {% endif %}
+            {% set i = i + 1 %}
+        {% endfor %}
+    ],
+    "sponsors": [
+        "sky-betting-and-gaming",
+        "bruntwood",
+        "jetbrains"
+    ],
+    "date": "{{event.date}}",
+    "time": "{{event.time}}",
+    "ticket_date": "{{event.ticket_date}}",
+    "announce_date": "{{event.announce_date}}"
+}

@@ -15,7 +15,7 @@ module.exports = function (context, cb) {
         }
     };
 
-     makeRequest({
+    makeRequest({
         host: 'leedsjs.com',
         path: '/automation/next-event.json',
         method: 'GET',
@@ -37,7 +37,7 @@ module.exports = function (context, cb) {
             subject = `Tickets are now available for our next event: ${eventData.title}`
         } else if (tomorrow.isSame(eventData.date, 'day')) {
             console.log(`It's the day before the event!`);
-            templateName = 'ticket-email';
+            templateName = 'day-before-email';
             subject = `Tomorrow is our next event: ${eventData.title}`
         } else {
             console.log('No emails today');

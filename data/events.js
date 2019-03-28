@@ -41,17 +41,19 @@ module.exports = () => {
             "short_blurb": "this is a test, there's nothing really here",
             "blurb": "this is a test, there's nothing really here",
             "talks": [
-                "test_2"
+                "test_2",
+                "test_3",
+                "test_4"
             ],
             "sponsors": [
                 "sky-betting-and-gaming",
                 "bruntwood",
                 "jetbrains"
             ],
-            "date": "2019-03-23",
+            "date": "2019-03-29",
             "time": "18:30 - 20:30",
-            "ticket_date": "2019-03-20",
-            "announce_date": "2019-03-01"
+            "ticket_date": "2019-03-27",
+            "announce_date": "2019-03-27"
         }
     };
 }

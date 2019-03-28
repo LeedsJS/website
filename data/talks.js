@@ -13,6 +13,18 @@ When I started writing a chatbot a few years ago, I had no idea that it would gr
             "speaker": "luke-bonaccorsi",
             "abstract": "test description",
             "date": "2019-02-27"
+        },
+        "test_3": {
+            "title": "Yo",
+            "speaker": "test1",
+            "abstract": "test description",
+            "date": "2019-02-27"
+        },
+        "test_4": {
+            "title": "Yo",
+            "speaker": "notwitter",
+            "abstract": "test description",
+            "date": "2019-02-27"
         }
     };
 }

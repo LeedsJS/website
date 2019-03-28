@@ -8,6 +8,8 @@ layout: layouts/base.njk
     {% if event.date | isfutureevent %}
         <p>Our next event is...</p>
         <h1>{{ event.title }}</h1>
+        <p><b>Date:</b> {{ event.date | date("Do MMMM YYYY") }}</p>
+        <p><b>Time:</b> {{ event.time }}</p>
         {{ event.short_blurb | markdown | safe }}
         <h2>Talks</h2>
         {% for talk_id in event.talks %}
