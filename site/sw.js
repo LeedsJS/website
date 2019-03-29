@@ -7,7 +7,7 @@
 (function () {
 
     // Update 'version' if you need to refresh the cache
-    const version = `1.0.1`;
+    const version = `1.0.2`;
 
     const assetCache = `assets@${version}`;
     const pageCache = `pages`;
@@ -24,18 +24,20 @@
             caches.open(assetCache),
             caches.open(imageCache)
         ]).then(([assets, images]) => {
-                images.addAll([
-                    `/img/logo.png`,
-                    `/img/icons/icon-192x192.png`,
-                    `/img/icons/icon-384x384.png`,
-                    `/img/icons/icon-512x512.png`,
-                    `/img/icons/apple-touch-icon.png`,
-                    `/img/icons/favicon-16x16.png`,
-                    `/img/icons/favicon-32x32.png`,
-                    `/img/icons/favicon.ico`,
-                    `/img/icons/mstile-150x150.png`,
-                    `/img/icons/safari-pinned-tab.svg`,
-                ]);
+                setTimeout(() => {
+                    images.addAll([
+                        `/img/logo.png`,
+                        `/img/icons/icon-192x192.png`,
+                        `/img/icons/icon-384x384.png`,
+                        `/img/icons/icon-512x512.png`,
+                        `/img/icons/apple-touch-icon.png`,
+                        `/img/icons/favicon-16x16.png`,
+                        `/img/icons/favicon-32x32.png`,
+                        `/img/icons/favicon.ico`,
+                        `/img/icons/mstile-150x150.png`,
+                        `/img/icons/safari-pinned-tab.svg`,
+                    ]);
+                }, 1000);
 
                 return assets.addAll([
                     `/script.js`,
