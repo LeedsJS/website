@@ -22,10 +22,15 @@ renderData:
     <h2>Links</h2>
     <ul>
         {% if speaker.twitter %}
-            <li><b>Twitter:</b> <a href="https://twitter.com/{{ speaker.twitter }}" target="_blank">@{{ speaker.twitter }}</a></li>
+            <li>
+                <b>Twitter:</b>
+                <a href="https://twitter.com/{{ speaker.twitter }}" target="_blank" rel="noopener noreferrer">
+                    @{{ speaker.twitter }}
+                </a>
+            </li>
         {% endif %}
         {% for site, url in speaker.links | dictsort %}
-            <li><b>{{ site }}:</b> <a href="{{ url }}" target="_blank">{{ url }}</a></li>
+            <li><b>{{ site }}:</b> <a href="{{ url }}" target="_blank" rel="noopener noreferrer">{{ url }}</a></li>
         {% endfor %}
     </ul>
     {% endif %}
