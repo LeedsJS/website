@@ -1,6 +1,7 @@
 ---
-title: Home
+title: JavaScript meetup in Leeds
 layout: layouts/base.njk
+description: LeedsJS is a free, monthly meetup based in Leeds. We focus on JavaScript in all it's forms, whether that's frontend development, Node.js or hardware.
 ---
 {% set event_id = events | objsort("date", true) | objfirstkey %}
 {% set event = events[event_id] %}

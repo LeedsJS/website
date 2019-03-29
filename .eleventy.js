@@ -1,5 +1,6 @@
 const moment = require('moment');
 const markdownIt = require('markdown-it');
+const cheerio = require('cheerio');
 
 module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("site/img");
@@ -71,6 +72,12 @@ module.exports = function(eleventyConfig) {
         obj[key] = value;
 
         return obj;
+    });
+
+    eleventyConfig.addNunjucksFilter("getfirsttagcontent", function (string) {
+        const $ = cheerio(string);
+
+        return $.first().text();
     });
 
     return {

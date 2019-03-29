@@ -7,6 +7,7 @@ pagination:
 permalink: talks/{{ talk_id }}/index.html
 renderData:
     title: Talk - {{ talks[talk_id].title }}
+    description: "{{ talks[talk_id].abstract | markdown | getfirsttagcontent }}"
 ---
 {% set talk = talks[talk_id] %}
 <h1>{{ talk.title }}</h1>
