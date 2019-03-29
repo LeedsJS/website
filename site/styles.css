@@ -40,7 +40,7 @@ p, ul, address {
 
 .page-header {
     background: #ffffff;
-    padding: 16px;
+    padding: 16px 16px 0;
     text-align: center;
     border-bottom: 4px solid black;
 }
@@ -55,12 +55,12 @@ p, ul, address {
     display: block;
 }
 
-.page-header__navigation {
-    margin-top: 16px;
-}
-
 .page-header__navigation a {
     color: #000000;
+    font-size: 20px;
+    white-space: nowrap;
+    padding: 16px 0;
+    display: inline-block;
 }
 
 .page-header__navigation ul {
@@ -77,11 +77,6 @@ p, ul, address {
 }
 .page-header__navigation li:first-child::before {
     content: "";
-}
-
-.page-header__navigation a {
-    font-size: 20px;
-    white-space: nowrap;
 }
 
 .page-main {
