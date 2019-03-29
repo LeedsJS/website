@@ -7,7 +7,7 @@
 (function () {
 
     // Update 'version' if you need to refresh the cache
-    const version = `1.0.0`;
+    const version = `1.0.1`;
 
     const assetCache = `assets@${version}`;
     const pageCache = `pages`;
@@ -26,15 +26,15 @@
         ]).then(([assets, images]) => {
                 images.addAll([
                     `/img/logo.png`,
-                    `/img/icon/icon-192x192.png`,
-                    `/img/icon/icon-384x384.png`,
-                    `/img/icon/icon-512x512.png`,
-                    `/img/icon/apple-touch-icon.png`,
-                    `/img/icon/favicon-16x16.png`,
-                    `/img/icon/favicon-32x32.png`,
-                    `/img/icon/favicon.ico`,
-                    `/img/icon/mstile-150x150.png`,
-                    `/img/icon/safari-pinned-tab.svg`,
+                    `/img/icons/icon-192x192.png`,
+                    `/img/icons/icon-384x384.png`,
+                    `/img/icons/icon-512x512.png`,
+                    `/img/icons/apple-touch-icon.png`,
+                    `/img/icons/favicon-16x16.png`,
+                    `/img/icons/favicon-32x32.png`,
+                    `/img/icons/favicon.ico`,
+                    `/img/icons/mstile-150x150.png`,
+                    `/img/icons/safari-pinned-tab.svg`,
                 ]);
 
                 return assets.addAll([
