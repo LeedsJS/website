@@ -2,7 +2,6 @@
 <html lang="en">
     <head>
         <title>{{ renderData.title or title }} // LeedsJS</title>
-        <link rel="stylesheet" href="{{ '/styles.css' | url }}">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="description" content="{{ renderData.description or description }}">
         <meta name="twitter:card" content="summary_large_image">
@@ -16,6 +15,16 @@
         <meta name="og:url" content="https://leedsjs.com{{ page.url }}">
         <meta name="og:type" content="website">
         <meta charset="UTF-8">
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/icons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/icons/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <link rel="mask-icon" href="/img/icons/safari-pinned-tab.svg" color="#000000">
+        <link rel="shortcut icon" href="/img/icons/favicon.ico">
+        <meta name="msapplication-TileColor" content="#F7DF1E">
+        <meta name="msapplication-config" content="/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" href="{{ '/styles.css' | url }}">
     </head>
     <body>
         <header class="page-header">
@@ -47,10 +56,19 @@
         </header>
         <main class="page-main">
             {{ content | safe }}
-            <div class="card">
-                {% include "mailchimp-form.njk" %}
-            </div>
+            {% if not renderData.disableMailchimp %}
+                <div class="card">
+                    {% include "mailchimp-form.njk" %}
+                </div>
+            {% endif %}
         </main>
+        <script>
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function () {
+                    navigator.serviceWorker.register('/sw.js');
+                });
+            }
+        </script>
         <script type="text/javascript" src="{{ '/script.js' | url }}" defer></script>
     </body>
 </html>
