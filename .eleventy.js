@@ -1,4 +1,4 @@
-const moment = require('moment');
+const moment = require('moment-timezone');
 const markdownIt = require('markdown-it');
 const cheerio = require('cheerio');
 
@@ -34,11 +34,11 @@ module.exports = function(eleventyConfig) {
 
 
     eleventyConfig.addNunjucksFilter("isfutureevent", function (date) {
-        return moment().isSameOrBefore(date, 'day');
+        return moment().tz('Europe/London').isSameOrBefore(date, 'day');
     });
 
     eleventyConfig.addNunjucksFilter("ticketsreleased", function (date) {
-        return moment().isSameOrAfter(date);
+        return moment().tz('Europe/London').isSameOrAfter(date);
     });
 
     eleventyConfig.addNunjucksFilter("date", function (date, format = "YYYY-MM-DD") {
