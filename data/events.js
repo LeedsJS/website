@@ -60,6 +60,27 @@ module.exports = () => {
             "end_time": "20:30",
             "ticket_date": "2019-03-27",
             "announce_date": "2019-03-27"
+        },
+        {
+            "id": "2019-04-24",
+            "title": "testy test test",
+            "short_blurb": "this is a test, there's nothing really here",
+            "blurb": "this is a test, there's nothing really here",
+            "talks": [
+                "test_2",
+                "test_3",
+                "test_4"
+            ],
+            "sponsors": [
+                "sky-betting-and-gaming",
+                "bruntwood",
+                "jetbrains"
+            ],
+            "date": "2019-04-24",
+            "start_time": "18:30",
+            "end_time": "20:30",
+            "ticket_date": "2019-04-17",
+            "announce_date": "2019-04-01"
         }
     ];
 
