@@ -1,9 +1,9 @@
 ---
 permalink: automation/next-event.json
 ---
-{% set event_id = events.next_event %}
+{% set event = events.next_event %}
 {
-    "id": "{{ event_id }}",
+    "id": "{{ event.id }}",
     "title": "{{ event.title | safe }}",
     "short_blurb": "{{ event.short_blurb | safe}}",
     "blurb": "{{ event.blurb | safe }}",
