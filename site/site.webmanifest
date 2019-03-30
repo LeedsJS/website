@@ -4,7 +4,6 @@
   "theme_color": "#f7df1e",
   "background_color": "#f7df1e",
   "display": "minimal-ui",
-  "Scope": "/",
   "start_url": "/",
   "icons": [
     {
@@ -47,6 +46,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "splash_pages": null
+  ]
 }

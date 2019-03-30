@@ -42,7 +42,7 @@
                 return assets.addAll([
                     `/script.js`,
                     `/browserconfig.xml`,
-                    `/manifest.json`
+                    `/site.webmanifest`
                 ]);
             });
     };
