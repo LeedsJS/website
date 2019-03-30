@@ -1,7 +1,7 @@
 ---
 permalink: automation/next-event.json
 ---
-{% set event_id = events | objsort("date", true) | objfirstkey %}{% set event = events[event_id] %}
+{% set event_id = events.next_event %}
 {
     "id": "{{ event_id }}",
     "title": "{{ event.title | safe }}",
@@ -34,7 +34,8 @@ permalink: automation/next-event.json
         "jetbrains"
     ],
     "date": "{{event.date}}",
-    "time": "{{event.time}}",
+    "end_time": "{{event.start_time}}",
+    "end_time": "{{event.end_time}}",
     "ticket_date": "{{event.ticket_date}}",
     "announce_date": "{{event.announce_date}}"
 }

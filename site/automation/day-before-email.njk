@@ -5,7 +5,7 @@ permalink: automation/day-before-email.html
 <p class="center">Join us tomorrow for...</p>
 <h1 class="center">{{ event.title }}</h1>
 <p><b>Date:</b> {{ event.date | date("Do MMMM YYYY") }}</p>
-<p><b>Time:</b> {{ event.time }}</p>
+<p><b>Time:</b> {{ event.start_time }} - {{ event.end_time }}</p>
 {{ event.blurb | markdown | safe }}
 
 <h2>Talks</h2>

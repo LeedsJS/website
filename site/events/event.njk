@@ -13,7 +13,7 @@ renderData:
 <h1>{{ event.title }}</h1>
 <div class="card">
     <p><b>Date:</b> {{ event.date | date("Do MMMM YYYY") }}</p>
-    <p><b>Time:</b> {{ event.time }}</p>
+    <p><b>Time:</b> {{ event.start_time }} - {{ event.end_time }}</p>
     {{ event.blurb | markdown | safe }}
     {% if not (event.ticket_date | ticketsreleased) %}
         <p><b>Tickets will be available from 10:00 AM on {{ event.ticket_date | date("Do MMMM YYYY") }}</b></p>
