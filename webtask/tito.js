@@ -85,7 +85,6 @@ function makeRequest(options, body, cb) {
     });
 
     if (body) {
-        console.log(body);
         req.write(JSON.stringify(body));
     }
 
