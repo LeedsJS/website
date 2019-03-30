@@ -1,0 +1,80 @@
+---
+pagination:
+    data: events.next_event.talks
+    size: 1
+    alias: talk_id
+permalink: streaming/talk-{{ pagination.pageNumber + 1 }}/index.html
+---
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Talk {{ pagination.pageNumber + 1 }}</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1 {
+            margin: 0px;
+            font-size: 50px;
+            width: 100%;
+        }
+        .title {
+            display: flex;
+            position: absolute;
+            bottom: 0px;
+            height: 120px;
+            right: 180px;
+            width: 1260px;
+            align-items: center;
+            text-align: right;
+        }
+        .speaker {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 490px;
+            height: 460px;
+            position: absolute;
+            bottom: 0px;
+            flex-direction: column;
+        }
+        .speaker__name, .speaker__twitter {
+            font-size: 40px;
+            padding: 10px;
+        }
+        .speaker__img {
+            border-radius: 50%;
+            width: 250px;
+            height: 250px;
+            background: black;
+        }
+        .speaker__img img {
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h1>{{ talks[talk_id].title }}</h1>
+    </div>
+    <div class="speaker">
+        {% set speaker = speakers[talks[talk_id].speaker] %}
+        <div class="speaker__name">{{ speaker.name }}</div>
+        <div class="speaker__img">
+            <img src="/img/speakers/{{ speaker.picture }}">
+        </div>
+        <div class="speaker__twitter">
+            {% if speaker.twitter %}
+                @{{ speaker.twitter }}
+            {% else %}
+                &nbsp;
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

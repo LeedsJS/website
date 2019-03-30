@@ -1,15 +1,14 @@
 ---
 layout: layouts/base.njk
 pagination:
-    data: events
+    data: events.data
     size: 1
-    alias: event_id
-permalink: events/{{ pagination.items[0] | slug }}/index.html
+    alias: event
+permalink: events/{{ event.id | slug }}/index.html
 renderData:
-    title: Event - {{ events[event_id].title }}
-    description: "{{ events[event_id].short_blurb | markdown | getfirsttagcontent }}"
+    title: Event - {{ event.title }}
+    description: "{{ event.short_blurb | markdown | getfirsttagcontent }}"
 ---
-{% set event = events[event_id] %}
 {% set videos = [] %}
 <h1>{{ event.title }}</h1>
 <div class="card">
@@ -21,7 +20,7 @@ renderData:
     {% endif %}
     {% if event.date | isfutureevent %}
         {% if event.ticket_date | ticketsreleased %}
-            {% set tito_event_id = event_id %}
+            {% set tito_event_id = event.id %}
             {% include "tito-button.njk" %}
         {% else %}
             <a href="#mailchimp-form" class="button">Register to stay updated</a>
