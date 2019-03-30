@@ -1,8 +1,7 @@
 ---
 permalink: automation/day-before-email.html
 ---
-{% set event_id = events | objsort("date", true) | objfirstkey %}
-{% set event = events[event_id] %}
+{% set event = events.next_event %}
 <p class="center">Join us tomorrow for...</p>
 <h1 class="center">{{ event.title }}</h1>
 <p><b>Date:</b> {{ event.date | date("Do MMMM YYYY") }}</p>
@@ -12,20 +11,24 @@ permalink: automation/day-before-email.html
 <h2>Talks</h2>
 {% for talk_id in event.talks %}
     <h3>{{ talks[talk_id].title }}</h3>
-    <p>By <a href="https://leedsjs.netlify.com/speakers/{{ talks[talk_id].speaker }}">{{ speakers[talks[talk_id].speaker].name }}</a></p>
+    <p>By <a href="https://leedsjs.com/speakers/{{ talks[talk_id].speaker }}">{{ speakers[talks[talk_id].speaker].name }}</a></p>
 {% endfor %}
 </ul>
-<a href="https://leedsjs.netlify.com/events/{{ event_id }}" class="button">More details</a>
+<div class="button-container">
+    {% set tito_event_id = event.id %}
+    {% include "tito-button.njk" %}
+    <a href="https://leedsjs.com/events/{{ event.id }}" class="button">More details</a>
+</div>
 {% set show_map = false %}
 {% include "venue.njk" %}
 {% if event.sponsors.length > 0 %}
     <h2>Sponsors</h2>
     {% for sponsor_id in event.sponsors %}
         <h3>{{ sponsors[sponsor_id].name }}</h3>
-        <p><b>Website:</b> <a href="https://leedsjs.netlify.com/{{ sponsors[sponsor_id].url }}" target="_blank">{{ sponsors[sponsor_id].url }}</a></p>
+        <p><b>Website:</b> <a href="https://leedsjs.com/{{ sponsors[sponsor_id].url }}" target="_blank">{{ sponsors[sponsor_id].url }}</a></p>
         <img
             class="event-sponsor-logo"
-            src="https://leedsjs.netlify.com/img/sponsors/{{ sponsors[sponsor_id].logo }}"
+            src="https://leedsjs.com/img/sponsors/{{ sponsors[sponsor_id].logo }}"
             alt="{{ sponsors[sponsor_id].name }} logo"
         />
     {% endfor %}
