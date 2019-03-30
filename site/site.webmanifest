@@ -1,8 +1,6 @@
 {
   "name": "LeedsJS",
   "short_name": "LeedsJS",
-  "theme_color": "#f7df1e",
-  "background_color": "#f7df1e",
   "display": "minimal-ui",
   "start_url": "/",
   "icons": [
@@ -17,7 +15,7 @@
       "type": "image/png"
     },
     {
-      "src": "imaIMGges/icons/icon-128x128.png",
+      "src": "img/icons/icon-128x128.png",
       "sizes": "128x128",
       "type": "image/png"
     },
@@ -46,5 +44,7 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ]
+  ],
+  "theme_color": "#f7df1e",
+  "background_color": "#f7df1e"
 }
