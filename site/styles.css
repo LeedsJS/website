@@ -40,14 +40,14 @@ p, ul, address {
 
 .page-header {
     background: #ffffff;
-    padding: 16px 16px 0;
+    padding: 16px;
     text-align: center;
     border-bottom: 4px solid black;
 }
 
 .page-header__logo-link {
     display: block;
-    margin: 0px auto;
+    margin: 0px auto 16px;
     width: 150px;
 }
 
@@ -61,6 +61,7 @@ p, ul, address {
     white-space: nowrap;
     padding: 16px 0;
     display: inline-block;
+    max-width: 750px;
 }
 
 .page-header__navigation ul {

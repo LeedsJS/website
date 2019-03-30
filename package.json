@@ -4,9 +4,8 @@
   "description": "The LeedsJS website built in Eleventy",
   "main": "index.js",
   "scripts": {
-    "build": "npx eleventy && npm run purifycss && npm run resizeimages",
+    "build": "npx eleventy && npm run resizeimages",
     "serve": "npx eleventy --serve",
-    "purifycss": "node scripts/purifycss.js",
     "resizeimages": "node scripts/resizeimages.js"
   },
   "repository": {

@@ -39,7 +39,7 @@ renderData:
     <h2>Talks</h2>
     <ul>
         {% for talk_id, talk in speaker_talks %}
-            <li><a href="/talks/{{ talk_id }}">{{ talk.title }}</a></li>
+            <li><a href="/talks/{{ talk_id }}/">{{ talk.title }}</a></li>
         {% endfor %}
     </ul>
     {% endif %}

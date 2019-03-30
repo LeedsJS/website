@@ -7,10 +7,10 @@ permalink: events/index.html
 <ul>
 {% for event in events.data | sort(true, false, "date") %}
     <li class="card">
-        <h2><a href="/events/{{ event.id }}">{{ event.title }}</a></h2>
+        <h2><a href="/events/{{ event.id }}/">{{ event.title }}</a></h2>
         <p>{{ event.date | date("Do MMMM YYYY") }} {{ event.time }}</p>
         {{ event.short_blurb | markdown | safe }}
-        <p><a href="/events/{{ event.id }}">Event details</a></p>
+        <p><a href="/events/{{ event.id }}/">Event details</a></p>
     </li>
 {% endfor %}
 </ul>
