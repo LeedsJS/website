@@ -29,9 +29,11 @@ renderData:
                 </a>
             </li>
         {% endif %}
-        {% for site, url in speaker.links | dictsort %}
-            <li><b>{{ site }}:</b> <a href="{{ url }}" target="_blank" rel="noopener noreferrer">{{ url }}</a></li>
-        {% endfor %}
+        {% if speaker.links %}
+            {% for site, url in speaker.links | dictsort %}
+                <li><b>{{ site }}:</b> <a href="{{ url }}" target="_blank" rel="noopener noreferrer">{{ url }}</a></li>
+            {% endfor %}
+        {% endif %}
     </ul>
     {% endif %}
     {% set speaker_talks = talks | filterobj("speaker", speaker_id) | objsort("title") %}

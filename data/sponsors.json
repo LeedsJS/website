@@ -13,5 +13,10 @@
         "name": "JetBrains",
         "url": "https://www.jetbrains.com/",
         "logo": "jetbrains.png"
+    },
+    "jsnation": {
+        "name": "JSNation",
+        "url": "https://jsnation.com/",
+        "logo": "jsnation.svg"
     }
 }

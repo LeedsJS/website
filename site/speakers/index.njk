@@ -8,7 +8,7 @@ permalink: speakers/index.html
 {% for speaker_id, speaker in speakers | objsort("name") %}
     <li class="card">
         <h2><a href="/speakers/{{ speaker_id }}/">{{ speaker.name }}</a></h2>
-        <p>{{ speaker.bio }}</p>
+        <p>{{ speaker.bio | markdown | getfirsttagcontent | truncate }}</p>
         <p><a href="/speakers/{{ speaker_id }}/">Read more</a></p>
     </li>
 {% endfor %}

@@ -84,6 +84,12 @@ module.exports = function(eleventyConfig) {
         return $.first().text();
     });
 
+    eleventyConfig.addNunjucksFilter("truncate", function (string, length = 250) {
+        return string.length > length ?
+            string.substring(0, length - 3) + "..." :
+            string;
+    });
+
     eleventyConfig.addTransform('purifycss', async function(content, outputPath) {
         if (outputPath.endsWith(".html")) {
             return new Promise((resolve) => {

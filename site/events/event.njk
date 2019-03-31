@@ -7,7 +7,7 @@ pagination:
 permalink: events/{{ event.id | slug }}/index.html
 renderData:
     title: Event - {{ event.title }}
-    description: "{{ event.short_blurb | markdown | getfirsttagcontent }}"
+    description: "{{ event.short_blurb or event.blurb | markdown | getfirsttagcontent }}"
 ---
 {% set videos = [] %}
 <h1>{{ event.title }}</h1>
