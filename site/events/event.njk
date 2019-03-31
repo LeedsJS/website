@@ -30,7 +30,7 @@ renderData:
     {% for talk_id in event.talks %}
         {% set talk = talks[talk_id] %}
         {% if talk.youtube_video_id %}
-            {% set videos = (videos.push(talk.youtube_video_id), videos) %}
+            {% set videos = (videos.push({ title: talk.title, speaker: speakers[talk.speaker].name, youtube_video_id: talk.youtube_video_id}), videos) %}
         {% endif %}
         <h3>{{ talk.title }}</h3>
         <p><b>Speaker:</b> <a href="/speakers/{{ talk.speaker }}/">{{ speakers[talk.speaker].name }}</a></p>
@@ -44,13 +44,15 @@ renderData:
             <img class="event-sponsor-logo" src="/img/sponsors/{{ sponsors[sponsor_id].logo }}" alt="{{ sponsors[sponsor_id].name }} logo" />
         {% endfor %}
     {% endif %}
-    {% if event.date | isfutureevent    %}
+    {% if event.date | isfutureevent %}
         {% include "venue.njk" %}
     {% endif %}
     {% if videos.length > 0 %}
         <h2>Videos</h2>
-        {% for youtube_video_id in videos %}
-                {% include "youtube-video.njk" %}
+        {% for video in videos %}
+            <h3>{{ video.speaker }} - {{ video.title }}</h3>
+            {% set youtube_video_id = video.youtube_video_id %}
+            {% include "youtube-video.njk" %}
         {% endfor %}
     {% endif %}
 </div>

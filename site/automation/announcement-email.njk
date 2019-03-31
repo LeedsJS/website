@@ -18,7 +18,6 @@ permalink: automation/announcement-email.html
     <p><b>Tickets will be available from 10:00 AM on {{ event.ticket_date | date("Do MMMM YYYY") }}</b></p>
 {% endif %}
 <a href="https://leedsjs.com/events/{{ event.id }}" class="button">More details</a>
-{% set show_map = false %}
 {% include "venue.njk" %}
 {% if event.sponsors.length > 0 %}
     <h2>Sponsors</h2>
