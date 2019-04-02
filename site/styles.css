@@ -117,6 +117,7 @@ p, ul, address {
     font-size: 16px;
     margin-bottom: 16px;
     box-sizing: border-box;
+    border: 1px solid #000000;
 }
 
 .mailchimp-form__response {
