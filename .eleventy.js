@@ -10,6 +10,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("site/sw.js");
     eleventyConfig.addPassthroughCopy("site/site.webmanifest");
     eleventyConfig.addPassthroughCopy("site/browserconfig.xml");
+    eleventyConfig.addPassthroughCopy("site/netlify.toml");
 
     eleventyConfig.addNunjucksFilter("objsort", function(obj, key, reverse = false) {
         const newObj = {};
