@@ -15,6 +15,11 @@ renderData:
     <p><b>Date:</b> {{ event.date | date("Do MMMM YYYY") }}</p>
     <p><b>Time:</b> {{ event.start_time }} - {{ event.end_time }}</p>
     {{ event.blurb | markdown | safe }}
+    <p>
+        <b>Please note:</b> LeedsJS is intended for people looking to expand their knowledge and meet the community.
+        While recruiters are welcome to come and learn, we operate a strict no active recruitment policy, outside of
+        the job pitches at the start of the event.
+    </p>
     {% if not (event.ticket_date | ticketsreleased) %}
         <p><b>Tickets will be available from 10:00 AM on {{ event.ticket_date | date("Do MMMM YYYY") }}</b></p>
     {% endif %}
@@ -36,6 +41,9 @@ renderData:
         <p><b>Speaker:</b> <a href="/speakers/{{ talk.speaker }}/">{{ speakers[talk.speaker].name }}</a></p>
         {{ talk.abstract | markdown | safe }}
     {% endfor %}
+    {% if event.date | isfutureevent %}
+        {% include "venue.njk" %}
+    {% endif %}
     {% if event.sponsors.length > 0 %}
         <h2>Sponsors</h2>
         {% for sponsor_id in event.sponsors %}
@@ -43,9 +51,6 @@ renderData:
             <p><b>Website:</b> <a href="{{ sponsors[sponsor_id].url }}" target="_blank" rel="noopener noreferrer">{{ sponsors[sponsor_id].url }}</a></p>
             <img class="event-sponsor-logo" src="/img/sponsors/{{ sponsors[sponsor_id].logo }}" alt="{{ sponsors[sponsor_id].name }} logo" />
         {% endfor %}
-    {% endif %}
-    {% if event.date | isfutureevent %}
-        {% include "venue.njk" %}
     {% endif %}
     {% if videos.length > 0 %}
         <h2>Videos</h2>
