@@ -1,7 +1,5 @@
 const axios = require('axios');
 const qs = require('querystring');
-const crypto = require('crypto');
-const timingSafeCompare = require('tsscmp');
 
 module.exports = function (context, req, res) {
     let body = '';
@@ -56,20 +54,14 @@ You can see the full version <https://leedsjs.com/code-of-conduct|on the LeedsJS
                 break;
             }
             case 'event_callback': {
-                // Verify the signing secret
-                if (verifySignature(req)) {
-                    const event = body.event;
+                const event = body.event;
 
-                    if (event.type === 'team_join' && !event.is_bot) {
-                        const { id } = event.user;
-                        sendMessage(id, message);
-                    }
-                    res.writeHead(200);
-                    res.end();
-                } else {
-                    res.writeHead(500);
-                    res.end();
+                if (event.type === 'team_join' && !event.is_bot) {
+                    const { id } = event.user;
+                    sendMessage(id, message);
                 }
+                res.writeHead(200);
+                res.end();
                 break;
             }
             default: {
@@ -87,20 +79,4 @@ function sendMessage(userId, message) {
         .then((result => {
             console.log(result.data);
         }));
-}
-
-function verifySignature(req) {
-    const signature = req.headers['x-slack-signature'];
-    const timestamp = req.headers['x-slack-request-timestamp'];
-    const hmac = crypto.createHmac('sha256', process.env.SLACK_SIGNING_SECRET);
-    const [version, hash] = signature.split('=');
-
-    // Check if the timestamp is too old
-    const fiveMinutesAgo = ~~(Date.now() / 1000) - (60 * 5);
-    if (timestamp < fiveMinutesAgo) return false;
-
-    hmac.update(`${version}:${timestamp}:${req.rawBody}`);
-
-    // check that the request signature matches expected value
-    return timingSafeCompare(hmac.digest('hex'), hash);
 }
