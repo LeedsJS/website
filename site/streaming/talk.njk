@@ -11,14 +11,20 @@ permalink: streaming/talk-{{ pagination.pageNumber + 1 }}/index.html
     <meta charset="utf-8">
     <title>Talk {{ pagination.pageNumber + 1 }}</title>
     <style>
-        body {
+        html, body {
             margin: 0;
             padding: 0;
             font-family: Arial, Helvetica, sans-serif;
+            width: 1920px;
+            height: 1080px;
+            position: relative;
+            background-color: #323232;
+            background-image: url('/img/streaming-background.png');
+            background-repeat: no-repeat;
+            overflow: hidden;
         }
         h1 {
             margin: 0px;
-            font-size: 50px;
             width: 100%;
         }
         .title {
@@ -26,35 +32,37 @@ permalink: streaming/talk-{{ pagination.pageNumber + 1 }}/index.html
             position: absolute;
             bottom: 0px;
             height: 120px;
-            right: 180px;
-            width: 1260px;
             align-items: center;
             text-align: right;
+            right: 150px;
+            font-size: 24px;
+            width: 1280px;
         }
         .speaker {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 490px;
-            height: 460px;
+            height: 490px;
             position: absolute;
             bottom: 0px;
             flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
         }
         .speaker__name, .speaker__twitter {
             font-size: 40px;
             padding: 10px;
         }
         .speaker__img {
-            border-radius: 50%;
             width: 250px;
             height: 250px;
-            background: black;
         }
         .speaker__img img {
             border-radius: 50%;
             width: 100%;
             height: 100%;
+            background: black;
         }
     </style>
 </head>
