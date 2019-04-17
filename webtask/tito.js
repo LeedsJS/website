@@ -30,7 +30,7 @@ module.exports = function (context, cb) {
 
             makeRequest(getOptions('events', 'POST'), {
                 title: eventData.title,
-                slug: eventData.id,
+                slug: eventData.id
             }, () => {
                 console.log('Event created');
                 const ticketRelease = moment.tz(eventData.ticket_date, 'Europe/London')
@@ -45,7 +45,7 @@ module.exports = function (context, cb) {
                     end_at: ticketEnd,
                     price: 0,
                     waiting_list_enabled_during_sold_out: true
-                }, () => {
+                }, (releaseData) => {
                     console.log('Tickets created')
                     const startTimeParts = eventData.start_time.split(':');
                     const startDate = moment.tz(eventData.date, 'Europe/London')
@@ -55,14 +55,23 @@ module.exports = function (context, cb) {
                     const endDate = moment.tz(eventData.date, 'Europe/London')
                         .hour(endTimeParts[0]).minute(endTimeParts[1]).toISOString();
 
+                    const titoBlurb = `${eventData.blurb}
+
+[Full event details](http: //leedsjs.com/events/${eventData.id}/)`;
                     makeRequest(getOptions(`${eventData.id}`, 'PATCH'), {
                         live: true,
                         test_mode: false,
                         start_date: startDate,
                         end_date: endDate,
-                        description: eventData.blurb
+                        description: titoBlurb,
                     }, () => {
-                        console.log('Tickets live')
+                        releaseData = JSON.parse(releaseData);
+
+                        makeRequest(getOptions(`${eventData.id}/releases/${releaseData.release.slug}/activation`, 'PATCH'),
+                        {},
+                        (data) => {
+                            console.log('Tickets live')
+                        });
                     });
                 });
             });

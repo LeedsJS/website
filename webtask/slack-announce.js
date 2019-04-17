@@ -57,11 +57,11 @@ More details and tickets: https://leedsjs.com/events/${eventData.id}`;
             return cb(null, {});
         }
 
-        sendMessage(context.secrets.slack_access_token, channel, title, text)
+        sendMessage(context.secrets.slack_access_token, channel, title, text, cb)
     });
 };
 
-function sendMessage(token, channel, title, text) {
+function sendMessage(token, channel, title, text, cb) {
     const message = {
         token: token,
         link_names: true,
@@ -82,7 +82,7 @@ function sendMessage(token, channel, title, text) {
             'Content-type': 'application/x-www-form-urlencoded'
         }
     }, qs.stringify(message), result => {
-        console.log(result);
+        cb(null, {});
     });
 }
 
