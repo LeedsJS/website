@@ -14,11 +14,10 @@ permalink: automation/ticket-email.html
     <p>By <a href="https://leedsjs.com/speakers/{{ talks[talk_id].speaker }}">{{ speakers[talks[talk_id].speaker].name }}</a></p>
 {% endfor %}
 
-<div class="button-container">
-    {% set tito_event_id = event.id %}
-    {% include "tito-button.njk" %}
-    <a href="https://leedsjs.com/events/{{ event.id }}" class="button">More details</a>
-</div>
+{% set tito_event_id = event.id %}
+{% include "tito-button.njk" %}
+<a href="https://leedsjs.com/events/{{ event.id }}" class="button">More details</a>
+
 {% include "venue.njk" %}
 {% if event.sponsors.length > 0 %}
     <h2>Sponsors</h2>
