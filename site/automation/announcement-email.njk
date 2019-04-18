@@ -13,7 +13,7 @@ permalink: automation/announcement-email.html
     <h3>{{ talks[talk_id].title }}</h3>
     <p>By <a href="https://leedsjs.com/speakers/{{ talks[talk_id].speaker }}">{{ speakers[talks[talk_id].speaker].name }}</a></p>
 {% endfor %}
-</ul>
+
 {% if not (event.ticket_date | ticketsreleased) %}
     <p><b>Tickets will be available from 10:00 AM on {{ event.ticket_date | date("Do MMMM YYYY") }}</b></p>
 {% endif %}
