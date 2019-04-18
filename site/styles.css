@@ -10,7 +10,7 @@ body {
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background: #f1d608;
+    background: #fbeb83;
     font-size: 18px;
 }
 
@@ -126,8 +126,8 @@ p, ul, address {
 
 .button, button, input[type="submit"] {
     color: #000000;
-    background: #F1D608;
-    border: 0;
+    background: #ffffff;
+    border: 2px solid black;
     padding: 12px;
     font-size: 18px;
     font-weight: bold;
@@ -140,9 +140,23 @@ p, ul, address {
     text-align: center;
     text-decoration: none;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.button:hover,
+.button:hover {
+    background: #fdf7ce;
+}
+
+.button.button__primary,
+button,
+input[type="submit"] {
+    background: #F1D608;
+    border: none;
+}
+
+.button.button__primary:hover,
 button:hover,
 input[type="submit"]:hover {
     background: #f7de1b;
