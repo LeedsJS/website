@@ -54,7 +54,7 @@ module.exports = function (context, cb) {
             makeRequest(getOptions('/3.0/campaigns', 'POST'), {
                 type: 'regular',
                 recipients: {
-                    list_id: '8e172cbe6e'
+                    list_id: '5cdb704e1c'
                 },
                 settings: {
                     subject_line: subject,

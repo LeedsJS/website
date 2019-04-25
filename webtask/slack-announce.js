@@ -2,7 +2,7 @@ const https = require('https');
 const moment = require('moment-timezone');
 const qs = require('querystring');
 
-const channel = 'U03MMBMLP';
+const channel = '#general';
 
 module.exports = function (context, cb) {
     makeRequest({
