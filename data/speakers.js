@@ -50,6 +50,24 @@ When he isn’t working you’ll find him spending time with his family, playing
             "links": {
                 "Website": "https://endeavour-digital.com/"
             }
+        },
+        "wade-penistone": {
+            "name": "Wade Penistone",
+            "bio": "",
+            "picture": "wade-penistone.jpg",
+            "twitter": "PenistoneWade",
+            "links": {
+                "GitHub": "https://github.com/Truemedia"
+            }
+        },
+        "jordan-finneran": {
+            "name": "Jordan Finneran",
+            "bio": "",
+            "picture": "jordan-finneran.jpg",
+            "twitter": "JordanFinners",
+            "links": {
+                "GitHub": "https://github.com/jordanfinners"
+            }
         }
     }
 }

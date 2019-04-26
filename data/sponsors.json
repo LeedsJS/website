@@ -18,5 +18,10 @@
         "name": "JSNation",
         "url": "https://jsnation.com/",
         "logo": "jsnation.png"
+    },
+    "frontendne": {
+        "name": "Frontend NE",
+        "url": "https://frontendne.co.uk/",
+        "logo": "frontendne.png"
     }
 }

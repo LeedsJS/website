@@ -1,6 +1,45 @@
 module.exports = () => {
     const data = [
         {
+            "id": "2019-01-30",
+            "title": "January - Jamie Bradley & Jordan Finneran",
+            "blurb": "Join us to hear from Jamie Bradley and Jordan Finneran, as well as a chance to win a code for a year subscription for a Jetbrains toolbox product of your choice!",
+            "talks": [
+                "what-the-jamstack",
+                "serverless-single-page-applications"
+            ],
+            "sponsors": [
+                "sky-betting-and-gaming",
+                "bruntwood",
+                "jetbrains"
+            ],
+            "date": "2019-01-30",
+            "start_time": "18:30",
+            "end_time": "20:30",
+            "ticket_date": "2019-01-23",
+            "announce_date": "2019-01-01"
+        },
+        {
+            "id": "2019-02-27",
+            "title": "February - Luke Bonaccorsi & Wade Penistone",
+            "blurb": "Join us to hear from Luke Bonaccorsi and Wade Penistone, as well as a chance to win a code for a year subscription for a Jetbrains toolbox product of your choice and a chance to win a ticket for the FrontendNE 2019 conference!",
+            "talks": [
+                "coding-is-serious-business",
+                "mindstack"
+            ],
+            "sponsors": [
+                "sky-betting-and-gaming",
+                "bruntwood",
+                "jetbrains",
+                "frontendne"
+            ],
+            "date": "2019-02-27",
+            "start_time": "18:30",
+            "end_time": "20:30",
+            "ticket_date": "2019-02-20",
+            "announce_date": "2019-02-01"
+        },
+        {
             "id": "2019-03-27",
             "title": "March - Auth and BFFs",
             "blurb": "This month we have a couple of great talks from Steve Hobbs and Luke Oliff, as well as a chance to win a code for a year subscription for a Jetbrains toolbox product of your choice.",
