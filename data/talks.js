@@ -22,13 +22,15 @@ module.exports = () => {
 I'm going to show you how to use the concept of "the boring solution" to make small changes to a big application. Small changes that, over time, turn in to large ones. Specifically, my process of turning GitLab into a "PWA" in less than 100 lines of code.
 
 This is a real story of GitLab's journey to a fully fledged PWA. One small step at a time.`,
-            "date": "2019-04-24"
+            "date": "2019-04-24",
+            "youtube_video_id": "8a6fD5yEyIs"
         },
         "finding-my-sanity": {
             "title": "Finding My Sanity",
             "speaker": "jamie-bradley",
             "abstract": "Following my previous talk \"What the JAMstack\" my talk will revise the basics of JAMstack i.e. what it is, why it’s becoming so popular and also some of the potential drawbacks with using JAMstack. I will then follow up with a demonstration of a project using Gatsby along with a Headless CMS solution called Sanity. I will showcase how this fits into the JAMstack and why it is proving to be a success.",
-            "date": "2019-04-24"
+            "date": "2019-04-24",
+            "youtube_video_id": "HEGzf5H_Do0"
         },
         "coding-is-serious-business": {
             "title": "Coding Is Serious Business",
@@ -36,7 +38,8 @@ This is a real story of GitLab's journey to a fully fledged PWA. One small step 
             "abstract": `Coding is serious business. Except it isn't. Code gives us the power to unleash our creative potential in new and interesting ways, whether that’s making interactive art, creating live music and visualisations, building games or even adding joyful flourishes on a web app.
 
 In this talk, I’ll show that our code doesn’t just have to be for building boring applications. Using real examples, I’ll talk about some ways that we can bring creativity into our coding projects, as well as ways for us to share our knowledge and why it’s important that we do. By the end, I hope to have inspired you to bring creativity into your projects and given you the enthusiasm to share your knowledge.`,
-            "date": "2019-02-27"
+            "date": "2019-02-27",
+            "youtube_video_id": "CWiiKljO7D0"
         },
         "mindstack": {
             "title": "Mindstack",
@@ -46,7 +49,8 @@ In this talk, I’ll show that our code doesn’t just have to be for building b
 However developing for these is still a very vague and improvised strategy, with tools and frameworks only offering a limited scope and most of us as web developers unaware on the layers of compexity involved in creating an effective AI.
 
 Join me for what I believe is a solution to this problem, aimed at simplifying and consolidating the code needed in an nice and easy to use package/ecosystem.`,
-            "date": "2019-02-27"
+            "date": "2019-02-27",
+            "youtube_video_id": "RA4eGo5uFvE"
         },
         "what-the-jamstack": {
             "title":"What the JAMstack?",
@@ -54,13 +58,15 @@ Join me for what I believe is a solution to this problem, aimed at simplifying a
             "abstract": `In this talk I will cover the basics of JAMstack i.e. what it is, why it's becoming so popular and also some of the potential drawbacks with using JAMstack.
 
 I'll then follow up with a short demonstration of a project using Gatsby and showcase how this fits into the JAMstack and why it is proving to be a success. This may be the kick you need to start a blog in 2019!`,
-            "date":"2019-01-30"
+            "date": "2019-01-30",
+            "youtube_video_id": "s6zjiMvZZ4A"
         },
         "serverless-single-page-applications": {
             "title": "Serverless Single Page Applications",
             "speaker": "jordan-finneran",
             "abstract": `There is a lot of hype around serverless at the moment, I will share my real world experience with a serverless single page application. Covering why you may or may not want to consider going serverless. How I found migrating from a typical Express JS set up to serverless and if the demo gods are with me, demo a real world example.`,
-            "date": "2019-01-30"
+            "date": "2019-01-30",
+            "youtube_video_id": "KjyQFrZbKYs"
         }
     };
 }

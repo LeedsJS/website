@@ -60,8 +60,6 @@ function installMailchimp() {
 }
 
 function checkIframes() {
-    const screenBottom = window.scrollY + window.innerHeight;
-
     Array.prototype.forEach.call(document.querySelectorAll('iframe'), (el) => {
         if ((el.getBoundingClientRect().top - window.innerHeight) <= 0 && !el.dataset.loaded) {
             el.dataset.loaded = true;
