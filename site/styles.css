@@ -75,6 +75,7 @@ p, ul, address {
 
 .page-header__navigation li::before {
     content: "//";
+    margin: 0 5px;
 }
 .page-header__navigation li:first-child::before {
     content: "";
