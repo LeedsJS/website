@@ -59,16 +59,19 @@ function installMailchimp() {
     });
 }
 
-function checkIframes() {
-    Array.prototype.forEach.call(document.querySelectorAll('iframe'), (el) => {
-        if ((el.getBoundingClientRect().top - window.innerHeight) <= 0 && !el.dataset.loaded) {
-            el.dataset.loaded = true;
-            el.src = el.dataset.src;
+function lazyLoad() {
+    Array.prototype.forEach.call(document.querySelectorAll('div[data-type="lazy"]'), (el) => {
+        if ((el.getBoundingClientRect().top - window.innerHeight) <= 0) {
+            const newEl = document.createElement(el.dataset.tag);
+            Array.prototype.forEach.call(el.attributes, (attr) => {
+                newEl.setAttribute(attr.name, attr.value);
+            })
+            el.parentNode.replaceChild(newEl, el);
         }
     });
 }
 
-checkIframes();
-
-window.addEventListener('scroll', checkIframes, { passive: true })
+lazyLoad();
+installMailchimp();
+window.addEventListener('scroll', lazyLoad, { passive: true })
 
