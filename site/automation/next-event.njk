@@ -5,8 +5,8 @@ permalink: automation/next-event.json
 {
     "id": "{{ event.id }}",
     "title": "{{ event.title | safe }}",
-    "short_blurb": "{{ event.short_blurb | safe}}",
-    "blurb": "{{ event.blurb | safe }}",
+    "short_blurb": {{ event.short_blurb or "" | jsonstringify | safe }},
+    "blurb": {{ event.blurb | jsonstringify | safe }},
     "talks": [
         {% set i = 0 %}
         {% for talk_id in event.talks %}

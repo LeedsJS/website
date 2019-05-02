@@ -67,6 +67,22 @@ I'll then follow up with a short demonstration of a project using Gatsby and sho
             "abstract": `There is a lot of hype around serverless at the moment, I will share my real world experience with a serverless single page application. Covering why you may or may not want to consider going serverless. How I found migrating from a typical Express JS set up to serverless and if the demo gods are with me, demo a real world example.`,
             "date": "2019-01-30",
             "youtube_video_id": "KjyQFrZbKYs"
+        },
+        "styling-components-on-the-web": {
+            "title": "Styling Components On The Web",
+            "speaker": "umair-ahmed",
+            "abstract": `CSS is great. Without styling the web would still be a heap of boxes (div's) and text. CSS made it really easy to target the elements, but as the web grew to make better and more complex apps, CSS became harder to tame.
+
+In this talk I'll demonstrate some problems that are relatively harder to tackle in plain CSS but if we merge it into our JS things become a little less complex and easier to maintain.`,
+            "date": "2019-05-29"
+        },
+        "the-dramatic-history-of-the-web-browser": {
+            "title": "The Dramatic History of the Web Browser",
+            "speaker": "andy-carter",
+            "abstract": `Microsoft announced at the end of 2018 that it was building a new browser based on Chromium. It will join an ever growing list of web browsers that are built on Google's open-source Chromium project. With Google Chrome's own share of the browser market continuing to grow does this mean Google have won the 'browser wars' and are comparisons with Microsoft's once dominant Internet Explorer fair? Now seems like a good time to re-examine the history of the web browser.
+
+Starting with its humble beginnings amongst the international physics community we'll trace the browser’s journey through three decades of progress up to the present day. It's a story rife with competing corporations, lawsuits and surprise plot twists. Does history repeat itself and what could happen next to the web browser?`,
+            "date": "2019-05-29"
         }
     };
 }

@@ -68,6 +68,26 @@ When he isn’t working you’ll find him spending time with his family, playing
             "links": {
                 "GitHub": "https://github.com/jordanfinners"
             }
+        },
+        "umair-ahmed": {
+            "name": "Umair Ahmed",
+            "bio": "Umair is a software developer who loves making good UX / UI and performant apps. He is currently employed as a Product developer at AND Digital in Leeds, and working at Covea Insurance in Halifax. He loves ReactJS and was formerly employed in a full-time position as a React Native developer where he fell in love with it ever since. He loves contributing to OSS and enjoys good puns.",
+            "picture": "umair-ahmed.png",
+            "twitter": "umair170",
+            "links": {
+                "GitHub": "https://github.com/ahmedu007",
+                "Website": "https://www.umair.dev"
+            }
+        },
+        "andy-carter": {
+            "name": "Andy Carter",
+            "bio": "Andy is a senior developer at Evoluted New Media in Sheffield and mostly works with Laravel and CakePHP. Before working full-time in the web industry he worked in Quantum Optics research as a theoretical Physicist.",
+            "picture": "andy-carter.jpg",
+            "twitter": "drmonkeyninja",
+            "links": {
+                "GitHub": "https://github.com/drmonkeyninja",
+                "Website": "https://andy-carter.com/"
+            }
         }
     }
 }
