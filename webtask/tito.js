@@ -57,7 +57,7 @@ module.exports = function (context, cb) {
 
                     const titoBlurb = `${eventData.blurb}
 
-[Full event details](http: //leedsjs.com/events/${eventData.id}/)`;
+[Full event details](https://leedsjs.com/events/${eventData.id}/)`;
                     makeRequest(getOptions(`${eventData.id}`, 'PATCH'), {
                         live: true,
                         test_mode: false,
@@ -71,6 +71,7 @@ module.exports = function (context, cb) {
                         {},
                         (data) => {
                             console.log('Tickets live')
+                            cb(null, {});
                         });
                     });
                 });
