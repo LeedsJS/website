@@ -69,11 +69,13 @@ I'll then follow up with a short demonstration of a project using Gatsby and sho
             "youtube_video_id": "KjyQFrZbKYs"
         },
         "styling-components-on-the-web": {
-            "title": "Styling Components On The Web",
+            "title": "Styling The Web: With CSS And JS",
             "speaker": "umair-ahmed",
-            "abstract": `CSS is great. Without styling the web would still be a heap of boxes (div's) and text. CSS made it really easy to target the elements, but as the web grew to make better and more complex apps, CSS became harder to tame.
+            "abstract": `Without styling, the world wide web would just be a load of boxes and plain text. That might have worked a couple of decades ago, but today we want more.
 
-In this talk I'll demonstrate some problems that are relatively harder to tackle in plain CSS but if we merge it into our JS things become a little less complex and easier to maintain.`,
+This is why CSS is great, as it makes it easy to create beautiful sites and apps. However, as time has passed and the complexity of app creation has increased, CSS has become harder to tame.
+
+But all is not lost. In this talk we’ll explore some of the problems that are harder to tackle with plain CSS, and I’ll demonstrate how, when merged with JS, you can make things that little bit less complex and easier to maintain.`,
             "date": "2019-05-29"
         },
         "the-dramatic-history-of-the-web-browser": {

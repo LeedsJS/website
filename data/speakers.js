@@ -71,7 +71,7 @@ When he isn’t working you’ll find him spending time with his family, playing
         },
         "umair-ahmed": {
             "name": "Umair Ahmed",
-            "bio": "Umair is a software developer who loves making good UX / UI and performant apps. He is currently employed as a Product developer at AND Digital in Leeds, and working at Covea Insurance in Halifax. He loves ReactJS and was formerly employed in a full-time position as a React Native developer where he fell in love with it ever since. He loves contributing to OSS and enjoys good puns.",
+            "bio": "Umair is a software developer, currently working for AND Digital. He loves creating amazing UX / UI and apps and one of his passions is ReactJS, having formerly worked as a React Native Developer. As well as ReactJS, Umair loves contributing to OSS, giving back to the local community and throwing in a good pun to conversations (even if they don’t get a REACTion...).",
             "picture": "umair-ahmed.png",
             "twitter": "umair170",
             "links": {
