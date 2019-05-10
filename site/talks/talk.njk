@@ -1,15 +1,15 @@
 ---
 layout: layouts/base.njk
 pagination:
-    data: talks
+    data: talks.data
     size: 1
     alias: talk_id
 permalink: talks/{{ talk_id }}/index.html
 renderData:
-    title: Talk - {{ talks[talk_id].title }}
-    description: "{{ talks[talk_id].abstract | markdown | getfirsttagcontent }}"
+    title: Talk - {{ talks.get(talk_id).title }}
+    description: "{{ talks.get(talk_id).abstract | markdown | getfirsttagcontent }}"
 ---
-{% set talk = talks[talk_id] %}
+{% set talk = talks.get(talk_id) %}
 <h1>{{ talk.title }}</h1>
 <div class="card">
     <p><b>Date:</b> {{ talk.date | date("Do MMM YYYY") }}</p>
