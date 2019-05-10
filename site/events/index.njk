@@ -5,7 +5,7 @@ layout: layouts/list.njk
 permalink: events/index.html
 ---
 <ul>
-{% for event in events.data | sort(true, false, "date") %}
+{% for eventId, event in events.getAnnouncedEvents() %}
     <li class="card">
         <h2><a href="/events/{{ event.id }}/">{{ event.title }}</a></h2>
         <p>{{ event.date | date("Do MMMM YYYY") }} {{ event.start_time }} - {{ event.end_time }}</p>

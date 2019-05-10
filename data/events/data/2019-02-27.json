@@ -1,0 +1,20 @@
+{
+    "id": "2019-02-27",
+    "title": "February - Luke Bonaccorsi & Wade Penistone",
+    "blurb": "Join us to hear from Luke Bonaccorsi and Wade Penistone, as well as a chance to win a code for a year subscription for a Jetbrains toolbox product of your choice and a chance to win a ticket for the FrontendNE 2019 conference!",
+    "talks": [
+        "coding-is-serious-business",
+        "mindstack"
+    ],
+    "sponsors": [
+        "sky-betting-and-gaming",
+        "bruntwood",
+        "jetbrains",
+        "frontendne"
+    ],
+    "date": "2019-02-27",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "ticket_date": "2019-02-20",
+    "announce_date": "2019-02-01"
+}
