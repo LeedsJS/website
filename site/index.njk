@@ -18,11 +18,11 @@ description: LeedsJS is a free, monthly meetup based in Leeds. We focus on JavaS
             <p>By <a href="/speakers/{{ talk.speaker }}/">{{ speakers.get(talk.speaker).name }}</a></p>
         {% endfor %}
         </ul>
-        {% if not (event.ticket_date | ticketsreleased) %}
+        {% if not (event.ticketsAvailable()) %}
             <p><b>Tickets will be available from 10:00 AM on {{ event.ticket_date | date("Do MMMM YYYY") }}</b></p>
         {% endif %}
         <div class="button-container">
-            {% if event.ticket_date | ticketsreleased %}
+            {% if event.ticketsAvailable() %}
                 {% set tito_event_id = event.id %}
                 {% include "tito-button.njk" %}
                 <a href="/events/{{ event.id }}/" class="button">More details</a>
