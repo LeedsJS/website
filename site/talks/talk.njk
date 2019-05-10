@@ -13,7 +13,7 @@ renderData:
 <h1>{{ talk.title }}</h1>
 <div class="card">
     <p><b>Date:</b> {{ talk.date | date("Do MMM YYYY") }}</p>
-    <p><b>Speaker:</b> <a href="/speakers/{{ talk.speaker }}/">{{ speakers[talk.speaker].name }}</a></p>
+    <p><b>Speaker:</b> <a href="/speakers/{{ talk.speaker }}/">{{ speakers.get(talk.speaker).name }}</a></p>
     <h2>Abstract</h2>
     {{ talk.abstract | markdown | safe }}
     {% if talk.youtube_video_id %}

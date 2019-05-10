@@ -3,7 +3,7 @@ title: JavaScript meetup in Leeds
 layout: layouts/base.njk
 description: LeedsJS is a free, monthly meetup based in Leeds. We focus on JavaScript in all it's forms, whether that's frontend development, Node.js or hardware.
 ---
-{% set event = events.getNextEvent() %}
+{% set event = events.nextEvent %}
 <div class="card center">
     {% if event %}
         <p>Our next event is...</p>
@@ -15,7 +15,7 @@ description: LeedsJS is a free, monthly meetup based in Leeds. We focus on JavaS
         {% for talk_id in event.talks %}
             {% set talk = talks.get(talk_id) %}
             <h3>{{ talk.title }}</h3>
-            <p>By <a href="/speakers/{{ talk.speaker }}/">{{ speakers[talk.speaker].name }}</a></p>
+            <p>By <a href="/speakers/{{ talk.speaker }}/">{{ speakers.get(talk.speaker).name }}</a></p>
         {% endfor %}
         </ul>
         {% if not (event.ticket_date | ticketsreleased) %}
