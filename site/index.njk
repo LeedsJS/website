@@ -13,8 +13,9 @@ description: LeedsJS is a free, monthly meetup based in Leeds. We focus on JavaS
         {{ event.short_blurb or event.blurb | markdown | safe }}
         <h2>Talks</h2>
         {% for talk_id in event.talks %}
-            <h3>{{ talks[talk_id].title }}</h3>
-            <p>By <a href="/speakers/{{ talks[talk_id].speaker }}/">{{ speakers[talks[talk_id].speaker].name }}</a></p>
+            {% set talk = talks.get(talk_id) %}
+            <h3>{{ talk.title }}</h3>
+            <p>By <a href="/speakers/{{ talk.speaker }}/">{{ speakers[talk.speaker].name }}</a></p>
         {% endfor %}
         </ul>
         {% if not (event.ticket_date | ticketsreleased) %}

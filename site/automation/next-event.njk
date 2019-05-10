@@ -10,7 +10,7 @@ permalink: automation/next-event.json
     "talks": [
         {% set i = 0 %}
         {% for talk_id in event.talks %}
-            {% set talk = talks[talk_id] %}
+            {% set talk = talks.get(talk_id) %}
             {% set speaker = speakers[talk.speaker] %}
             {
                 "name": "{{ talk.title | safe }}",

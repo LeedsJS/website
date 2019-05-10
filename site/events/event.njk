@@ -33,7 +33,7 @@ renderData:
     {% endif %}
     <h2>Talks</h2>
     {% for talk_id in event.talks %}
-        {% set talk = talks[talk_id] %}
+        {% set talk = talks.get(talk_id) %}
         {% if talk.youtube_video_id %}
             {% set videos = (videos.push({ title: talk.title, speaker: speakers[talk.speaker].name, youtube_video_id: talk.youtube_video_id}), videos) %}
         {% endif %}

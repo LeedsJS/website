@@ -5,6 +5,7 @@ pagination:
     alias: talk_id
 permalink: streaming/talk-{{ pagination.pageNumber + 1 }}/index.html
 ---
+{% set talk = talks.get(talk_id) %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,10 +69,10 @@ permalink: streaming/talk-{{ pagination.pageNumber + 1 }}/index.html
 </head>
 <body>
     <div class="title">
-        <h1>{{ talks[talk_id].title }}</h1>
+        <h1>{{ talk.title }}</h1>
     </div>
     <div class="speaker">
-        {% set speaker = speakers[talks[talk_id].speaker] %}
+        {% set speaker = speakers[talk.speaker] %}
         <div class="speaker__name">{{ speaker.name }}</div>
         <div class="speaker__img">
             <img src="/img/speakers/{{ speaker.picture }}">

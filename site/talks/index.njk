@@ -5,7 +5,7 @@ layout: layouts/list.njk
 permalink: talks/index.html
 ---
 <ul>
-    {% for talk_id, talk in talks | objsort("name") %}
+    {% for talk_id, talk in talks.data %}
     <li class="card">
         <h2><a href="/talks/{{ talk_id }}/">{{ talk.title }}</a></h2>
          <p><b>Date:</b> {{ talk.date | date("Do MMM YYYY") }}</p>
