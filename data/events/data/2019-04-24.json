@@ -1,0 +1,20 @@
+{
+    "id": "2019-04-24",
+    "title": "April - PWAs, JAM and Headless CMS",
+    "blurb": "This month we have Jamie Bradley and Sam Beckham with us for an ancronym packed event! We'll also be giving away 2 codes for a year subscription for a Jetbrains toolbox product of your choice and a ticket for the Amsterdam JSNation conference!",
+    "talks": [
+        "finding-my-sanity",
+        "making-gitlab-a-pwa"
+    ],
+    "sponsors": [
+        "sky-betting-and-gaming",
+        "bruntwood",
+        "jetbrains",
+        "jsnation"
+    ],
+    "date": "2019-04-24",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "ticket_date": "2019-04-17",
+    "announce_date": "2019-04-01"
+}

@@ -3,12 +3,13 @@ layout: layouts/base.njk
 pagination:
     data: events.data
     size: 1
-    alias: event
-permalink: events/{{ event.id | slug }}/index.html
+    alias: event_id
+permalink: events/{{ event_id | slug }}/index.html
 renderData:
-    title: Event - {{ event.title }}
-    description: "{{ event.short_blurb or event.blurb | markdown | getfirsttagcontent }}"
+    title: Event - {{ events.get(event_id).title }}
+    description: "{{ events.get(event_id).blurb | markdown | getfirsttagcontent }}"
 ---
+{% set event = events.get(event_id) %}
 {% set videos = [] %}
 <h1>{{ event.title }}</h1>
 <div class="card">

@@ -1,0 +1,19 @@
+{
+    "id": "2019-01-30",
+    "title": "January - Jamie Bradley & Jordan Finneran",
+    "blurb": "Join us to hear from Jamie Bradley and Jordan Finneran, as well as a chance to win a code for a year subscription for a Jetbrains toolbox product of your choice!",
+    "talks": [
+        "what-the-jamstack",
+        "serverless-single-page-applications"
+    ],
+    "sponsors": [
+        "sky-betting-and-gaming",
+        "bruntwood",
+        "jetbrains"
+    ],
+    "date": "2019-01-30",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "ticket_date": "2019-01-23",
+    "announce_date": "2019-01-01"
+}
