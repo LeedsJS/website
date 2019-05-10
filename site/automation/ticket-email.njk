@@ -1,7 +1,7 @@
 ---
 permalink: automation/ticket-email.html
 ---
-{% set event = events.getNextEvent() %}
+{% set event = events.nextEvent %}
 <p class="center">Tickets are now available for...</p>
 <h1 class="center">{{ event.title }}</h1>
 <p><b>Date:</b> {{ event.date | date("Do MMMM YYYY") }}</p>
@@ -12,7 +12,7 @@ permalink: automation/ticket-email.html
 {% for talk_id in event.talks %}
     {% set talk = talks.get(talk_id) %}
     <h3>{{ talk.title }}</h3>
-    <p>By <a href="https://leedsjs.com/speakers/{{ talk.speaker }}">{{ speakers[talk.speaker].name }}</a></p>
+    <p>By <a href="https://leedsjs.com/speakers/{{ talk.speaker }}">{{ speakers.get(talk.speaker).name }}</a></p>
 {% endfor %}
 
 {% set tito_event_id = event.id %}

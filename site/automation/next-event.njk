@@ -1,7 +1,7 @@
 ---
 permalink: automation/next-event.json
 ---
-{% set event = events.getNextEvent() %}
+{% set event = events.nextEvent %}
 {
     "id": "{{ event.id }}",
     "title": "{{ event.title | safe }}",
@@ -10,7 +10,7 @@ permalink: automation/next-event.json
         {% set i = 0 %}
         {% for talk_id in event.talks %}
             {% set talk = talks.get(talk_id) %}
-            {% set speaker = speakers[talk.speaker] %}
+            {% set speaker = speakers.get(talk.speaker) %}
             {
                 "name": "{{ talk.title | safe }}",
                 "speaker": {

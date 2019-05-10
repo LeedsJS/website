@@ -34,13 +34,13 @@ renderData:
     {% for talk_id in event.talks %}
         {% set talk = talks.get(talk_id) %}
         {% if talk.youtube_video_id %}
-            {% set videos = (videos.push({ title: talk.title, speaker: speakers[talk.speaker].name, youtube_video_id: talk.youtube_video_id}), videos) %}
+            {% set videos = (videos.push({ title: talk.title, speaker: speakers.get(talk.speaker).name, youtube_video_id: talk.youtube_video_id}), videos) %}
         {% endif %}
         <h3>{{ talk.title }}</h3>
-        <p><b>Speaker:</b> <a href="/speakers/{{ talk.speaker }}/">{{ speakers[talk.speaker].name }}</a></p>
+        <p><b>Speaker:</b> <a href="/speakers/{{ talk.speaker }}/">{{ speakers.get(talk.speaker).name }}</a></p>
         {{ talk.abstract | markdown | safe }}
     {% endfor %}
-    {% if event.date | isfutureevent %}
+    {% if event.isUpcomingEvent() %}
         {% include "venue.njk" %}
     {% endif %}
     {% if event.sponsors.length > 0 %}

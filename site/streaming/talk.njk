@@ -1,6 +1,6 @@
 ---
 pagination:
-    data: events
+    data: events.nextEvent.talks
     size: 1
     alias: talk_id
 permalink: streaming/talk-{{ pagination.pageNumber + 1 }}/index.html
@@ -72,7 +72,7 @@ permalink: streaming/talk-{{ pagination.pageNumber + 1 }}/index.html
         <h1>{{ talk.title }}</h1>
     </div>
     <div class="speaker">
-        {% set speaker = speakers[talk.speaker] %}
+        {% set speaker = speakers.get(talk.speaker) %}
         <div class="speaker__name">{{ speaker.name }}</div>
         <div class="speaker__img">
             <img src="/img/speakers/{{ speaker.picture }}">

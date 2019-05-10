@@ -9,7 +9,7 @@ permalink: talks/index.html
     <li class="card">
         <h2><a href="/talks/{{ talk_id }}/">{{ talk.title }}</a></h2>
          <p><b>Date:</b> {{ talk.date | date("Do MMM YYYY") }}</p>
-         <p><b>Speaker:</b> <a href="/speakers/{{ talk.speaker }}/">{{ speakers[talk.speaker].name }}</a></p>
+         <p><b>Speaker:</b> <a href="/speakers/{{ talk.speaker }}/">{{ speakers.get(talk.speaker).name }}</a></p>
         <p><a href="/talks/{{ talk_id }}/">Read more</a></p>
     </li>
     {% endfor %}

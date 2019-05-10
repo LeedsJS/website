@@ -6,7 +6,7 @@ module.exports = () => {
             return addMethods(this.data[id]);
         },
 
-        getNextEvent() {
+        get nextEvent() {
             const now = moment().tz('Europe/London');
 
             const keys = Object.keys(this.data).filter((key) => {
@@ -20,7 +20,7 @@ module.exports = () => {
             return keys[0] ? addMethods(this.data[keys[0]]) : undefined;
         },
 
-        getAnnouncedEvents() {
+        get announcedEvents() {
             const now = moment().tz('Europe/London');
 
             const events = Object.keys(this.data).filter((key) => {
@@ -38,22 +38,18 @@ module.exports = () => {
     };
 }
 
-
 function addMethods(event) {
-    event.ticketsAvailable = ticketsAvailable.bind(event);
-    event.isUpcomingEvent = isUpcomingEvent.bind(event)
+    return Object.assign({}, event, {
+        ticketsAvailable() {
+            const now = moment().tz('Europe/London');
 
-    return event;
-}
+            return now.isSameOrAfter(this.ticket_date) && now.isSameOrBefore(this.date, 'day');
+        },
 
-function ticketsAvailable() {
-    const now = moment().tz('Europe/London');
+        isUpcomingEvent() {
+            const now = moment().tz('Europe/London');
 
-    return now.isSameOrAfter(this.ticket_date) && now.isSameOrBefore(this.date, 'day');
-}
-
-function isUpcomingEvent() {
-    const now = moment().tz('Europe/London');
-
-    return now.isSameOrBefore(this.date, 'day');
+            return now.isSameOrBefore(this.date, 'day');
+        }
+    });
 }
