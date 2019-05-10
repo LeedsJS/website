@@ -21,14 +21,12 @@ renderData:
         While recruiters are welcome to come and learn, we operate a strict no active recruitment policy, outside of
         the job pitches at the start of the event.
     </p>
-    {% if not (event.ticket_date | ticketsreleased) %}
-        <p><b>Tickets will be available from 10:00 AM on {{ event.ticket_date | date("Do MMMM YYYY") }}</b></p>
-    {% endif %}
-    {% if event.date | isfutureevent %}
-        {% if event.ticket_date | ticketsreleased %}
+    {% if event.isUpcomingEvent() %}
+        {% if event.ticketsAvailable() %}
             {% set tito_event_id = event.id %}
             {% include "tito-button.njk" %}
         {% else %}
+            <p><b>Tickets will be available from 10:00 AM on {{ event.ticket_date | date("Do MMMM YYYY") }}</b></p>
             <a href="#mailchimp-form" class="button button__primary">Register to stay updated</a>
         {% endif %}
     {% endif %}
