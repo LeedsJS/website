@@ -23,12 +23,13 @@ permalink: automation/day-before-email.html
 {% if event.sponsors.length > 0 %}
     <h2>Sponsors</h2>
     {% for sponsor_id in event.sponsors %}
-        <h3>{{ sponsors[sponsor_id].name }}</h3>
-        <p><b>Website:</b> <a href="https://leedsjs.com/{{ sponsors[sponsor_id].url }}" target="_blank">{{ sponsors[sponsor_id].url }}</a></p>
+    {% set sponsor = sponsors.get(sponsor_id) %}
+        <h3>{{ sponsor.name }}</h3>
+        <p><b>Website:</b> <a href="https://leedsjs.com/{{ sponsor.url }}" target="_blank">{{ sponsor.url }}</a></p>
         <img
             class="event-sponsor-logo"
-            src="https://leedsjs.com/img/sponsors/{{ sponsors[sponsor_id].logo }}"
-            alt="{{ sponsors[sponsor_id].name }} logo"
+            src="https://leedsjs.com/img/sponsors/{{ sponsor.logo }}"
+            alt="{{ sponsor.name }} logo"
         />
     {% endfor %}
 {% endif %}
