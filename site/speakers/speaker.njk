@@ -42,8 +42,8 @@ renderData:
         {% endif %}
     </ul>
     {% endif %}
-    {% set speaker_talks = talks | filterobj("speaker", speaker_id) | objsort("title") %}
-    {% if speaker_talks | ispopulatedobject %}
+    {% set speaker_talks = talks.getSpeakerTalks(speaker_id) %}
+    {% if speaker_talks %}
     <h2>Talks</h2>
     <ul>
         {% for talk_id, talk in speaker_talks %}
