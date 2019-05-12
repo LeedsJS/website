@@ -13,6 +13,10 @@
     font-display: swap;
 }
 
+::selection {
+    background: #f1d608;
+}
+
 html {
     height: 100%;
     font-size: 10px;
@@ -127,7 +131,7 @@ p, ul, address {
 
 .page-header__navigation ul {
     margin: 0;
-    padding: 0;
+    padding: 0 1.5rem;
 }
 
 .page-header__navigation li {
@@ -288,22 +292,23 @@ input[type="submit"]:hover {
     opacity: 1;
     pointer-events: all;
     position: fixed;
-    bottom: 6rem;
+    bottom: 3rem;
     right: 3rem;
     z-index: 9999;
     width: 30px;
     height: 30px;
     text-align: center;
     line-height: 30px;
-    background: #f1d608;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .35);
     cursor: pointer;
-    border-radius: 2px;
-    transform: translate3d(0,0,0);
+    border-radius: 50%;
+    transform: translate3d(0, 0, 0);
     transition: all .3s ease;
 }
 
 .back-to-top:hover {
-    background: #f7de1b;
+    transform: translate3d(0, -2px, 0);
 }
 
 .back-to-top.hidden {
@@ -331,10 +336,6 @@ input[type="submit"]:hover {
     }
     .page-main {
         width: 75%;
-    }
-    .page-header,
-    .card {
-        box-shadow: 0 14px 20px rgba(0,0,0,.3);
     }
     .speaker-picture {
         float: right;

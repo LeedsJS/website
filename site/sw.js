@@ -7,7 +7,7 @@
 (function () {
 
     // Update 'version' if you need to refresh the cache
-    const version = `1.0.4`;
+    const version = `1.0.5`;
 
     const assetCache = `assets@${version}`;
     const pageCache = `pages`;
@@ -42,7 +42,8 @@
                 return assets.addAll([
                     `/script.js`,
                     `/browserconfig.xml`,
-                    `/site.webmanifest`
+                    `/site.webmanifest`,
+                    `/fonts/libre-baskerville-v6-latin-regular.woff2`,
                 ]);
             });
     };
