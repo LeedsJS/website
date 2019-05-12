@@ -6,7 +6,9 @@ description: LeedsJS is a free, monthly meetup based in Leeds. We focus on JavaS
 {% set event = events.nextEvent %}
 <div class="card center">
     {% if event %}
-        <p>Our next event is...</p>
+        <div class="card__header">
+            <p>Our next event is...</p>
+        </div>
         <h1>{{ event.title }}</h1>
         <p><b>Date:</b> {{ event.date | date("Do MMMM YYYY") }}</p>
         <p><b>Time:</b> {{ event.start_time }} - {{ event.end_time }}</p>
@@ -14,8 +16,10 @@ description: LeedsJS is a free, monthly meetup based in Leeds. We focus on JavaS
         <h2>Talks</h2>
         {% for talk_id in event.talks %}
             {% set talk = talks.get(talk_id) %}
-            <h3>{{ talk.title }}</h3>
-            <p>By <a href="/speakers/{{ talk.speaker }}/">{{ speakers.get(talk.speaker).name }}</a></p>
+            <div class="card__talk-container">
+                <h3>{{ talk.title }}</h3>
+                <p>By <a href="/speakers/{{ talk.speaker }}/">{{ speakers.get(talk.speaker).name }}</a></p>
+            </div>
         {% endfor %}
         </ul>
         {% if not (event.ticketsAvailable()) %}
