@@ -6,6 +6,7 @@ const htmlminifier = require('html-minifier');
 
 module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("site/img");
+    eleventyConfig.addPassthroughCopy("site/fonts");
     eleventyConfig.addPassthroughCopy("site/styles.css");
     eleventyConfig.addPassthroughCopy("site/script.js");
     eleventyConfig.addPassthroughCopy("site/sw.js");
