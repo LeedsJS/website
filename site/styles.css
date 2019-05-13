@@ -222,6 +222,7 @@ p, ul, address {
     display: flex;
     justify-content: center;
     align-items: center;
+    -webkit-appearance: none;
 }
 
 .button:hover {
