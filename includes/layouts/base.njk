@@ -34,19 +34,19 @@
             <nav class="page-header__navigation">
                 <ul>
                     <li>
-                        <a href="{{ '/' | url }}">Home</a>
+                        <a href="{{ '/' | url }}" {% if page.url == "/" %}class="active"{% endif %}>Home</a>
                     </li>
                     <li>
-                        <a href="{{ '/events/' | url }}">Events</a>
+                        <a href="{{ '/events/' | url }}" {% if page.url == "/events/" %}class="active"{% endif %}>Events</a>
                     </li>
                     <li>
-                        <a href="{{ '/talks/' | url }}">Talks</a>
+                        <a href="{{ '/talks/' | url }}" {% if page.url == "/talks/" %}class="active"{% endif %}>Talks</a>
                     </li>
                     <li>
-                        <a href="{{ '/speakers/' | url }}">Speakers</a>
+                        <a href="{{ '/speakers/' | url }}" {% if page.url == "/speakers/" %}class="active"{% endif %}>Speakers</a>
                     </li>
                     <li>
-                        <a href="{{ '/code-of-conduct/' | url }}">Code of Conduct</a>
+                        <a href="{{ '/code-of-conduct/' | url }}" {% if page.url == "/code-of-conduct/" %}class="active"{% endif %}>Code of Conduct</a>
                     </li>
                     <li>
                         <a href="/slack" target="_blank" rel="noopener noreferrer">Slack</a>
