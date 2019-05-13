@@ -129,9 +129,19 @@ p, ul, address {
     transform-origin: 50% 100%;
 }
 
+.page-header__navigation a.active {
+    pointer-events: none;
+}
+
+.page-header__navigation a.active::before {
+    transform: scaleY(1);
+    opacity: 0.5;
+    transform-origin: 50% 100%;
+}
+
 .page-header__navigation ul {
     margin: 0;
-    padding: 0 1.5rem;
+    padding: .5rem 1.5rem 0;
 }
 
 .page-header__navigation li {
