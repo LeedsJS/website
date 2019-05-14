@@ -100,7 +100,7 @@ function initGoToTopBtn() {
         }
     }
 
-    window.addEventListener('scroll', trackScroll);
+    window.addEventListener('scroll', trackScroll, { passive: true });
     goTopBtn.addEventListener('click', backToTop);
 };
 
