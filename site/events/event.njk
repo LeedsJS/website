@@ -6,8 +6,8 @@ pagination:
     alias: event_id
 permalink: events/{{ event_id | slug }}/index.html
 renderData:
-    title: Event - {{ events.get(event_id).title }}
-    description: "{{ events.get(event_id).blurb | markdown | getfirsttagcontent }}"
+    title: Event - {{ events.get(event_id).title | safe }}
+    description: "{{ events.get(event_id).blurb | safe }}"
 ---
 {% set event = events.get(event_id) %}
 {% set videos = [] %}

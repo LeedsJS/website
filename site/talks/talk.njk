@@ -6,8 +6,8 @@ pagination:
     alias: talk_id
 permalink: talks/{{ talk_id }}/index.html
 renderData:
-    title: Talk - {{ talks.get(talk_id).title }}
-    description: "{{ talks.get(talk_id).abstract | markdown | getfirsttagcontent }}"
+    title: Talk - {{ talks.get(talk_id).title | safe }}
+    description: "{{ talks.get(talk_id).abstract | safe }}"
 ---
 {% set talk = talks.get(talk_id) %}
 <h1>{{ talk.title }}</h1>

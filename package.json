@@ -20,7 +20,6 @@
   "homepage": "https://github.com/LeedsJS/website-eleventy#readme",
   "dependencies": {
     "@11ty/eleventy": "^0.8.2",
-    "cheerio": "^1.0.0-rc.2",
     "dotenv": "^7.0.0",
     "find": "^0.3.0",
     "html-minifier": "^4.0.0",

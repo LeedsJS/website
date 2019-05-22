@@ -7,8 +7,8 @@ pagination:
 permalink: speakers/{{ speaker_id }}/index.html
 renderData:
     title: Speaker - {{ speakers.get(speaker_id).name }}
-    description: "{{ speakers.get(speaker_id).bio | markdown | getfirsttagcontent }}"
-    image: speakers/{{ speakers.get(speaker_id).picture }}
+    description: "{{ speakers.get(speaker_id).bio | safe }}"
+    image: speakers/{{ speakers.get(speaker_id).picture | safe }}
 ---
 {% set speaker = speakers.get(speaker_id) %}
 <h1>{{ speaker.name }}</h1>
