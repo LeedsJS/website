@@ -25,6 +25,8 @@ module.exports = function (context, cb) {
             const today = moment().tz('Europe/London');
             const tomorrow = moment().tz('Europe/London').add(1, 'days');
 
+            const event = moment(eventData.date);
+
             const speakers = eventData.talks.map((talk) => {
                 return talk.speaker.twitter ? `@${talk.speaker.twitter}` : talk.speaker.name;
             }).reduce((acc, val, i, arr) => {
@@ -42,21 +44,28 @@ module.exports = function (context, cb) {
                 console.log(`It's announcement day!`);
                 message = `We've just announced our next event: ${eventData.title}
 
-Join us to hear from ${speakers}!
+Join us on ${event.format('Do MMM')} to hear from ${speakers}!
 
 More details: https://leedsjs.com/events/${eventData.id}`;
             } else if (today.isSame(eventData.ticket_date, 'day')) {
                 console.log(`It's ticket day!`);
                 message = `We've just released the tickets for our next event: ${eventData.title}
 
-Join us to hear from ${speakers}!
+Join us on ${event.format('Do MMM')} to hear from ${speakers}!
+
+More details and tickets: https://leedsjs.com/events/${eventData.id}`;
+            } else if (today.subtract(2, 'days').isSame(eventData.ticket_date, 'day')) {
+                console.log(`It's ticket reminder day!`);
+                message = `A few days ago we released the tickets for our next event: ${eventData.title}
+
+Join us on ${event.format('Do MMM')} to hear from ${speakers}!
 
 More details and tickets: https://leedsjs.com/events/${eventData.id}`;
             } else if (tomorrow.isSame(eventData.date, 'day')) {
                 console.log(`It's the day before the event!`);
                message = `Our next event is tomorrow: ${eventData.title}
 
-Join us to hear from ${speakers}!
+Join us on ${event.format('Do MMM')} to hear from ${speakers}!
 
 More details and tickets: https://leedsjs.com/events/${eventData.id}`;
             } else {

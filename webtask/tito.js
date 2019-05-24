@@ -29,7 +29,7 @@ module.exports = function (context, cb) {
             console.log(`It's announcement day, create the tickets!`);
 
             makeRequest(getOptions('events', 'POST'), {
-                title: eventData.title,
+                title: `LeedsJS: ${eventData.title}`,
                 slug: eventData.id
             }, () => {
                 console.log('Event created');

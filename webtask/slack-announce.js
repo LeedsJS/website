@@ -15,6 +15,8 @@ module.exports = function (context, cb) {
         const today = moment().tz('Europe/London');
         const tomorrow = moment().tz('Europe/London').add(1, 'days');
 
+        const event = moment(eventData.date);
+
         const talks = eventData.talks.reduce((acc, talk) => {
             return `${acc}
 ${talk.name} - ${talk.speaker.name}`;
@@ -31,6 +33,8 @@ ${eventData.blurb}
 
 ${talks}
 
+Date: ${event.format('Do MMMM')}
+
 More details: https://leedsjs.com/events/${eventData.id}`;
         } else if (today.isSame(eventData.ticket_date, 'day')) {
             console.log(`It's ticket day!`);
@@ -41,6 +45,8 @@ ${eventData.blurb}
 
 ${talks}
 
+Date: ${event.format('Do MMMM')}
+
 More details and tickets: https://leedsjs.com/events/${eventData.id}`;
         } else if (tomorrow.isSame(eventData.date, 'day')) {
             console.log(`It's the day before the event!`);
@@ -50,6 +56,8 @@ More details and tickets: https://leedsjs.com/events/${eventData.id}`;
 ${eventData.blurb}
 
 ${talks}
+
+Date: ${event.format('Do MMMM')}
 
 More details and tickets: https://leedsjs.com/events/${eventData.id}`;
         } else {
