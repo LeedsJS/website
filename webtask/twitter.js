@@ -65,7 +65,7 @@ More details and tickets: https://leedsjs.com/events/${eventData.id}`;
                 console.log(`It's the day before the event!`);
                message = `Our next event is tomorrow: ${eventData.title}
 
-Join us on ${event.format('Do MMM')} to hear from ${speakers}!
+Join us from ${eventData.start_time} to hear from ${speakers}!
 
 More details and tickets: https://leedsjs.com/events/${eventData.id}`;
             } else {

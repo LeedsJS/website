@@ -33,7 +33,8 @@ ${eventData.blurb}
 
 ${talks}
 
-Date: ${event.format('Do MMMM')}
+*Date:* ${event.format('Do MMMM')}
+*Time:* ${eventData.start_time} - ${eventData.end_time}
 
 More details: https://leedsjs.com/events/${eventData.id}`;
         } else if (today.isSame(eventData.ticket_date, 'day')) {
@@ -45,7 +46,8 @@ ${eventData.blurb}
 
 ${talks}
 
-Date: ${event.format('Do MMMM')}
+*Date:* ${event.format('Do MMMM')}
+*Time:* ${eventData.start_time} - ${eventData.end_time}
 
 More details and tickets: https://leedsjs.com/events/${eventData.id}`;
         } else if (tomorrow.isSame(eventData.date, 'day')) {
@@ -57,7 +59,8 @@ ${eventData.blurb}
 
 ${talks}
 
-Date: ${event.format('Do MMMM')}
+*Date:* ${event.format('Do MMMM')}
+*Time:* ${eventData.start_time} - ${eventData.end_time}
 
 More details and tickets: https://leedsjs.com/events/${eventData.id}`;
         } else {
