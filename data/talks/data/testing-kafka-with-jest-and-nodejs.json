@@ -1,0 +1,6 @@
+{
+    "title": "Testing Kafka with Jest and NodeJS",
+    "speaker": "colin-wren",
+    "abstract": "Having spent the last 6 months testing a Kafka based application, Colin gives a short introduction to what Kafka is, how it’s used and shares his experience of writing an end-to-end test framework using Jest and NodeJS.",
+    "date": "2019-06-26"
+}
