@@ -1,6 +1,6 @@
 {
     "title": "Testing React with the 'act' function",
     "speaker": "daniel-irvine",
-    "abstract": "React 16.8 introduced a new ‘act’ function that helps with testing side effects and asynchronous effects in React components. However, that first release only supported some use cases. The upcoming React 16.9 release, currently available as an alpha release, includes an updated version of ‘act’ that covers more use cases. In this talk I’ll explore how you can use it to improve your test suites.",
+    "abstract": "React 16.8 introduced a new 'act' function that helps with testing side effects and asynchronous effects in React components. However, that first release only supported some use cases. The upcoming React 16.9 release, currently available as an alpha release, includes an updated version of 'act' that covers more use cases. In this talk I'll explore how you can use it to improve your test suites.",
     "date": "2019-06-26"
 }
