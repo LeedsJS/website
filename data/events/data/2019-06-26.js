@@ -6,7 +6,8 @@ module.exports = () => {
 
 We'll also be giving away 2 codes for a year subscription for a Jetbrains toolbox product of your choice!`,
         "talks": [
-            "testing-kafka-with-jest-and-nodejs"
+            "testing-kafka-with-jest-and-nodejs",
+            "testing-react-with-the-act-function"
         ],
         "sponsors": [
             "sky-betting-and-gaming",

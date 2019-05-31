@@ -1,0 +1,9 @@
+{
+    "name": "Daniel Irvine",
+    "bio": "Daniel is a software consultant based in London, and author of Mastering React Test-Driven Development. He is a member of the European software craft community and works with a variety of languages including C#, Clojure, JavaScript, and Ruby. He’s a mentor and coach for junior developers and runs TDD and XP workshops and courses. When he’s not working, he spends time cooking and practicing yoga. He co-founded and runs the Queer Code London meetup.",
+    "picture": "daniel-irvine.jpg",
+    "twitter": "d_ir",
+    "links": {
+        "Website": "http://www.danielirvine.com/"
+    }
+}
