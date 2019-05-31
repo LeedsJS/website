@@ -224,7 +224,6 @@ p, ul, address {
     width: 100%;
     box-sizing: border-box;
     display: block;
-    margin-bottom: 16px;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     text-decoration: none;
@@ -245,10 +244,6 @@ input[type="submit"] {
     background: #F1D608;
     border: none;
     max-width: 360px;
-}
-
-input[type="submit"] {
-    margin: .5rem auto;
 }
 
 .button.button__primary:hover,
@@ -288,6 +283,7 @@ input[type="submit"]:hover {
 .button-container {
     display: flex;
     justify-content: center;
+    margin-bottom: 16px;
 }
 
 .button-container .button {

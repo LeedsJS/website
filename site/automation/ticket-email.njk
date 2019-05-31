@@ -2,34 +2,40 @@
 permalink: automation/ticket-email.html
 ---
 {% set event = events.nextEvent %}
-<p class="center">Tickets are now available for...</p>
-<h1 class="center">{{ event.title }}</h1>
-<p><b>Date:</b> {{ event.date | date("Do MMMM YYYY") }}</p>
-<p><b>Time:</b> {{ event.start_time }} - {{ event.end_time }}</p>
-{{ event.blurb | markdown | safe }}
+{% if event.id %}
+    <p class="center">Tickets are now available for...</p>
+    <h1 class="center">{{ event.title }}</h1>
+    <p><b>Date:</b> {{ event.date | date("Do MMMM YYYY") }}</p>
+    <p><b>Time:</b> {{ event.start_time }} - {{ event.end_time }}</p>
+    {{ event.blurb | markdown | safe }}
 
-<h2>Talks</h2>
-{% for talk_id in event.talks %}
-    {% set talk = talks.get(talk_id) %}
-    <h3>{{ talk.title }}</h3>
-    <p>By <a href="https://leedsjs.com/speakers/{{ talk.speaker }}">{{ speakers.get(talk.speaker).name }}</a></p>
-{% endfor %}
-
-{% set tito_event_id = event.id %}
-{% include "tito-button.njk" %}
-<a href="https://leedsjs.com/events/{{ event.id }}" class="button">More details</a>
-
-{% include "venue.njk" %}
-{% if event.sponsors.length > 0 %}
-    <h2>Sponsors</h2>
-    {% for sponsor_id in event.sponsors %}
-    {% set sponsor = sponsors.get(sponsor_id) %}
-        <h3>{{ sponsor.name }}</h3>
-        <p><b>Website:</b> <a href="https://leedsjs.com/{{ sponsor.url }}" target="_blank">{{ sponsor.url }}</a></p>
-        <img
-            class="event-sponsor-logo"
-            src="https://leedsjs.com/img/sponsors/{{ sponsor.logo }}"
-            alt="{{ sponsor.name }} logo"
-        />
+    <h2>Talks</h2>
+    {% for talk_id in event.talks %}
+        {% set talk = talks.get(talk_id) %}
+        <h3>{{ talk.title }}</h3>
+        <p>By <a href="https://leedsjs.com/speakers/{{ talk.speaker }}">{{ speakers.get(talk.speaker).name }}</a></p>
     {% endfor %}
+
+    {% set tito_event_id = event.id %}
+    {% include "tito-button.njk" %}
+    <a href="https://leedsjs.com/events/{{ event.id }}" class="button">More details</a>
+
+    {% include "venue.njk" %}
+    {% if event.sponsors.length > 0 %}
+        <h2>Sponsors</h2>
+        {% for sponsor_id in event.sponsors %}
+        {% set sponsor = sponsors.get(sponsor_id) %}
+            <h3>{{ sponsor.name }}</h3>
+            <p><b>Website:</b> <a href="https://leedsjs.com/{{ sponsor.url }}" target="_blank">{{ sponsor.url }}</a></p>
+            <img
+                class="event-sponsor-logo"
+                src="https://leedsjs.com/img/sponsors/{{ sponsor.logo }}"
+                alt="{{ sponsor.name }} logo"
+            />
+        {% endfor %}
+    {% endif %}
+{% else %}
+    <h1 class="center">Our next event will be announced shortly</h1>
+    <p class="center">We're not quite ready to announce our next event, if you've recieved this email then the robots
+        have gone haywire!</p>
 {% endif %}

@@ -23,6 +23,10 @@ module.exports = function (context, cb) {
     }, null, (eventData) => {
         eventData = JSON.parse(eventData);
 
+        if (!eventData.id) {
+            return cb(null, {});
+        }
+
         const today = moment().tz('Europe/London');
 
         if (today.isSame(eventData.announce_date, 'day')) {

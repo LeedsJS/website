@@ -17,7 +17,7 @@ module.exports = () => {
                 return moment(this.data[a].date) - moment(this.data[b].date);
             })
 
-            return keys[0] ? addMethods(this.data[keys[0]]) : undefined;
+            return keys[0] ? addMethods(this.data[keys[0]]) : {talks:[]};
         },
 
         get announcedEvents() {

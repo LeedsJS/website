@@ -12,6 +12,10 @@ module.exports = function (context, cb) {
     }, null, (eventData) => {
         eventData = JSON.parse(eventData);
 
+        if (!eventData.id) {
+            return cb(null, {});
+        }
+
         const today = moment().tz('Europe/London');
         const tomorrow = moment().tz('Europe/London').add(1, 'days');
 

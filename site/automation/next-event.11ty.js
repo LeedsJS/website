@@ -12,6 +12,10 @@ class NextEvent {
     }) {
         const event = events.nextEvent;
 
+        if (!event) {
+            return JSON.stringify({});
+        }
+
         const eventObj = {
             id: event.id,
             title: event.title,

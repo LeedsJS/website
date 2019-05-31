@@ -23,11 +23,15 @@ renderData:
     </p>
     {% if event.isUpcomingEvent() %}
         {% if event.ticketsAvailable() %}
-            {% set tito_event_id = event.id %}
-            {% include "tito-button.njk" %}
+            <div class="button-container">
+                {% set tito_event_id = event.id %}
+                {% include "tito-button.njk" %}
+            </div>
         {% else %}
             <p><b>Tickets will be available from 10:00 AM on {{ event.ticket_date | date("Do MMMM YYYY") }}</b></p>
-            <a href="#mailchimp-form" class="button button__primary">Register to stay updated</a>
+            <div class="button-container">
+                <a href="#mailchimp-form" class="button button__primary">Register to stay updated</a>
+            </div>
         {% endif %}
     {% endif %}
     <h2>Talks</h2>
