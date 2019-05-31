@@ -12,6 +12,7 @@ We'll also be giving away 2 codes for a year subscription for a Jetbrains toolbo
         "sponsors": [
             "sky-betting-and-gaming",
             "bruntwood",
+            "starlight-software",
             "jetbrains",
             "and-digital"
         ],
