@@ -64,6 +64,7 @@
             {{ content | safe }}
             {% if not renderData.disableMailchimp %}
                 <div class="card">
+                    <h2>Register to stay updated</h2>
                     {% include "mailchimp-form.njk" %}
                 </div>
             {% endif %}
