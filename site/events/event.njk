@@ -16,12 +16,12 @@ renderData:
     <p><b>Date:</b> {{ event.date | date("Do MMMM YYYY") }}</p>
     <p><b>Time:</b> {{ event.start_time }} - {{ event.end_time }}</p>
     {{ event.blurb | markdown | safe }}
-    <p>
-        <b>Please note:</b> LeedsJS is intended for people looking to expand their knowledge and meet the community.
-        While recruiters are welcome to come and learn, we operate a strict no active recruitment policy, outside of
-        the job pitches at the start of the event.
-    </p>
     {% if event.isUpcomingEvent() %}
+        <p>
+            <b>Please note:</b> LeedsJS is intended for people looking to expand their knowledge and meet the community.
+            While recruiters are welcome to come and learn, we operate a strict no active recruitment policy, outside of
+            the job pitches at the start of the event.
+        </p>
         {% if event.ticketsAvailable() %}
             <div class="button-container">
                 {% set tito_event_id = event.id %}
