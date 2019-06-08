@@ -8,7 +8,8 @@ class NextEvent {
     render({
         events,
         talks,
-        speakers
+        speakers,
+        sponsors
     }) {
         const event = events.nextEvent;
 
@@ -21,7 +22,7 @@ class NextEvent {
             title: event.title,
             blurb: event.blurb,
             talks: [],
-            sponsors: event.sponsors,
+            sponsors: [],
             date: event.date,
             start_time: event.start_time,
             end_time: event.end_time,
@@ -45,6 +46,20 @@ class NextEvent {
             }
 
             return talkObj;
+        });
+
+        eventObj.sponsors = event.sponsors.map((sponsorId) => {
+            const sponsor = sponsors.get(sponsorId);
+
+            const sponsorObj = {
+                name: sponsor.name,
+            }
+
+            if (sponsor.twitter) {
+                sponsorObj.twitter = sponsor.twitter;
+            }
+
+            return sponsorObj;
         });
 
         return JSON.stringify(eventObj, null, 4);

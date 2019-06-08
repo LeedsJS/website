@@ -5,7 +5,7 @@ description: LeedsJS is a free, monthly meetup based in Leeds. We focus on JavaS
 ---
 {% set event = events.nextEvent %}
 <div class="card center">
-    {% if event.id %}
+    {% if event.id and event.isAnnounced() and event.isUpcomingEvent() %}
         <div class="card__header">
             <p>Our next event is...</p>
         </div>

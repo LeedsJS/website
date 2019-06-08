@@ -28,11 +28,24 @@ module.exports = function (context, cb) {
 
             const today = moment().tz('Europe/London');
             const tomorrow = moment().tz('Europe/London').add(1, 'days');
+            const yesterday = moment().tz('Europe/London').subtract(1, 'days');
 
             const event = moment(eventData.date);
 
             const speakers = eventData.talks.map((talk) => {
                 return talk.speaker.twitter ? `@${talk.speaker.twitter}` : talk.speaker.name;
+            }).reduce((acc, val, i, arr) => {
+                if (acc.length === 0) {
+                    return val;
+                } else if (i === arr.length - 1) {
+                    return `${acc} and ${val}`;
+                } else {
+                    return `${acc}, ${val}`;
+                }
+            }, '');
+
+            const sponsors = eventData.sponsors.map((sponsor) => {
+                return sponsor.twitter ? `@${sponsor.twitter}` : sponsor.name;
             }).reduce((acc, val, i, arr) => {
                 if (acc.length === 0) {
                     return val;
@@ -67,11 +80,20 @@ Join us on ${event.format('Do MMM')} to hear from ${speakers}!
 More details and tickets: https://leedsjs.com/events/${eventData.id}`;
             } else if (tomorrow.isSame(eventData.date, 'day')) {
                 console.log(`It's the day before the event!`);
-               message = `Our next event is tomorrow: ${eventData.title}
+                message = `Our next event is tomorrow: ${eventData.title}
 
 Join us from ${eventData.start_time} to hear from ${speakers}!
 
 More details and tickets: https://leedsjs.com/events/${eventData.id}`;
+            } else if (yesterday.isSame(eventData.date, 'day')) {
+                console.log(`It's the day after the event!`);
+                message = `Thanks to everyone who joined us last night!
+
+Huge thanks to ${speakers} for their talks!
+
+And thank you to our sponsors ${sponsors}
+
+We'll announce our next event soon!`;
             } else {
                 console.log('No tweets today');
                 return cb(null, {});

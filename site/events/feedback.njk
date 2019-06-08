@@ -1,0 +1,83 @@
+---
+layout: layouts/base.njk
+pagination:
+    data: events.data
+    size: 1
+    alias: event_id
+permalink: events/{{ event_id | slug }}/feedback/index.html
+renderData:
+    title: Feedback - {{ events.get(event_id).title | safe }}
+    disableMailchimp: true
+---
+{% set event = events.get(event_id) %}
+<h1>Feedback: {{ event.title }}</h1>
+<div class="card">
+{% if event.isUpcomingEvent() %}
+    <p>The feedback form will be available after the event</p>
+{% else %}
+    <form name="{{ event_id }}-feedback" method="POST" netlify>
+        <h2>The event</h2>
+        <p>How would you rate the event overall?</p>
+        <div class="form__group">
+            <label>
+                <input type="radio" name="event_rating" value="1">
+                Terrible
+            </label>
+            <label>
+                <input type="radio" name="event_rating" value="2">
+                Poor
+            </label>
+            <label>
+                <input type="radio" name="event_rating" value="3">
+                Ok
+            </label>
+            <label>
+                <input type="radio" name="event_rating" value="4">
+                Good
+            </label>
+            <label>
+                <input type="radio" name="event_rating" value="5">
+                Excellent
+            </label>
+        </div>
+
+        <p><label for="event_feedback">Any suggestions/feedback about the event?</label></p>
+        <textarea id="event_feedback" name="event_feedback" class="form__textarea"></textarea>
+        {% set talk_count = 1 %}
+        {% for talk_id in event.talks %}
+            {% set talk = talks.get(talk_id) %}
+            <h2>Talk {{talk_count}}: {{ speakers.get(talk.speaker).name }} - {{ talk.title }}</h2>
+            <p>How would you rate the talk?</p>
+            <div class="form__group">
+                <label>
+                    <input type="radio" name="talk_{{ talk_count }}_rating" value="1">
+                    Terrible
+                </label>
+                <label>
+                    <input type="radio" name="talk_{{ talk_count }}_rating" value="2">
+                    Poor
+                </label>
+                <label>
+                    <input type="radio" name="talk_{{ talk_count }}_rating" value="3">
+                    Ok
+                </label>
+                <label>
+                    <input type="radio" name="talk_{{ talk_count }}_rating" value="4">
+                    Good
+                </label>
+                <label>
+                    <input type="radio" name="talk_{{ talk_count }}_rating" value="5">
+                    Excellent
+                </label>
+            </div>
+
+            <p><label for="talk_{{ talk_count }}_feedback">Any suggestions/feedback about the talk?</label></p>
+            <textarea id="talk_{{ talk_count }}_feedback" name="talk_{{ talk_count }}_feedback" class="form__textarea"></textarea>
+            {% set talk_count = talk_count + 1 %}
+        {% endfor %}
+        <div class="button-container">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+{% endif %}
+</div>

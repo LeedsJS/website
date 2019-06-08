@@ -1,0 +1,29 @@
+---
+permalink: automation/day-after-email.html
+---
+{% set event = events.nextEvent %}
+{% if event.id %}
+    <h1>Thank you to everyone who joined us last night!</h1>
+    <p>We hope you enjoyed the event and we'd love if you could fill out the feedback form. We'll be announcing our next event soon!</p>
+    <a href="https://leedsjs.com/events/{{ event.id }}/feedback" class="button button__primary">Feedback form</a>
+    <h2>Thanks to our speakers!</h2>
+    {% for talk_id in event.talks %}
+        {% set talk = talks.get(talk_id) %}
+        <h3>{{ speakers.get(talk.speaker).name }}</h3>
+        <p>Talk: {{ talk.title }}</p>
+    {% endfor %}
+
+    {% if event.sponsors.length > 0 %}
+        <h2>Thank you to our sponsors!</h2>
+        {% for sponsor_id in event.sponsors %}
+        {% set sponsor = sponsors.get(sponsor_id) %}
+            <h3>{{ sponsor.name }}</h3>
+            <p><b>Website:</b> <a href="https://leedsjs.com/{{ sponsor.url }}" target="_blank">{{ sponsor.url }}</a></p>
+            <img
+                class="event-sponsor-logo"
+                src="https://leedsjs.com/img/sponsors/{{ sponsor.logo }}"
+                alt="{{ sponsor.name }} logo"
+            />
+        {% endfor %}
+    {% endif %}
+{% endif %}

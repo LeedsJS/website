@@ -28,6 +28,7 @@ module.exports = function (context, cb) {
 
         const today = moment().tz('Europe/London');
         const tomorrow = moment().tz('Europe/London').add(1, 'days');
+        const yesterday = moment().tz('Europe/London').subtract(1, 'days');
 
         let templateName = '';
         let subject = '';
@@ -43,6 +44,10 @@ module.exports = function (context, cb) {
             console.log(`It's the day before the event!`);
             templateName = 'day-before-email';
             subject = `Tomorrow is our next event: ${eventData.title}`
+        } else if (yesterday.isSame(eventData.date, 'day')) {
+            console.log(`It's the day after the event!`);
+            templateName = 'day-after-email';
+            subject = `Thank you to everyone who joined us for ${eventData.title}`
         } else {
             console.log('No emails today');
             return cb(null, {});
