@@ -12,12 +12,16 @@ module.exports = () => {
             const keys = Object.keys(this.data).filter((key) => {
                 const event = this.data[key];
 
-                return now.isSameOrAfter(event.announce_date) && now.isSameOrBefore(event.date, 'day');
+                const dayAfterEvent = moment(event.date).add(1,'day');
+
+                return now.isSameOrAfter(event.announce_date) && now.isSameOrBefore(dayAfterEvent, 'day');
             }).sort((a, b) => {
                 return moment(this.data[a].date) - moment(this.data[b].date);
             })
 
-            return keys[0] ? addMethods(this.data[keys[0]]) : {talks:[]};
+            return keys[0] ? addMethods(this.data[keys[0]]) : {
+                talks: []
+            };
         },
 
         get announcedEvents() {
@@ -50,6 +54,12 @@ function addMethods(event) {
             const now = moment().tz('Europe/London');
 
             return now.isSameOrBefore(this.date, 'day');
+        },
+
+        isAnnounced() {
+            const now = moment().tz('Europe/London');
+
+            return now.isSameOrAfter(this.announce_date, 'day');
         }
     });
 }

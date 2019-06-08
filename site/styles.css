@@ -295,6 +295,24 @@ input[type="submit"]:hover {
     margin-right: 0;
 }
 
+.form__group {
+    margin-bottom: 8px;
+}
+
+.form__group label {
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.form__textarea {
+    width: 100%;
+    resize: none;
+    margin-bottom: 16px;
+    height: 80px;
+    box-sizing: border-box;
+    padding: 0;
+}
+
 .back-to-top {
     opacity: 1;
     pointer-events: all;
