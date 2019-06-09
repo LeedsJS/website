@@ -15,7 +15,7 @@ renderData:
 {% if event.isUpcomingEvent() %}
     <p>The feedback form will be available after the event</p>
 {% else %}
-    <form name="{{ event_id }}-feedback" method="POST" netlify>
+    <form name="{{ event_id }}-feedback" action="/feedback-success" method="POST" netlify>
         <h2>The event</h2>
         <p>How would you rate the event overall?</p>
         <div class="form__group">
