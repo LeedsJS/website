@@ -26,7 +26,7 @@ permalink: automation/ticket-email.html
         {% for sponsor_id in event.sponsors %}
         {% set sponsor = sponsors.get(sponsor_id) %}
             <h3>{{ sponsor.name }}</h3>
-            <p><b>Website:</b> <a href="https://leedsjs.com/{{ sponsor.url }}" target="_blank">{{ sponsor.url }}</a></p>
+            <p><b>Website:</b> <a href="{{ sponsor.url }}" target="_blank">{{ sponsor.url }}</a></p>
             <img
                 class="event-sponsor-logo"
                 src="https://leedsjs.com/img/sponsors/{{ sponsor.logo }}"
