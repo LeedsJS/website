@@ -6,7 +6,8 @@
   "scripts": {
     "build": "npx eleventy && npm run resizeimages",
     "serve": "npx eleventy --serve",
-    "resizeimages": "node scripts/resizeimages.js"
+    "resizeimages": "node scripts/resizeimages.js",
+    "new": "node scripts/new.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "moment-timezone": "^0.5.23",
     "purify-css": "^1.2.5",
     "sharp": "^0.22.0",
+    "slugify": "^1.3.4",
     "twitter": "^1.7.1"
   }
 }
