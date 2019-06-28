@@ -13,7 +13,7 @@ class NextEvent {
     }) {
         const event = events.nextEvent;
 
-        if (!event) {
+        if (!event.id) {
             return JSON.stringify({});
         }
 
