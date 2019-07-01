@@ -6,6 +6,7 @@
   "scripts": {
     "build": "npx eleventy && npm run resizeimages",
     "serve": "npx eleventy --serve",
+    "start": "npm run serve",
     "resizeimages": "node scripts/resizeimages.js",
     "new": "node scripts/new.js"
   },
