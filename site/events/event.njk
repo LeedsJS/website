@@ -37,11 +37,17 @@ renderData:
     <h2>Talks</h2>
     {% for talk_id in event.talks %}
         {% set talk = talks.get(talk_id) %}
+        {% set speaker = speakers.get(talk.speaker) %}
         {% if talk.youtube_video_id %}
             {% set videos = (videos.push({ title: talk.title, speaker: speakers.get(talk.speaker).name, youtube_video_id: talk.youtube_video_id}), videos) %}
         {% endif %}
         <h3>{{ talk.title }}</h3>
-        <p><b>Speaker:</b> <a href="/speakers/{{ talk.speaker }}/">{{ speakers.get(talk.speaker).name }}</a></p>
+        <p>
+            <b>Speaker:</b> <a href="/speakers/{{ talk.speaker }}/">{{ speaker.name }}</a>
+            {% if speaker.twitter %}
+                (<a href="https://twitter.com/{{ speaker.twitter }}" target="_blank" rel="noopener noreferrer">@{{ speaker.twitter }}</a>)
+            {% endif %}
+        </p>
         {{ talk.abstract | markdown | safe }}
     {% endfor %}
     {% if event.isUpcomingEvent() %}
