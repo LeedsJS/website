@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Intro slides</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .wrapper {
+            scroll-snap-type: y mandatory;
+            width: 100%;
+            height: 100vh;
+            overflow: auto;
+        }
+
+        .slide {
+            scroll-snap-align: start;
+            width: 100%;
+            height: 100vh;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            flex-direction: column;
+        }
+
+        .slide::before {
+            content:url('../img/logo.png');
+            display: inline-block;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        .fullscreen {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            opacity: 0;
+            width: 80px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="slide">
+            <h1>Sponsors</h1>
+        </div>
+        <div class="slide">
+            <h1>Ahoy</h1>
+        </div>
+    </div>
+    <button class="fullscreen">Fullscreen</button>
+    <script>
+        const fullscreen = document.querySelector('.fullscreen')
+        fullscreen.addEventListener('mouseover', () => {
+            fullscreen.style.opacity = 1;
+        })
+        fullscreen.addEventListener('mouseout', () => {
+            fullscreen.style.opacity = 0;
+        })
+        fullscreen.addEventListener('click', () => {
+            document.body.requestFullscreen();
+            document.querySelector('.wrapper').focus();
+        })
+    </script>
+</body>
+</html>
