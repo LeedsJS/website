@@ -1,6 +1,6 @@
 {
     "title": "Bootstrapping your app with AWS Amplify",
     "speaker": "tom-hanson",
-    "abstract": "In the past, Amazon Web Services (AWS) was usually reserved for DevOps engineers who focused on leveraging services for application development. With recent developments for web and mobile services, I’m keen to showcase how AWS Amplify can streamline your application development workflow and can be used by nearly any level of developer.",
+    "abstract": "In the past, Amazon Web Services (AWS) was most commonly used by DevOps engineers who focused on leveraging services for application development. However, with recent developments for web and mobile services, this has changed and you can now streamline your application development workflow. In this talk, we'll explore how AWS Amplify can be used by nearly any level of developer to connect Cloud services to your app - all in just a few lines of code.",
     "date": "2019-08-28"
 }
