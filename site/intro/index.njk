@@ -15,6 +15,12 @@
             font-size: 30px;
         }
 
+        body {
+            background: url('../img/logo.png');
+            background-repeat: no-repeat;
+            background-position: 10px 10px;
+        }
+
         h1, h2, p {
             text-align: center;
         }
@@ -49,14 +55,6 @@
             flex-direction: column;
         }
 
-        .slide::before {
-            content:url('../img/logo.png');
-            display: inline-block;
-            position: absolute;
-            top: 10px;
-            left: 10px;
-        }
-
         .fullscreen {
             position: fixed;
             bottom: 10px;
@@ -67,15 +65,14 @@
         }
 
         .sponsors {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-column-gap: 50px;
-            grid-row-gap: 50px;
+            display: flex;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .sponsor {
             text-align: center;
+            flex: 1 0 33%;
         }
 
         .event-sponsor-logo {
@@ -146,8 +143,8 @@
         </div>
         <div class="slide">
             <h1>Code of conduct</h1>
+            <h2>Full version: leedsjs.com/code-of-conduct/</h2>
             <p class="code-of-conduct">LeedsJS is dedicated to providing harassment-free meet up experiences for everyone, regardless of gender, sexual orientation, disability, physical appearance, body size, age, race, or religion. We do not tolerate harassment of meet up participants in any form. Sexual language and imagery is not appropriate for any meet up venue or online discussion, including talks or the Slack channel. LeedsJS members violating these rules may be sanctioned or expelled from the group at the discretion of the group's organisers.</p>
-            <p>Full version: leedsjs.com/code-of-conduct/</p>
         </div>
         <div class="slide">
             <h1>Job pitches</h1>
