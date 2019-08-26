@@ -4,7 +4,7 @@ layout: layouts/page.njk
 ---
 {% set event = events.nextEvent %}
 <h2>Twitter Entry</h2>
-<p>Tweet with the hashtag #LeedsJS for these prizes:</p>
+<p>Tweet with the hashtag <strong>#LeedsJS</strong> for these prizes:</p>
 <ul>
     {% for prize in event.prizes %}
         {% if prize.tweetQuantity > 0 %}

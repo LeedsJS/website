@@ -151,9 +151,28 @@
             <h1>Job pitches</h1>
             <h2>1 minute maximum</h2>
         </div>
-        <div class="slide">
-            <h1>Prize draws</h1>
-        </div>
+        {% if event.prizes.length > 0 %}
+            <div class="slide">
+                <h1>Prize draws</h1>
+                <h2>Twitter Entry</h2>
+                <p>Tweet with the hashtag <strong>#LeedsJS</strong> for these prizes:</p>
+                <ul>
+                    {% for prize in event.prizes %}
+                        {% if prize.tweetQuantity > 0 %}
+                            <li>{{ prize.tweetQuantity }}x {{ prize.name }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+
+                <h2>Form Entry</h2>
+                <p>Enter at <strong>leedsjs.com/prize-draw</strong> for these prizes:</p>
+                <ul>
+                    {% for prize in event.prizes %}
+                        <li>{{ prize.formQuantity }}x {{ prize.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
         {% for talk_id in event.talks %}
             {% set talk = talks.get(talk_id) %}
             {% set speaker = speakers.get(talk.speaker) %}
