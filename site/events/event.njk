@@ -34,6 +34,14 @@ renderData:
             </div>
         {% endif %}
     {% endif %}
+    {% if event.prizes.length > 0 %}
+        <h2>Prize draw prizes</h2>
+        <ul>
+            {% for prize in event.prizes %}
+                <li>{{ prize.tweetQuantity + prize.formQuantity }}x {{ prize.name }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
     <h2>Talks</h2>
     {% for talk_id in event.talks %}
         {% set talk = talks.get(talk_id) %}

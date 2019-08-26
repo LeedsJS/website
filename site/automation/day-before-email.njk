@@ -21,6 +21,14 @@ permalink: automation/day-before-email.html
     <a href="https://leedsjs.com/events/{{ event.id }}" class="button">More details</a>
 
     {% include "venue.njk" %}
+    {% if event.prizes.length > 0 %}
+        <h2>Prize draw prizes</h2>
+        <ul>
+            {% for prize in event.prizes %}
+                <li>{{ prize.tweetQuantity + prize.formQuantity }}x {{ prize.name }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
     {% if event.sponsors.length > 0 %}
         <h2>Sponsors</h2>
         {% for sponsor_id in event.sponsors %}

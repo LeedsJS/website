@@ -16,6 +16,7 @@ We'll also be giving away 2 codes for a year subscription for a Jetbrains toolbo
             "jetbrains",
             "and-digital"
         ],
+        "prizes": [],
         "date": "2019-05-29",
         "start_time": "18:30",
         "end_time": "20:30",

@@ -1,0 +1,37 @@
+---
+title: Prize Draw
+layout: layouts/page.njk
+---
+{% set event = events.nextEvent %}
+<h2>Twitter Entry</h2>
+<p>Tweet with the hashtag #LeedsJS for these prizes:</p>
+<ul>
+    {% for prize in event.prizes %}
+        {% if prize.tweetQuantity > 0 %}
+            <li>{{ prize.tweetQuantity }}x {{ prize.name }}</li>
+        {% endif %}
+    {% endfor %}
+</ul>
+
+<h2>Form Entry</h2>
+<p>Use the form below for these prizes:</p>
+<ul>
+    {% for prize in event.prizes %}
+        <li>{{ prize.formQuantity }}x {{ prize.name }}</li>
+    {% endfor %}
+</ul>
+<form action="https://leedsjs-prize-draw.glitch.me/" method="POST" id="prize-draw-form">
+    <label for="name" class="prize-draw-form__label">Name:</label>
+    <input type="text" name="name" class="prize-draw-form__name">
+    {% set counter = 1 %}
+    {% for prize in event.prizes %}
+        <label class="prize-draw-form__label">
+            <input type="checkbox" name="entry{{ counter }}"> Enter for {{ prize.name }}
+        </label>
+    {% endfor %}
+    <p><strong>Please note:</strong> By entering the prize draw, you accept our use of a cookie to track your entry. The cookie will expire after 24 hours.</p>
+    <div id="prize-draw-response" class="prize-draw__response hidden error success"></div>
+    <div class="button-container">
+        <input type="submit" value="Enter prize draw">
+    </div>
+</form>

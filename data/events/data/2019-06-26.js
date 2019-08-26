@@ -15,6 +15,7 @@ We'll also be giving away 2 codes for a year subscription for a Jetbrains toolbo
             "starlight-software",
             "jetbrains",
         ],
+        "prizes": [],
         "date": "2019-06-26",
         "start_time": "18:30",
         "end_time": "20:30",

@@ -16,6 +16,7 @@ We'll also be giving away a ticket to the React Advanced conference in London (2
         "react-advanced-london",
         "jetbrains"
       ],
+      prizes: [],
       date: "2019-07-31",
       start_time: "18:45",
       end_time: "20:30",

@@ -4,12 +4,12 @@ function jsonp(url, data, callback) {
     const script = document.createElement('script');
     script.type = 'text/javascript';
 
-    window.mailchimpCallback = (data) => {
+    window.jsonpCallback = (data) => {
         head.removeChild(script);
         callback(data);
     };
 
-    data.c = 'mailchimpCallback';
+    data.c = 'jsonpCallback';
 
     const params = [];
 
@@ -46,13 +46,40 @@ function installMailchimp() {
         jsonp(url, data, (data) => {
             const response = document.querySelector('#mailchimp-response');
 
-            response.classList.remove('hidden');
+            response.classList.remove('hidden', 'success', 'error');
 
             if (data && data.result === 'success') {
+                response.classList.add('success');
                 response.innerHTML = data.msg;
             } else if (data && data.result === 'error') {
+                response.classList.add('error');
                 response.innerHTML = data.msg;
             } else {
+                response.classList.add('error');
+                response.innerHTML = "There was an unexpected error when submitting, please try again later";
+            }
+        });
+    });
+}
+
+function installPrizeDraw() {
+    const form = document.querySelector('#prize-draw-form');
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const data = getFormData(form);
+        const url = form.action;
+
+        jsonp(url, data, (data) => {
+            const response = document.querySelector('#prize-draw-response');
+
+            response.classList.remove('hidden', 'success', 'error');
+            
+            if (data && data.message) {
+                response.classList.add('success');
+                response.innerHTML = data.message;
+            } else {
+                response.classList.add('error');
                 response.innerHTML = "There was an unexpected error when submitting, please try again later";
             }
         });
@@ -106,5 +133,6 @@ function initGoToTopBtn() {
 
 lazyLoad();
 installMailchimp();
+installPrizeDraw();
 initGoToTopBtn();
 window.addEventListener('scroll', lazyLoad, { passive: true })

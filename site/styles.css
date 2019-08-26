@@ -195,12 +195,12 @@ p, ul, address {
     line-height: 1.4;
 }
 
-.mailchimp-form__label {
+.mailchimp-form__label, .prize-draw-form__label {
     display: block;
     margin-bottom: 8px;
 }
 
-.mailchimp-form__email {
+.mailchimp-form__email, .prize-draw-form__name {
     width: 100%;
     padding: 8px;
     font-size: 16px;
@@ -209,8 +209,18 @@ p, ul, address {
     border: 1px solid #000000;
 }
 
-.mailchimp-form__response {
+.mailchimp-form__response, .prize-draw__response {
     margin-bottom: 16px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.error {
+    background: #ff7777;
+}
+
+.success {
+    background: #a9ff87;
 }
 
 .button, button, input[type="submit"] {

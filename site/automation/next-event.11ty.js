@@ -23,6 +23,7 @@ class NextEvent {
             blurb: event.blurb,
             talks: [],
             sponsors: [],
+            prizes: event.prizes || [],
             date: event.date,
             start_time: event.start_time,
             end_time: event.end_time,
