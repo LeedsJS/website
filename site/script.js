@@ -36,54 +36,59 @@ function getFormData(form) {
 
 function installMailchimp() {
     const form = document.querySelector('#mailchimp-form');
+   
+    if (form) {
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
 
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
+            const data = getFormData(form);
+            const url = form.action.replace('/post?', '/post-json?');
 
-        const data = getFormData(form);
-        const url = form.action.replace('/post?', '/post-json?');
+            jsonp(url, data, (data) => {
+                const response = document.querySelector('#mailchimp-response');
 
-        jsonp(url, data, (data) => {
-            const response = document.querySelector('#mailchimp-response');
+                response.classList.remove('hidden', 'success', 'error');
 
-            response.classList.remove('hidden', 'success', 'error');
-
-            if (data && data.result === 'success') {
-                response.classList.add('success');
-                response.innerHTML = data.msg;
-            } else if (data && data.result === 'error') {
-                response.classList.add('error');
-                response.innerHTML = data.msg;
-            } else {
-                response.classList.add('error');
-                response.innerHTML = "There was an unexpected error when submitting, please try again later";
-            }
+                if (data && data.result === 'success') {
+                    response.classList.add('success');
+                    response.innerHTML = data.msg;
+                } else if (data && data.result === 'error') {
+                    response.classList.add('error');
+                    response.innerHTML = data.msg;
+                } else {
+                    response.classList.add('error');
+                    response.innerHTML = "There was an unexpected error when submitting, please try again later";
+                }
+            });
         });
-    });
+    }
 }
 
 function installPrizeDraw() {
     const form = document.querySelector('#prize-draw-form');
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
+    
+    if (form) {
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
 
-        const data = getFormData(form);
-        const url = form.action;
+            const data = getFormData(form);
+            const url = form.action;
 
-        jsonp(url, data, (data) => {
-            const response = document.querySelector('#prize-draw-response');
+            jsonp(url, data, (data) => {
+                const response = document.querySelector('#prize-draw-response');
 
-            response.classList.remove('hidden', 'success', 'error');
-            
-            if (data && data.message) {
-                response.classList.add('success');
-                response.innerHTML = data.message;
-            } else {
-                response.classList.add('error');
-                response.innerHTML = "There was an unexpected error when submitting, please try again later";
-            }
+                response.classList.remove('hidden', 'success', 'error');
+                
+                if (data && data.message) {
+                    response.classList.add('success');
+                    response.innerHTML = data.message;
+                } else {
+                    response.classList.add('error');
+                    response.innerHTML = "There was an unexpected error when submitting, please try again later";
+                }
+            });
         });
-    });
+    }
 }
 
 function lazyLoad() {
