@@ -30,6 +30,7 @@ renderData:
         <label class="prize-draw-form__label">
             <input type="checkbox" name="entry{{ counter }}"> Enter for {{ prize.name }}
         </label>
+        {% set counter = counter + 1 %}
     {% endfor %}
     <p><strong>Please note:</strong> By entering the prize draw, you accept our use of a cookie to track your entry. The cookie will expire after 24 hours.</p>
     <div id="prize-draw-response" class="prize-draw__response hidden error success"></div>
