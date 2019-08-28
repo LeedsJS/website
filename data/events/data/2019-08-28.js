@@ -15,7 +15,8 @@ module.exports = () => {
         "jetbrains"
       ],
       prizes: [
-        { name: "1-year Jetbrains license", formQuantity: 1, tweetQuantity: 1}
+        { name: "1-year Jetbrains license", formQuantity: 1, tweetQuantity: 1},
+        { name: "Modern Web Development on the JAMstack book", formQuantity: 3, tweetQuantity: 0}
       ],
       date: "2019-08-28",
       start_time: "18:45",
