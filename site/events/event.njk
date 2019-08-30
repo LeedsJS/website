@@ -10,7 +10,7 @@ renderData:
     description: "{{ events.get(event_id).blurb | safe }}"
 ---
 {% set event = events.get(event_id) %}
-{% set videos = [] %}
+{% set hasVideos = false %}
 <h1>{{ event.title }}</h1>
 <div class="card">
     <p><b>Date:</b> {{ event.date | date("Do MMMM YYYY") }}</p>
@@ -47,7 +47,7 @@ renderData:
         {% set talk = talks.get(talk_id) %}
         {% set speaker = speakers.get(talk.speaker) %}
         {% if talk.youtube_video_id %}
-            {% set videos = (videos.push({ title: talk.title, speaker: speakers.get(talk.speaker).name, youtube_video_id: talk.youtube_video_id}), videos) %}
+            {% set hasVideos = true %}
         {% endif %}
         <h3>{{ talk.title }}</h3>
         <p>
@@ -76,12 +76,16 @@ renderData:
             ></div>
         {% endfor %}
     {% endif %}
-    {% if videos.length > 0 %}
+    {% if hasVideos %}
         <h2>Videos</h2>
-        {% for video in videos %}
-            <h3>{{ video.speaker }} - {{ video.title }}</h3>
-            {% set youtube_video_id = video.youtube_video_id %}
-            {% include "youtube-video.njk" %}
+        {% for talk_id in event.talks %}
+            {% set talk = talks.get(talk_id) %}
+            {% set speaker = speakers.get(talk.speaker) %}
+            {% if talk.youtube_video_id %}
+                <h3>{{ speaker.name }} - {{ talk.title }}</h3>
+                {% set youtube_video_id = talk.youtube_video_id %}
+                {% include "youtube-video.njk" %}
+            {% endif %}
         {% endfor %}
     {% endif %}
 </div>

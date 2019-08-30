@@ -95,6 +95,16 @@
             max-height: 300px;
             margin-right: 50px;
         }
+
+        .prize-draws {
+            display: flex;
+            align-items: top;
+        }
+
+        .prize-draws section {
+            flex: 1 0 50%;
+            margin: 0px 10px;
+        }
     </style>
 </head>
 <body>
@@ -154,31 +164,38 @@
         {% if event.prizes.length > 0 %}
             <div class="slide">
                 <h1>Prize draws</h1>
-                <h2>Twitter Entry</h2>
-                <p>Tweet with the hashtag <strong>#LeedsJS</strong> for these prizes:</p>
-                <ul>
-                    {% for prize in event.prizes %}
-                        {% if prize.tweetQuantity > 0 %}
-                            <li>{{ prize.tweetQuantity }}x {{ prize.name }}</li>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
 
-                <h2>Form Entry</h2>
-                <p>Enter at <strong>leedsjs.com/prize-draw</strong> for these prizes:</p>
-                <ul>
-                    {% for prize in event.prizes %}
-                        <li>{{ prize.formQuantity }}x {{ prize.name }}</li>
-                    {% endfor %}
-                </ul>
+                <div class="prize-draws">
+                    <section>
+                        <h2>Twitter Entry</h2>
+                        <p>Tweet with the hashtag <strong>#LeedsJS</strong> for these prizes:</p>
+                        <ul>
+                            {% for prize in event.prizes %}
+                                {% if prize.tweetQuantity > 0 %}
+                                    <li>{{ prize.tweetQuantity }}x {{ prize.name }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Form Entry</h2>
+                        <p>Enter at <strong>leedsjs.com/prize-draw</strong> for these prizes:</p>
+                        <ul>
+                            {% for prize in event.prizes %}
+                                <li>{{ prize.formQuantity }}x {{ prize.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </section>
+                </div>
             </div>
         {% endif %}
+        <div class="slide">
+            <h1>We don't do Q & A</h1>
+            <h2>But please come and chat to the speaker after their talk!</h2>
+        </div>
         {% for talk_id in event.talks %}
             {% set talk = talks.get(talk_id) %}
             {% set speaker = speakers.get(talk.speaker) %}
-            {% if talk.youtube_video_id %}
-                {% set videos = (videos.push({ title: talk.title, speaker: speakers.get(talk.speaker).name, youtube_video_id: talk.youtube_video_id}), videos) %}
-            {% endif %}
             <div class="slide">
                 <h1>{{ talk.title }}</h1>
                 <div class="speaker">
