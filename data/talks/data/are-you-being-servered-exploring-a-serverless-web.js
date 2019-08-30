@@ -7,6 +7,7 @@ module.exports = () => {
 Personally I love this approach. And I want to explain why.
 
 There has never been a better time for a fresh look at how we approach building and delivering web sites and applications. From the careful selection of JavaScript libraries and frameworks, to the use of emerging tools, services, and platforms.`,
-      date: "2019-08-28"
+      date: "2019-08-28",
+      youtube_video_id: "OUbkm4AH9g4"
     };
 }
