@@ -18,26 +18,27 @@ renderData:
     <form name="{{ event_id }}-feedback" action="/feedback-success" method="POST" netlify>
         <h2>The event</h2>
         <p>How would you rate the event overall?</p>
+        <p>1 = Terrible, 5 = Excellent</p>
         <div class="form__group">
             <label>
-                <input type="radio" name="event_rating" value="terrible">
-                Terrible
+                <input type="radio" name="event_rating" value="1">
+                1
             </label>
             <label>
-                <input type="radio" name="event_rating" value="poor">
-                Poor
+                <input type="radio" name="event_rating" value="2">
+                2
             </label>
             <label>
-                <input type="radio" name="event_rating" value="ok">
-                Ok
+                <input type="radio" name="event_rating" value="3">
+                3
             </label>
             <label>
-                <input type="radio" name="event_rating" value="good">
-                Good
+                <input type="radio" name="event_rating" value="4">
+                4
             </label>
             <label>
-                <input type="radio" name="event_rating" value="excellent">
-                Excellent
+                <input type="radio" name="event_rating" value="5">
+                5
             </label>
         </div>
 
@@ -48,26 +49,27 @@ renderData:
             {% set talk = talks.get(talk_id) %}
             <h2>Talk {{talk_count}}: {{ speakers.get(talk.speaker).name }} - {{ talk.title }}</h2>
             <p>How would you rate the talk?</p>
+            <p>1 = Terrible, 5 = Excellent</p>
             <div class="form__group">
                 <label>
-                    <input type="radio" name="talk_{{ talk_count }}_rating" value="terrible">
-                    Terrible
+                    <input type="radio" name="talk_{{ talk_count }}_rating" value="1">
+                    1
                 </label>
                 <label>
-                    <input type="radio" name="talk_{{ talk_count }}_rating" value="poor">
-                    Poor
+                    <input type="radio" name="talk_{{ talk_count }}_rating" value="2">
+                    2
                 </label>
                 <label>
-                    <input type="radio" name="talk_{{ talk_count }}_rating" value="ok">
-                    Ok
+                    <input type="radio" name="talk_{{ talk_count }}_rating" value="3">
+                    3
                 </label>
                 <label>
-                    <input type="radio" name="talk_{{ talk_count }}_rating" value="good">
-                    Good
+                    <input type="radio" name="talk_{{ talk_count }}_rating" value="4">
+                    4
                 </label>
                 <label>
-                    <input type="radio" name="talk_{{ talk_count }}_rating" value="excellent">
-                    Excellent
+                    <input type="radio" name="talk_{{ talk_count }}_rating" value="5">
+                    5
                 </label>
             </div>
 
