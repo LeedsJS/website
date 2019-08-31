@@ -25,6 +25,7 @@ renderData:
 <form action="https://leedsjs-prize-draw.glitch.me/" method="POST" id="prize-draw-form">
     <label for="name" class="prize-draw-form__label">Name:</label>
     <input type="text" name="name" class="prize-draw-form__name">
+    <p>Select which prizes you'd like to enter for:</p>
     {% set counter = 1 %}
     {% for prize in event.prizes %}
         <label class="prize-draw-form__label">

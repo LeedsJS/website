@@ -56,6 +56,13 @@ function addMethods(event) {
             return now.isSameOrBefore(this.date, 'day');
         },
 
+        isWithinFeedbackWindow() {
+            const now = moment().tz('Europe/London');
+            const deadline = moment(this.date).tz('Europe/London').add(7, "days");
+
+            return now.isSameOrBefore(deadline, 'day');
+        },
+
         isAnnounced() {
             const now = moment().tz('Europe/London');
 

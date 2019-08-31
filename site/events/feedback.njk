@@ -14,7 +14,7 @@ renderData:
 <div class="card">
 {% if event.isUpcomingEvent() %}
     <p>The feedback form will be available after the event</p>
-{% else %}
+{% elseif event.isWithinFeedbackWindow() %}
     <form name="{{ event_id }}-feedback" action="/feedback-success" method="POST" netlify>
         <h2>The event</h2>
         <p>How would you rate the event overall?</p>
@@ -81,5 +81,7 @@ renderData:
             <button type="submit">Submit</button>
         </div>
     </form>
+{% else %}
+    <p>The window for feedback has closed</p>
 {% endif %}
 </div>
