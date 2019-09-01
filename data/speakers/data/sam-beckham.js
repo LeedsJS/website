@@ -6,6 +6,7 @@ module.exports = () => {
 You can follow him as samdbeckham on Github, Twitter, Codepen, or Medium.
 
 Yes, the D stands for David; and no, there’s no relation (unfortunately).`,
+        "pronouns": "He/Him",
         "picture": "sam-beckham.jpg",
         "twitter": "samdbeckham",
         "links": {
