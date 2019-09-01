@@ -50,12 +50,11 @@ renderData:
             {% set hasVideos = true %}
         {% endif %}
         <h3>{{ talk.title }}</h3>
-        <p>
-            <b>Speaker:</b> <a href="/speakers/{{ talk.speaker }}/">{{ speaker.name }}</a>
-            {% if speaker.twitter %}
-                (<a href="https://twitter.com/{{ speaker.twitter }}" target="_blank" rel="noopener noreferrer">@{{ speaker.twitter }}</a>)
-            {% endif %}
-        </p>
+        <p><b>Speaker:</b> <a href="/speakers/{{ talk.speaker }}/">{{ speaker.name }}</a></p>
+        <p><b>Pronouns:</b> {{ speaker.pronouns }}</p>
+        {% if speaker.twitter %}
+            <p><b>Twitter:</b> <a href="https://twitter.com/{{ speaker.twitter }}" target="_blank" rel="noopener noreferrer">@{{ speaker.twitter }}</a></p>
+        {% endif %}
         {{ talk.abstract | markdown | safe }}
     {% endfor %}
     {% if event.isUpcomingEvent() %}
