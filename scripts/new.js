@@ -25,7 +25,7 @@ const [,,type, name] = process.argv;
 
 if (types[type.toLowerCase()]) {
     const selectedType = types[type.toLocaleLowerCase()];
-    const fileName = `${slugify(name.toLowerCase())}.js`;
+    const fileName = `${slug(name.toLowerCase())}.js`;
     const template = fs.readFileSync(path.join(__dirname, '..', 'scaffolds', selectedType.scaffold), 'utf8');
 
     const content = template.replace(`{{ ${selectedType.field} }}`, name);
@@ -45,3 +45,8 @@ if (types[type.toLowerCase()]) {
     console.log(`No scaffold for type of "${type}"`);
 }
 
+function slug(str) {
+    return slugify(str, {
+        remove: /[*+~.()'"!:@]/g
+    })
+}

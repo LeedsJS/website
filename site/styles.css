@@ -323,6 +323,16 @@ input[type="submit"]:hover {
     padding: 0;
 }
 
+.event__speaker-detail {
+    margin-right: 10px;
+    display: inline-block;
+    margin-bottom: 16px;
+}
+
+.nomargin {
+    margin: 0;
+}
+
 .back-to-top {
     opacity: 1;
     pointer-events: all;
