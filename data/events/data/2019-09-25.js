@@ -22,6 +22,6 @@ module.exports = () => {
         start_time: "18:45",
         end_time: "20:30",
         ticket_date: "2019-09-18",
-        announce_date: "2019-09-06"
+        announce_date: "2019-09-05"
     }
 }
