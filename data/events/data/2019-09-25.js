@@ -1,10 +1,9 @@
 module.exports = () => {
     return {
         id: "2019-09-25",
-        title: "September - Scaling frontends and memory management",
-        blurb: "This month we have a Richard McIntyre speaking about scaling high traffic sites, and Katie Fenn will be talking about memory management in JavaScript.",
+        title: "September - TBC and memory management",
+        blurb: "This month Katie Fenn will be talking about memory management in JavaScript and we still have availability for the first spot!",
         talks: [
-            "scaling-frontends-on-sports-websites",
             "memory-dont-forget-to-take-out-the-garbage"
         ],
         sponsors: [
