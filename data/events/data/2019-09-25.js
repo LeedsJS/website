@@ -2,9 +2,9 @@ module.exports = () => {
     return {
         id: "2019-09-25",
         title: "September - Nought to tester and memory management",
-        blurb: "This month Beth North will be taking us from Nought to tester in 20 minutes and Katie Fenn will be talking about memory management in JavaScript!",
+        blurb: "This month Beth North will be taking us from Nought to tester in 30 minutes and Katie Fenn will be talking about memory management in JavaScript!",
         talks: [
-            "nought-to-tester-in-20-minutes",
+            "nought-to-tester-in-30-minutes",
             "memory-dont-forget-to-take-out-the-garbage"
         ],
         sponsors: [
