@@ -1,9 +1,10 @@
 module.exports = () => {
     return {
         id: "2019-09-25",
-        title: "September - TBC and memory management",
-        blurb: "This month Katie Fenn will be talking about memory management in JavaScript and we still have availability for the first spot!",
+        title: "September - Nought to tester and memory management",
+        blurb: "This month Beth North will be taking us from Nought to tester in 20 minutes and Katie Fenn will be talking about memory management in JavaScript!",
         talks: [
+            "nought-to-tester-in-20-minutes",
             "memory-dont-forget-to-take-out-the-garbage"
         ],
         sponsors: [
