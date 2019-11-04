@@ -1,0 +1,42 @@
+---
+layout: layouts/page.njk
+title: Submit Your Talk
+renderData:
+    disableMailchimp: true
+---
+<form name="talk-submission" action="/submit-talk/success" method="POST" netlify>
+    <h2>About You</h2>
+    
+    <label for="speaker-name" class="form__label">Your name:</label>
+    <input type="text" name="speaker-name" class="form__text">
+    
+    <label for="speaker-email" class="form__label">Your email:</label>
+    <input type="text" name="speaker-email" class="form__text">
+    
+    <label for="photo" class="form__label">Your speaker photo:</label>
+    <input type="file" name="photo" class="form__text">
+    
+    <label for="pronouns" class="form__label">Your pronouns (E.g She/Her, He/Him, They/Them):</label>
+    <input type="text" name="pronouns" class="form__text">
+    
+    <label for="bio" class="form__label">Your speaker bio:</label>
+    <textarea name="bio" class="form__textarea"></textarea>
+    
+    <label for="twitter" class="form__label">Your Twitter handle:</label>
+    <input type="text" name="twitter" class="form__text">
+    
+    <label for="links" class="form__label">Links for your speaker page (personal website, GitHub, YouTube channel etc):</label>
+    <textarea name="links" class="form__textarea"></textarea>
+    
+    <h2>Your Talk</h2>
+    
+    <label for="talk-title" class="form__label">Talk title:</label>
+    <input type="text" name="talk-title" class="form__text">
+
+    <label for="talk-description" class="form__label">Your talk abstract/description:</label>
+    <textarea name="talk-description" class="form__textarea"></textarea>
+    
+    <div class="button-container">
+        <button type="submit">Submit</button>
+    </div>
+</form>
