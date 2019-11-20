@@ -3,7 +3,7 @@ module.exports = () => {
       id: "2019-11-27",
       title: "November - Lightning talks!",
       blurb:
-        "This month we're holding our first lighting talk event! We have a number of great sounding talks from some really great speakers!",
+        "This month we're holding our first lightning talk event! We have a number of great sounding talks from some really great speakers!",
       talks: [
         "landing-on-the-desktop-with-electron",
         "javascript-has-eaten-data-visualization-too",
