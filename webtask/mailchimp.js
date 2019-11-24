@@ -25,7 +25,7 @@ module.exports = function (context, cb) {
         eventData = JSON.parse(eventData);
 
         if (!eventData.id) {
-            return commsMessages(cb);
+            return commsMessages(getOptions, cb);
         }
 
         const tomorrow = moment().tz('Europe/London').add(1, 'days');
@@ -62,15 +62,15 @@ module.exports = function (context, cb) {
             }, null, (emailContent) => {
                 console.log(`Grabbed the ${templateName} template`);
 
-                sendEmail(subject, emailContent, cb);
+                sendEmail(subject, emailContent, getOptions, cb);
             })
         } else {
-            commsMessages(cb)
+            commsMessages(getOptions, cb)
         }
     });
 };
 
-function commsMessages(cb) {
+function commsMessages(getOptions, cb) {
     makeRequest({
         host: 'localhost',
         port: 8080,
@@ -84,14 +84,14 @@ function commsMessages(cb) {
         }
 
         if (today.isSame(commData.date, 'day')) {
-            sendEmail(commData.title, commData.body, cb)
+            sendEmail(commData.title, commData.body, getOptions, cb)
         }
         
         return cb(null, {});
     });
 }
 
-function sendEmail(subject, content, cb) {
+function sendEmail(subject, content, getOptions, cb) {
     makeRequest(getOptions('/3.0/campaigns', 'POST'), {
         type: 'regular',
         recipients: {
@@ -127,7 +127,7 @@ function sendEmail(subject, content, cb) {
     })
 }
 
-function makeRequest(options, body, cb) {
+function makeRequest(options, body, getOptions, cb) {
     const req = https.request(options, (res) => {
         let data = '';
         res.setEncoding('utf8');
