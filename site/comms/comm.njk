@@ -1,0 +1,16 @@
+---
+layout: layouts/base.njk
+pagination:
+    data: comms.data
+    size: 1
+    alias: comm_id
+permalink: email/{{ comm_id | slug }}/index.html
+renderData:
+    title: Email - {{ comms.get(comm_id).title | safe }}
+---
+{% set comm = comms.get(comm_id) %}
+<h1>{{ comm.title }}</h1>
+<div class="card">
+    <p><b>Posted:</b> {{ event.date | date("Do MMMM YYYY") }}</p>
+    {{ comm.body | markdown | safe }}
+</div>

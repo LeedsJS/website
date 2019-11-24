@@ -2,6 +2,7 @@ const moment = require('moment-timezone');
 const markdownIt = require('markdown-it');
 const purifycss = require('purify-css');
 const htmlminifier = require('html-minifier');
+const md = new markdownIt();
 
 module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("site/img");
@@ -18,8 +19,6 @@ module.exports = function(eleventyConfig) {
     });
 
     eleventyConfig.addNunjucksFilter("markdown", function(string) {
-        const md = new markdownIt();
-
         return md.render(string);
     });
 

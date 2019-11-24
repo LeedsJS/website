@@ -1,5 +1,6 @@
-const https = require('https');
+const https = require('http');
 const moment = require('moment-timezone');
+const today = moment().tz('Europe/London');
 
 module.exports = function (context, cb) {
 
@@ -16,22 +17,22 @@ module.exports = function (context, cb) {
     };
 
     makeRequest({
-        host: 'leedsjs.com',
+        host: 'localhost',
+        port: 8080,
         path: '/automation/next-event.json',
         method: 'GET',
     }, null, (eventData) => {
         eventData = JSON.parse(eventData);
 
         if (!eventData.id) {
-            return cb(null, {});
+            return commsMessages(cb);
         }
 
-        const today = moment().tz('Europe/London');
         const tomorrow = moment().tz('Europe/London').add(1, 'days');
         const yesterday = moment().tz('Europe/London').subtract(1, 'days');
 
-        let templateName = '';
-        let subject = '';
+        let templateName;
+        let subject;
         if (today.isSame(eventData.announce_date, 'day')) {
             console.log(`It's announcement day!`);
             templateName = 'announcement-email';
@@ -47,55 +48,84 @@ module.exports = function (context, cb) {
         } else if (yesterday.isSame(eventData.date, 'day')) {
             console.log(`It's the day after the event!`);
             templateName = 'day-after-email';
-            subject = `Thank you to everyone who joined us for ${eventData.title}`
+            subject = `Please leave feedback about last night's event: ${eventData.title}`
         } else {
             console.log('No emails today');
             return cb(null, {});
         }
 
-        makeRequest({
-            host: 'leedsjs.com',
-            path: `/automation/${templateName}.html`,
-            method: 'GET',
-        }, null, (emailContent) => {
-            console.log(`Grabbed the ${templateName} template`);
+        if (templateName) {
+            makeRequest({
+                host: 'leedsjs.com',
+                path: `/automation/${templateName}.html`,
+                method: 'GET',
+            }, null, (emailContent) => {
+                console.log(`Grabbed the ${templateName} template`);
 
-            makeRequest(getOptions('/3.0/campaigns', 'POST'), {
-                type: 'regular',
-                recipients: {
-                    list_id: '5cdb704e1c'
-                },
-                settings: {
-                    subject_line: subject,
-                    from_name: 'LeedsJS',
-                    reply_to: 'leedsjs@gmail.com'
-
-                }
-            }, (campaignData) => {
-                campaignData = JSON.parse(campaignData);
-
-                console.log(`Created campaign with ID ${campaignData.id}`);
-
-                makeRequest(getOptions(`/3.0/campaigns/${campaignData.id}/content`, 'PUT'), {
-                    template: {
-                        id: 20713,
-                        sections: {
-                            body: emailContent
-                        }
-                    }
-                }, () => {
-                    console.log(`Set email content`);
-
-                    makeRequest(getOptions(`/3.0/campaigns/${campaignData.id}/actions/send`, 'POST'), null, () => {
-                        console.log('Sent!');
-
-                        cb(null, {});
-                    })
-                })
+                sendEmail(subject, emailContent, cb);
             })
-        })
+        } else {
+            commsMessages(cb)
+        }
     });
 };
+
+function commsMessages(cb) {
+    makeRequest({
+        host: 'localhost',
+        port: 8080,
+        path: '/automation/next-comm.json',
+        method: 'GET',
+    }, null, (commData) => {
+        commData = JSON.parse(commData);
+
+        if (!commData.id) {
+            return cb(null, {});
+        }
+
+        if (today.isSame(commData.date, 'day')) {
+            sendEmail(commData.title, commData.body, cb)
+        }
+        
+        return cb(null, {});
+    });
+}
+
+function sendEmail(subject, content, cb) {
+    makeRequest(getOptions('/3.0/campaigns', 'POST'), {
+        type: 'regular',
+        recipients: {
+            list_id: '5cdb704e1c'
+        },
+        settings: {
+            subject_line: subject,
+            from_name: 'LeedsJS',
+            reply_to: 'leedsjs@gmail.com'
+
+        }
+    }, (campaignData) => {
+        campaignData = JSON.parse(campaignData);
+
+        console.log(`Created campaign with ID ${campaignData.id}`);
+
+        makeRequest(getOptions(`/3.0/campaigns/${campaignData.id}/content`, 'PUT'), {
+            template: {
+                id: 20713,
+                sections: {
+                    body: content
+                }
+            }
+        }, () => {
+            console.log(`Set email content`);
+
+            makeRequest(getOptions(`/3.0/campaigns/${campaignData.id}/actions/send`, 'POST'), null, () => {
+                console.log('Sent!');
+
+                cb(null, {});
+            })
+        })
+    })
+}
 
 function makeRequest(options, body, cb) {
     const req = https.request(options, (res) => {

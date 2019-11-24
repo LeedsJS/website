@@ -3,6 +3,10 @@ const fs = require('fs');
 const path = require('path');
 
 const types = {
+    comm: {
+        scaffold: 'comm.js',
+        field: "id"
+    },
     event: {
         scaffold: 'event.js',
         field: "id"
