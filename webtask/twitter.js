@@ -1,8 +1,6 @@
 const Twitter = require('twitter');
-const https = require('http');
+const https = require('https');
 const moment = require('moment-timezone');
-
-const today = moment().tz('Europe/London');
 
 module.exports = function (context, cb) {
     const client = new Twitter({
@@ -23,6 +21,7 @@ module.exports = function (context, cb) {
             return commsMessages(client, cb);
         }
 
+        const today = moment().tz('Europe/London');
         const tomorrow = moment().tz('Europe/London').add(1, 'days');
         const yesterday = moment().tz('Europe/London').subtract(1, 'days');
 
@@ -118,21 +117,24 @@ function commsMessages(client, cb) {
             return cb(null, {});
         }
 
+        const today = moment().tz('Europe/London');
+
         if (today.isSame(commData.date, 'day')) {
             const message = `${commData.tweet}
-            
+
 Read more: https://leedsjs.com/email/${commData.id}`;
 
             client.post('statuses/update', {status: message},  function(error, tweet, response) {
                 if (error) {
-                    return console.log(error);
+                    console.log(error);
                 };
                 console.log(tweet);
                 cb(null, {});
             });
+        } else {
+            console.log('no tweet today')
+            return cb(null, {});
         }
-        
-        return cb(null, {});
     });
 }
 

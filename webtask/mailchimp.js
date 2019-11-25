@@ -1,6 +1,5 @@
-const https = require('http');
+const https = require('https');
 const moment = require('moment-timezone');
-const today = moment().tz('Europe/London');
 
 module.exports = function (context, cb) {
 
@@ -17,8 +16,7 @@ module.exports = function (context, cb) {
     };
 
     makeRequest({
-        host: 'localhost',
-        port: 8080,
+        host: 'leedsjs.com',
         path: '/automation/next-event.json',
         method: 'GET',
     }, null, (eventData) => {
@@ -28,6 +26,7 @@ module.exports = function (context, cb) {
             return commsMessages(getOptions, cb);
         }
 
+        const today = moment().tz('Europe/London');
         const tomorrow = moment().tz('Europe/London').add(1, 'days');
         const yesterday = moment().tz('Europe/London').subtract(1, 'days');
 
@@ -49,9 +48,6 @@ module.exports = function (context, cb) {
             console.log(`It's the day after the event!`);
             templateName = 'day-after-email';
             subject = `Please leave feedback about last night's event: ${eventData.title}`
-        } else {
-            console.log('No emails today');
-            return cb(null, {});
         }
 
         if (templateName) {
@@ -72,8 +68,7 @@ module.exports = function (context, cb) {
 
 function commsMessages(getOptions, cb) {
     makeRequest({
-        host: 'localhost',
-        port: 8080,
+        host: 'leedsjs.com',
         path: '/automation/next-comm.json',
         method: 'GET',
     }, null, (commData) => {
@@ -82,16 +77,20 @@ function commsMessages(getOptions, cb) {
         if (!commData.id) {
             return cb(null, {});
         }
+        const today = moment().tz('Europe/London');
 
         if (today.isSame(commData.date, 'day')) {
             sendEmail(commData.title, commData.body, getOptions, cb)
+        } else {
+            console.log("no emails today")
+            return cb(null, {});
         }
-        
-        return cb(null, {});
+
     });
 }
 
 function sendEmail(subject, content, getOptions, cb) {
+    console.log("sending " + subject);
     makeRequest(getOptions('/3.0/campaigns', 'POST'), {
         type: 'regular',
         recipients: {
@@ -127,7 +126,7 @@ function sendEmail(subject, content, getOptions, cb) {
     })
 }
 
-function makeRequest(options, body, getOptions, cb) {
+function makeRequest(options, body, cb) {
     const req = https.request(options, (res) => {
         let data = '';
         res.setEncoding('utf8');
