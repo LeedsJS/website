@@ -8,6 +8,7 @@ module.exports = () => {
         "landing-on-the-desktop-with-electron",
         "javascript-has-eaten-data-visualization-too",
         "mentoring-whats-in-it-for-me",
+        "the-cube-rule-of-food-identification",
         "tell-your-component-story-with-storybook",
         "html-can-do-that"
       ],
