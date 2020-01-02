@@ -170,6 +170,16 @@ p, ul, address {
     padding: 0;
 }
 
+.footer {
+    padding: 0px 16px;
+    width: 90%;
+    min-width: 288px;
+    max-width: 750px;
+    margin: 0px auto;
+    text-align: center;
+    color: #FFFFFF;
+}
+
 .card {
     background: #ffffff;
     padding: 16px;

@@ -65,15 +65,18 @@
                     {% include "mailchimp-form.njk" %}
                 </div>
             {% endif %}
-            <div>
-                <p class="center">
-                    <a href="https://github.com/leedsjs/website" target="_blank" rel="noopener noreferrer" class="link__yellow">
-                        View website source on GitHub
-                    </a>
-                </p>
-            </div>
-            <div class="back-to-top hidden">&uarr;</div>
         </main>
+        <footer class="footer">
+            <p>
+                <a href="https://github.com/leedsjs/website" target="_blank" rel="noopener noreferrer" class="link__yellow">
+                    View website source on GitHub
+                </a>
+            </p>
+            <p>
+                LeedsJS CIC (company number 12380213) is a registered community interest company funded purely by our sponsors
+            </p>
+        </footer>
+        <div class="back-to-top hidden">&uarr;</div>
         <script>
             if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function () {
