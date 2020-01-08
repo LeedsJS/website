@@ -13,11 +13,13 @@ module.exports = () => {
       "bruntwood",
       "starlight-software",
       "jetbrains",
+      "front-end-north",
       "smashing-magazine"
     ],
     prizes: [
       { name: "1-year Jetbrains license", formQuantity: 1, tweetQuantity: 1 },
-      { name: "Inclusive Components book", formQuantity: 1, tweetQuantity: 0 }
+      { name: "Inclusive Components book", formQuantity: 1, tweetQuantity: 0 },
+      { name: "Front End North conference ticket", formQuantity: 1, tweetQuantity: 0 }
     ],
     date: "2020-01-29",
     start_time: "18:45",
