@@ -1,7 +1,7 @@
 module.exports = () => {
   return {
     id: "2020-01-29",
-    title: "January: Engineering life lessons and to your computer",
+    title: "January: Engineering life lessons and speaking to your computer",
     blurb:
       "This month we have Tanja Lichtensteiger talking about the lessons she's learned in her career and Brian Teeman talking about voice on the web ",
     talks: [
