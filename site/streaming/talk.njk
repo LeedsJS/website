@@ -39,31 +39,41 @@ permalink: streaming/talk-{{ pagination.pageNumber + 1 }}/index.html
             font-size: 24px;
             width: 1280px;
         }
-        .speaker {
+        .speakers {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-end;
             width: 490px;
-            height: 490px;
+            height: 580px;
             position: absolute;
             bottom: 0px;
             flex-direction: column;
             padding: 20px;
             box-sizing: border-box;
         }
+        .speaker {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            flex: 1;
+        }
         .speaker__name, .speaker__twitter {
             font-size: 40px;
             padding: 10px;
         }
         .speaker__img {
-            width: 250px;
-            height: 250px;
+            max-width: 300px;
+            max-height: 300px;
         }
         .speaker__img img {
-            border-radius: 50%;
-            width: 100%;
-            height: 100%;
+            border-radius: 150px;
+            max-width: 100%;
+            max-height: 100%;
             background: black;
+        }
+        .social-icon {
+            vertical-align: middle;
         }
     </style>
 </head>
@@ -71,19 +81,34 @@ permalink: streaming/talk-{{ pagination.pageNumber + 1 }}/index.html
     <div class="title">
         <h1>{{ talk.title }}</h1>
     </div>
-    <div class="speaker">
-        {% set speaker = speakers.get(talk.speaker) %}
-        <div class="speaker__name">{{ speaker.name }}</div>
-        <div class="speaker__img">
-            <img src="/img/speakers/{{ speaker.picture }}">
-        </div>
-        <div class="speaker__twitter">
-            {% if speaker.twitter %}
-                @{{ speaker.twitter }}
-            {% else %}
-                &nbsp;
-            {% endif %}
-        </div>
+    <div class="speakers">
+        {% for talk_speaker in talk.speaker %}
+            {% set speaker = speakers.get(talk_speaker) %}
+            <div class="speaker">
+                <div class="speaker__name">{{ speaker.name }}</div>
+                {% if speaker.picture and talk.speaker.length === 1 %}
+                <div class="speaker__img">
+                    <img src="/img/speakers/{{ speaker.picture }}">
+                </div>
+                {% endif %}
+                <div class="speaker__twitter">
+                    {% if speaker.twitter %}
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            aria-label="Twitter" role="img"
+                            width="50" height="50"
+                            class="social-icon"
+                            viewBox="0 0 512 512"><rect
+                            width="512" height="512"
+                            rx="15%"
+                            fill="#1da1f3"/><path fill="#fff" d="M437 152a72 72 0 0 1-40 12 72 72 0 0 0 32-40 72 72 0 0 1-45 17 72 72 0 0 0-122 65 200 200 0 0 1-145-74 72 72 0 0 0 22 94 72 72 0 0 1-32-7 72 72 0 0 0 56 69 72 72 0 0 1-32 1 72 72 0 0 0 67 50 200 200 0 0 1-105 29 200 200 0 0 0 309-179 200 200 0 0 0 35-37"/></svg>
+                                            
+                        @{{ speaker.twitter }}
+                    {% else %}
+                        &nbsp;
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
     </div>
 </body>
 </html>

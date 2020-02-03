@@ -9,7 +9,14 @@ permalink: automation/day-after-email.html
     <h2>Thanks to our speakers!</h2>
     {% for talk_id in event.talks %}
         {% set talk = talks.get(talk_id) %}
-        <h3>{{ speakers.get(talk.speaker).name }}</h3>
+        <h3>
+            {% for speaker in talk.speaker %}
+                <a href="https://leedsjs.com/speakers/{{ speaker }}">{{ speakers.get(speaker).name }}</a>{{ ", " if loop.revindex0 > 1 }}
+                {% if loop.revindex0 === 1 and loop.length > 1 %}
+                    and
+                {% endif %}
+            {% endfor %}
+        </h3>
         <p>Talk: {{ talk.title }}</p>
     {% endfor %}
 

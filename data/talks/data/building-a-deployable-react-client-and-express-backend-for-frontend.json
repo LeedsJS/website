@@ -1,7 +1,7 @@
 {
-    "title": "Building a Deployable React Client and Express Backend-For-Frontend",
-    "speaker": "luke-oliff",
-    "abstract": "A backend-for-frontend is a service specifically built to be consumed by a frontend application. General purpose backends are typically built alongside clients for their needs. As more clients with more features need access, your originally focussed backend can become more monolithic in size and design. One way to avoid this runaway design is to introduce a backend for each client with only relevant features. I'll show you how to produce a backend-for-frontend Express application that hosts it's own React client, so the entire stack can be built and deployed together.",
-    "date": "2019-03-27",
-    "youtube_video_id": "tzwdigNeNKo"
+  "title": "Building a Deployable React Client and Express Backend-For-Frontend",
+  "speaker": ["luke-oliff"],
+  "abstract": "A backend-for-frontend is a service specifically built to be consumed by a frontend application. General purpose backends are typically built alongside clients for their needs. As more clients with more features need access, your originally focussed backend can become more monolithic in size and design. One way to avoid this runaway design is to introduce a backend for each client with only relevant features. I'll show you how to produce a backend-for-frontend Express application that hosts it's own React client, so the entire stack can be built and deployed together.",
+  "date": "2019-03-27",
+  "youtube_video_id": "tzwdigNeNKo"
 }

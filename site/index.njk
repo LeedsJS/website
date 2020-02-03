@@ -18,7 +18,14 @@ description: LeedsJS is a free, monthly meetup based in Leeds. We focus on JavaS
             {% set talk = talks.get(talk_id) %}
             <div class="card__talk-container">
                 <h3>{{ talk.title }}</h3>
-                <p>By <a href="/speakers/{{ talk.speaker }}/">{{ speakers.get(talk.speaker).name }}</a></p>
+                <p>By 
+                    {% for speaker in talk.speaker %}
+                        <a href="/speakers/{{ speaker }}">{{ speakers.get(speaker).name }}</a>{{ ", " if loop.revindex0 > 1 }}
+                        {% if loop.revindex0 === 1 and loop.length > 1 %}
+                            and
+                        {% endif %}
+                    {% endfor %}
+                </p>
             </div>
         {% endfor %}
         </ul>

@@ -45,24 +45,26 @@ renderData:
     <h2>Talks</h2>
     {% for talk_id in event.talks %}
         {% set talk = talks.get(talk_id) %}
-        {% set speaker = speakers.get(talk.speaker) %}
         {% if talk.youtube_video_id %}
             {% set hasVideos = true %}
         {% endif %}
         <h3>{{ talk.title }}</h3>
-        <p class="nomargin">
-            <span class="event__speaker-detail">
-                <b>Speaker:</b> <a href="/speakers/{{ talk.speaker }}/">{{ speaker.name }}</a>
-            </span>
-            {% if speaker.twitter %}
+        {% for talk_speaker in talk.speaker %}
+            {% set speaker = speakers.get(talk_speaker) %}
+            <p class="nomargin">
                 <span class="event__speaker-detail">
-                    <b>Twitter:</b> <a href="https://twitter.com/{{ speaker.twitter }}" target="_blank" rel="noopener noreferrer">@{{ speaker.twitter }}</a>
+                    <b>Speaker:</b> <a href="/speakers/{{ talk_speaker }}/">{{ speaker.name }}</a>
                 </span>
-            {% endif %}
-            <span class="event__speaker-detail">
-                <b>Pronouns:</b> {{ speaker.pronouns }}
-            </span>
-        </p>
+                {% if speaker.twitter %}
+                    <span class="event__speaker-detail">
+                        <b>Twitter:</b> <a href="https://twitter.com/{{ speaker.twitter }}" target="_blank" rel="noopener noreferrer">@{{ speaker.twitter }}</a>
+                    </span>
+                {% endif %}
+                <span class="event__speaker-detail">
+                    <b>Pronouns:</b> {{ speaker.pronouns }}
+                </span>
+            </p>
+        {% endfor %}
         {{ talk.abstract | markdown | safe }}
     {% endfor %}
     {% if event.isUpcomingEvent() %}

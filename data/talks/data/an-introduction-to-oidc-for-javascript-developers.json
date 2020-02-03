@@ -1,7 +1,7 @@
 {
-    "title": "An Introduction to OIDC for JavaScript Developers",
-    "speaker": "steve-hobbs",
-    "abstract": "A whirlwind tour through OAuth2, OpenID Connect, and JSON Web Tokens, and how all this is relevant for JavaScript applications. We'll cover how OIDC builds on top of OAuth, the basics of the OAuth Implicit flow, what JSON Web Tokens are, and some recent changes in the guidance around securing SPAs",
-    "date": "2019-03-27",
-    "youtube_video_id": "RsG__KIgBBc"
+  "title": "An Introduction to OIDC for JavaScript Developers",
+  "speaker": ["steve-hobbs"],
+  "abstract": "A whirlwind tour through OAuth2, OpenID Connect, and JSON Web Tokens, and how all this is relevant for JavaScript applications. We'll cover how OIDC builds on top of OAuth, the basics of the OAuth Implicit flow, what JSON Web Tokens are, and some recent changes in the guidance around securing SPAs",
+  "date": "2019-03-27",
+  "youtube_video_id": "RsG__KIgBBc"
 }

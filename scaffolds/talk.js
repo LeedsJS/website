@@ -1,8 +1,8 @@
 module.exports = () => {
-    return {
-        title: "{{ title }}",
-        speaker: "",
-        abstract: "",
-        date: ""
-    }
-}
+  return {
+    title: "{{ title }}",
+    speaker: [],
+    abstract: "",
+    date: ""
+  };
+};

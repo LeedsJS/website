@@ -47,7 +47,14 @@ renderData:
         {% set talk_count = 1 %}
         {% for talk_id in event.talks %}
             {% set talk = talks.get(talk_id) %}
-            <h2>Talk {{talk_count}}: {{ speakers.get(talk.speaker).name }} - {{ talk.title }}</h2>
+            <h2>Talk {{talk_count}}: {{ talk.title }} - 
+                {% for speaker in talk.speaker %}
+                    {{ speakers.get(speaker).name }}{{ ", " if loop.revindex0 > 1 }}
+                    {% if loop.revindex0 === 1 and loop.length > 1 %}
+                        and
+                    {% endif %}
+                {% endfor %}
+            </h2>
             <p>How would you rate the talk?</p>
             <p>1 = Terrible, 5 = Excellent</p>
             <div class="form__group">

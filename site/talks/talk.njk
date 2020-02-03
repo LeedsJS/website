@@ -13,7 +13,15 @@ renderData:
 <h1>{{ talk.title }}</h1>
 <div class="card">
     <p><b>Date:</b> {{ talk.date | date("Do MMM YYYY") }}</p>
-    <p><b>Speaker:</b> <a href="/speakers/{{ talk.speaker }}/">{{ speakers.get(talk.speaker).name }}</a></p>
+    <p>
+        <b>Speaker{{ "s" if talk.speaker.length > 1 }}:</b> 
+        {% for speaker in talk.speaker %}
+            <a href="/speakers/{{ speaker }}">{{ speakers.get(speaker).name }}</a>{{ ", " if loop.revindex0 > 1 }}
+            {% if loop.revindex0 === 1 and loop.length > 1 %}
+                and
+            {% endif %}
+        {% endfor %}
+    </p>
     <h2>Abstract</h2>
     {{ talk.abstract | markdown | safe }}
     {% if talk.youtube_video_id %}

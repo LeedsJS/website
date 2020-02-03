@@ -1,7 +1,7 @@
 {
-    "title": "Finding My Sanity",
-    "speaker": "jamie-bradley",
-    "abstract": "Following my previous talk \"What the JAMstack\" my talk will revise the basics of JAMstack i.e. what it is, why it’s becoming so popular and also some of the potential drawbacks with using JAMstack. I will then follow up with a demonstration of a project using Gatsby along with a Headless CMS solution called Sanity. I will showcase how this fits into the JAMstack and why it is proving to be a success.",
-    "date": "2019-04-24",
-    "youtube_video_id": "HEGzf5H_Do0"
+  "title": "Finding My Sanity",
+  "speaker": ["jamie-bradley"],
+  "abstract": "Following my previous talk \"What the JAMstack\" my talk will revise the basics of JAMstack i.e. what it is, why it’s becoming so popular and also some of the potential drawbacks with using JAMstack. I will then follow up with a demonstration of a project using Gatsby along with a Headless CMS solution called Sanity. I will showcase how this fits into the JAMstack and why it is proving to be a success.",
+  "date": "2019-04-24",
+  "youtube_video_id": "HEGzf5H_Do0"
 }

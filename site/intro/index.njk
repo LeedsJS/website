@@ -28,12 +28,12 @@
 
         h1 {
             margin-top: 0;
-            margin-bottom: 1em;
+            margin-bottom: 0.5em;
         }
 
         h2 {
             margin-top: 0;
-            margin-bottom: 0.75em;
+            margin-bottom: 0.25em;
         }
 
         .wrapper {
@@ -85,15 +85,34 @@
             vertical-align: middle;
         }
 
+        .talk-title {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        .speakers {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            flex: 4 1 0px;
+        }
+
         .speaker {
             display: flex;
             align-items: center;
+            flex-direction: column;
+        }
+
+        .speaker p {
+            margin: 0 0 16px;
         }
 
         .speaker-picture {
             max-width: 300px;
             max-height: 300px;
-            margin-right: 50px;
+            margin-bottom: 16px;
+            flex: 1 1 0px;
         }
 
         .prize-draws {
@@ -195,32 +214,38 @@
         </div>
         {% for talk_id in event.talks %}
             {% set talk = talks.get(talk_id) %}
-            {% set speaker = speakers.get(talk.speaker) %}
             <div class="slide">
-                <h1>{{ talk.title }}</h1>
-                <div class="speaker">
-                    <img
-                        class="speaker-picture"
-                        src="../img/speakers/{{ speaker.picture }}"
-                    >
-                    <div>
-                        <h2>{{ speaker.name }}</h2>
-                        {% if speaker.twitter %}
-                            <h2>
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                aria-label="Twitter" role="img"
-                                width="75" height="75"
-                                class="social-icon"
-                                viewBox="0 0 512 512"><rect
-                                width="512" height="512"
-                                rx="15%"
-                                fill="#1da1f3"/><path fill="#fff" d="M437 152a72 72 0 0 1-40 12 72 72 0 0 0 32-40 72 72 0 0 1-45 17 72 72 0 0 0-122 65 200 200 0 0 1-145-74 72 72 0 0 0 22 94 72 72 0 0 1-32-7 72 72 0 0 0 56 69 72 72 0 0 1-32 1 72 72 0 0 0 67 50 200 200 0 0 1-105 29 200 200 0 0 0 309-179 200 200 0 0 0 35-37"/></svg>
-                                @{{ speaker.twitter }}
-                            </h2>
-                        {% endif %}
-                        <h2>Pronouns: {{ speaker.pronouns }}</h2>
-                    </div>
-                </div>                
+                <div class="talk-title">
+                    <h1>{{ talk.title }}</h1>
+                </div>
+                <div class="speakers">
+                    {% for talk_speaker in talk.speaker %}
+                        {% set speaker = speakers.get(talk_speaker) %}
+                        <div class="speaker">
+                            <img
+                                class="speaker-picture"
+                                src="../img/speakers/{{ speaker.picture }}"
+                            >
+                            <div>
+                                <p>{{ speaker.name }}</p>
+                                {% if speaker.twitter %}
+                                    <p>
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                        aria-label="Twitter" role="img"
+                                        width="40" height="40"
+                                        class="social-icon"
+                                        viewBox="0 0 512 512"><rect
+                                        width="512" height="512"
+                                        rx="15%"
+                                        fill="#1da1f3"/><path fill="#fff" d="M437 152a72 72 0 0 1-40 12 72 72 0 0 0 32-40 72 72 0 0 1-45 17 72 72 0 0 0-122 65 200 200 0 0 1-145-74 72 72 0 0 0 22 94 72 72 0 0 1-32-7 72 72 0 0 0 56 69 72 72 0 0 1-32 1 72 72 0 0 0 67 50 200 200 0 0 1-105 29 200 200 0 0 0 309-179 200 200 0 0 0 35-37"/></svg>
+                                        @{{ speaker.twitter }}
+                                    </p>
+                                {% endif %}
+                                <p>Pronouns: {{ speaker.pronouns }}</p>
+                            </div>
+                        </div>     
+                    {% endfor %}
+                </div>           
             </div>
         {% endfor %}
         

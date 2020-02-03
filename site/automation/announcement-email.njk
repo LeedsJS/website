@@ -13,7 +13,14 @@ permalink: automation/announcement-email.html
     {% for talk_id in event.talks %}
         {% set talk = talks.get(talk_id) %}
         <h3>{{ talk.title }}</h3>
-        <p>By <a href="https://leedsjs.com/speakers/{{ talk.speaker }}">{{ speakers.get(talk.speaker).name }}</a></p>
+        <p>By 
+            {% for speaker in talk.speaker %}
+                <a href="https://leedsjs.com/speakers/{{ speaker }}">{{ speakers.get(speaker).name }}</a>{{ ", " if loop.revindex0 > 1 }}
+                {% if loop.revindex0 === 1 and loop.length > 1 %}
+                    and
+                {% endif %}
+            {% endfor %}
+        </p>
     {% endfor %}
 
     <p><b>Tickets will be available from 10:00 AM on {{ event.ticket_date | date("Do MMMM YYYY") }}</b></p>

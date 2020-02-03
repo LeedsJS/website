@@ -1,7 +1,7 @@
 {
-    "title": "Serverless Single Page Applications",
-    "speaker": "jordan-finneran",
-    "abstract": "There is a lot of hype around serverless at the moment, I will share my real world experience with a serverless single page application. Covering why you may or may not want to consider going serverless. How I found migrating from a typical Express JS set up to serverless and if the demo gods are with me, demo a real world example.",
-    "date": "2019-01-30",
-    "youtube_video_id": "KjyQFrZbKYs"
+  "title": "Serverless Single Page Applications",
+  "speaker": ["jordan-finneran"],
+  "abstract": "There is a lot of hype around serverless at the moment, I will share my real world experience with a serverless single page application. Covering why you may or may not want to consider going serverless. How I found migrating from a typical Express JS set up to serverless and if the demo gods are with me, demo a real world example.",
+  "date": "2019-01-30",
+  "youtube_video_id": "KjyQFrZbKYs"
 }
