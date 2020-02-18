@@ -9,7 +9,6 @@ module.exports = () => {
       "how-to-save-time-budget-and-your-in-house-development-teams"
     ],
     sponsors: [
-      "sky-betting-and-gaming",
       "bruntwood",
       "starlight-software",
       "jetbrains",
