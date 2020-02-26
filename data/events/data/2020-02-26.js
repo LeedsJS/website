@@ -1,12 +1,12 @@
 module.exports = () => {
   return {
     id: "2020-02-26",
-    title: "February: Soldering irons and in-house development",
+    title: "February: Soldering irons and automated curtains",
     blurb:
-      "This month we have a couple of great talks from John Cook, Sarah Carr, Oliver Cavanagh and Emma Hawkins!",
+      "This month we have a couple of great talks from John Cook and Luke Bonaccorsi",
     talks: [
       "i-bought-a-soldering-iron-youll-never-guess-what-happened-next",
-      "how-to-save-time-budget-and-your-in-house-development-teams"
+      "how-i-ended-up-automating-my-curtains-and-shouting-at-my-laptop"
     ],
     sponsors: [
       "sky-betting-and-gaming",

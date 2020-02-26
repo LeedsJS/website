@@ -1,11 +1,11 @@
 {
-    "name": "Luke Bonaccorsi",
-    "bio": "Luke is a developer who started building web things in the early 2000s as a hobbyist before making a career of it in 2012. He’s currently a software engineer at Sky Betting & Gaming in Leeds, where he also runs LeedsJS. In his free time, he’s an amateur chef, expert eater, casual pixel artist and a chaotic maker.",
-    "pronouns": "He/Him",
-    "picture": "luke-bonaccorsi.jpg",
-    "twitter": "CodeFoodPixels",
-    "links": {
-        "Website": "https://lukeb.co.uk",
-        "GitHub": "https://github.com/lukeb-uk"
-    }
+  "name": "Luke Bonaccorsi",
+  "bio": "Luke Bonaccorsi (he/him/his) is a developer who started building web things in the early 2000s as a hobbyist before making a career of it in 2011. He’s currently a Product Developer at AND Digital, and is the organiser of LeedsJS. In his free time, he’s an amateur chef, expert eater, casual pixel artist and a chaotic maker.",
+  "pronouns": "He/Him",
+  "picture": "luke-bonaccorsi.jpg",
+  "twitter": "CodeFoodPixels",
+  "links": {
+    "Website": "https://lukeb.co.uk",
+    "GitHub": "https://github.com/CodeFoodPixels"
+  }
 }
