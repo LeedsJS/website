@@ -1,4 +1,5 @@
-const got = require("got");
+const fs = require("fs").promises;
+const path = require("path");
 const moment = require("moment-timezone");
 
 const BASE_URL = process.env.BASE_URL || "https://leedsjs.com";
@@ -17,12 +18,10 @@ const yesterday = moment()
   .subtract(1, "days");
 
 async function eventMessages() {
-  const { body: eventData } = await got(
-    `${BASE_URL}/automation/next-event.json`,
-    {
-      responseType: "json"
-    }
+  const eventDataFile = await fs.readFile(
+    path.join(__dirname, "..", "build", "automation", "next-event.json")
   );
+  const eventData = JSON.parse(eventDataFile);
 
   if (!eventData.id) {
     console.log("No event data, lets try comms!");
@@ -63,16 +62,16 @@ async function eventMessages() {
 }
 
 async function commsMessages() {
-  const { body: commData } = await got(
-    `${BASE_URL}/automation/next-comm.json`,
-    {
-      responseType: "json"
-    }
+  const commDataFile = await fs.readFile(
+    path.join(__dirname, "..", "build", "automation", "next-comm.json")
   );
+  const commData = JSON.parse(commDataFile);
 
   if (!commData.id || !today.isSame(commData.date, "day")) {
     return console.log("No comms to send today!");
   }
+
+  console.log(`Sending "${commData.title}"`);
 
   mailchimp.comms(commData.title, commData.body);
   twitter.comms(commData.id, commData.tweet);
