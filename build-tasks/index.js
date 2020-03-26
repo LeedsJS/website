@@ -51,6 +51,7 @@ async function eventMessages() {
     twitter.tomorrow(eventData);
   } else if (today.isSame(eventData.date, "day")) {
     console.log("It's event day!");
+    prizeDraw.setup();
     prizeDraw.clear();
   } else if (yesterday.isSame(eventData.date, "day")) {
     console.log("It's the day after!");
