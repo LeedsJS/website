@@ -1,10 +1,10 @@
 {
-    "name": "Beth North",
-    "bio": "Beth is a Senior Software Test Engineer for one of the largest sports betting companies in the UK. She has worked in testing for 4 years, in a wide variety of testing disciplines and is always interested in learning more. In her free time, Beth is a gamer, foodie and gig-attendee; she has an avid interest in learning about science, medicine and history.",
-    "pronouns": "She/Her",    
-    "picture": "beth-north.jpg",
-    "twitter": "EccentricTester",
-    "links": {
-        "Website": "https://bethnorth.wordpress.com/"
-    }
+  "name": "Beth North",
+  "bio": "Beth is a Test Lead for a global energy company. She has worked in testing for 5 years, in a wide variety of testing disciplines and is always interested in learning more. In her free time, Beth is a gamer, foodie and gig-attendee; she has an avid interest in learning about science, medicine and history.",
+  "pronouns": "She/Her",
+  "picture": "beth-north.jpg",
+  "twitter": "EccentricTester",
+  "links": {
+    "Website": "https://bethnorth.wordpress.com/"
+  }
 }

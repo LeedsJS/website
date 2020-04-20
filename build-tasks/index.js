@@ -10,12 +10,8 @@ const tito = require("./tito");
 const prizeDraw = require("./prizeDraw");
 
 const today = moment().tz("Europe/London");
-const tomorrow = moment()
-  .tz("Europe/London")
-  .add(1, "days");
-const yesterday = moment()
-  .tz("Europe/London")
-  .subtract(1, "days");
+const tomorrow = moment().tz("Europe/London").add(1, "days");
+const yesterday = moment().tz("Europe/London").subtract(1, "days");
 
 async function eventMessages() {
   const eventDataFile = await fs.readFile(
@@ -33,7 +29,10 @@ async function eventMessages() {
     mailchimp.announce(eventData.title);
     twitter.announce(eventData);
     tito.announce(eventData);
-  } else if (today.isSame(eventData.ticket_date, "day")) {
+  } else if (
+    today.isSame(eventData.ticket_date, "day") &&
+    !eventData.is_remote
+  ) {
     console.log("It's ticket day!");
     mailchimp.ticket(eventData.title);
     twitter.ticket(eventData);
@@ -41,7 +40,8 @@ async function eventMessages() {
     moment(today)
       .tz("Europe/London")
       .subtract(2, "days")
-      .isSame(eventData.ticket_date, "day")
+      .isSame(eventData.ticket_date, "day") &&
+    !eventData.is_remote
   ) {
     console.log("It's ticket reminder day!");
     twitter.ticketRemind(eventData);

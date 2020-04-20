@@ -29,7 +29,9 @@ description: LeedsJS is a free, monthly meetup based in Leeds. We focus on JavaS
             </div>
         {% endfor %}
         </ul>
-        {% if not (event.ticketsAvailable()) %}
+        {% if event.is_remote %}
+            <p><b>This event is remote and will take place on <a href="https://youtube.com/LeedsJS" target="_blank" rel="noopener noreferrer">the LeedsJS YouTube page</a></b></p>
+        {% elif not (event.ticketsAvailable()) %}
             <p><b>Tickets will be available from 10:00 AM on {{ event.ticket_date | date("Do MMMM YYYY") }}</b></p>
         {% endif %}
         <div class="button-container">

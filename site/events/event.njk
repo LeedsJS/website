@@ -22,7 +22,9 @@ renderData:
             While recruiters are welcome to come and learn, we operate a strict no active recruitment policy, outside of
             the job pitches at the start of the event.
         </p>
-        {% if event.ticketsAvailable() %}
+        {% if event.is_remote %}
+            <p><b>This event is remote and will take place on <a href="https://youtube.com/LeedsJS" target="_blank" rel="noopener noreferrer">the LeedsJS YouTube page</a></b></p>
+        {% elif event.ticketsAvailable() %}
             <div class="button-container">
                 {% set tito_event_id = event.id %}
                 {% include "tito-button.njk" %}
@@ -67,7 +69,7 @@ renderData:
         {% endfor %}
         {{ talk.abstract | markdown | safe }}
     {% endfor %}
-    {% if event.isUpcomingEvent() %}
+    {% if event.isUpcomingEvent() and not event.is_remote %}
         {% include "venue.njk" %}
     {% endif %}
     {% if event.sponsors.length > 0 %}

@@ -5,7 +5,7 @@ const client = new Twitter({
   consumer_key: process.env.twitter_consumer_key,
   consumer_secret: process.env.twitter_consumer_secret,
   access_token_key: process.env.twitter_access_token_key,
-  access_token_secret: process.env.twitter_access_token_secret
+  access_token_secret: process.env.twitter_access_token_secret,
 });
 
 async function announce(eventData) {
@@ -60,7 +60,9 @@ async function dayBefore(eventData) {
 
 Join us from ${eventData.start_time} to hear from ${speakers}!
 
-More details and tickets: https://leedsjs.com/events/${eventData.id}
+More details${
+    eventData.is_remote ? "" : " and tickets"
+  }: https://leedsjs.com/events/${eventData.id}
 
 #LeedsDevs `;
   sendTweet(message);
@@ -112,7 +114,7 @@ function sendTweet(tweet, replyTo) {
   client.post(
     "statuses/update",
     { status: currentTweet, in_reply_to_status_id: replyTo },
-    function(error, postedTweet, response) {
+    function (error, postedTweet, response) {
       if (error) {
         return console.log(error);
       }
@@ -129,7 +131,7 @@ function getSpeakers(talks) {
       acc.push(...talk.speaker);
       return acc;
     }, [])
-    .map(speaker => {
+    .map((speaker) => {
       return speaker.twitter ? `@${speaker.twitter}` : speaker.name;
     })
     .reduce((acc, val, i, arr) => {
@@ -145,7 +147,7 @@ function getSpeakers(talks) {
 
 function getSponsors(sponsors) {
   return sponsors
-    .map(sponsor => {
+    .map((sponsor) => {
       return sponsor.twitter ? `@${sponsor.twitter}` : sponsor.name;
     })
     .reduce((acc, val, i, arr) => {
@@ -165,5 +167,5 @@ module.exports = {
   ticketRemind,
   dayBefore,
   dayAfter,
-  comms
+  comms,
 };

@@ -1,7 +1,7 @@
 class NextEvent {
   data() {
     return {
-      permalink: "automation/next-event.json"
+      permalink: "automation/next-event.json",
     };
   }
 
@@ -23,21 +23,22 @@ class NextEvent {
       start_time: event.start_time,
       end_time: event.end_time,
       ticket_date: event.ticket_date,
-      announce_date: event.announce_date
+      announce_date: event.announce_date,
+      is_remote: event.is_remote || false,
     };
 
-    eventObj.talks = event.talks.map(talkId => {
+    eventObj.talks = event.talks.map((talkId) => {
       const talk = talks.get(talkId);
 
       const talkObj = {
         name: talk.title,
-        speaker: []
+        speaker: [],
       };
 
-      talk.speaker.forEach(talkSpeaker => {
+      talk.speaker.forEach((talkSpeaker) => {
         const speaker = speakers.get(talkSpeaker);
         const speakerObj = {
-          name: speaker.name
+          name: speaker.name,
         };
 
         if (speaker.twitter) {
@@ -50,11 +51,11 @@ class NextEvent {
       return talkObj;
     });
 
-    eventObj.sponsors = event.sponsors.map(sponsorId => {
+    eventObj.sponsors = event.sponsors.map((sponsorId) => {
       const sponsor = sponsors.get(sponsorId);
 
       const sponsorObj = {
-        name: sponsor.name
+        name: sponsor.name,
       };
 
       if (sponsor.twitter) {

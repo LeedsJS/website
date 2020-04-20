@@ -23,7 +23,11 @@ permalink: automation/announcement-email.html
         </p>
     {% endfor %}
 
-    <p><b>Tickets will be available from 10:00 AM on {{ event.ticket_date | date("Do MMMM YYYY") }}</b></p>
+    {% if event.is_remote %}
+        <p><b>This event is remote and will take place on <a href="https://youtube.com/LeedsJS">the LeedsJS YouTube page</a></b></p>
+    {% else %}
+        <p><b>Tickets will be available from 10:00 AM on {{ event.ticket_date | date("Do MMMM YYYY") }}</b></p>
+    {% endif %}
 
     <a href="https://leedsjs.com/events/{{ event.id }}" class="button button__primary">More details</a>
     {% include "venue.njk" %}
