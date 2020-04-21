@@ -2,8 +2,6 @@ const fs = require("fs").promises;
 const path = require("path");
 const moment = require("moment-timezone");
 
-const BASE_URL = process.env.BASE_URL || "https://leedsjs.com";
-
 const mailchimp = require("./mailchimp");
 const twitter = require("./twitter");
 const tito = require("./tito");
@@ -15,7 +13,8 @@ const yesterday = moment().tz("Europe/London").subtract(1, "days");
 
 async function eventMessages() {
   const eventDataFile = await fs.readFile(
-    path.join(__dirname, "..", "build", "automation", "next-event.json")
+    path.join(__dirname, "..", "build", "automation", "next-event.json"),
+    "utf8"
   );
   const eventData = JSON.parse(eventDataFile);
 
@@ -28,7 +27,9 @@ async function eventMessages() {
     console.log("It's announcement day!");
     mailchimp.announce(eventData.title);
     twitter.announce(eventData);
-    tito.announce(eventData);
+    if (!eventData.is_remote) {
+      tito.announce(eventData);
+    }
   } else if (
     today.isSame(eventData.ticket_date, "day") &&
     !eventData.is_remote

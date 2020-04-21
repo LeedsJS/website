@@ -1,6 +1,6 @@
 const got = require("got");
-
-const BASE_URL = process.env.BASE_URL || "https://leedsjs.com";
+const fs = require("fs").promises;
+const path = require("path");
 
 // Test segment:
 // segment_opts: {
@@ -45,9 +45,10 @@ async function comms(title, body) {
 
 async function getTemplate(templateName) {
   console.log(`Grabbing the ${templateName} template`);
-  const response = await got(`${BASE_URL}/automation/${templateName}.html`);
-
-  return response.body;
+  return await fs.readFile(
+    path.join(__dirname, "..", "build", "automation", `${templateName}.html`),
+    "utf8"
+  );
 }
 
 async function sendEmail(subject, content) {
@@ -55,7 +56,7 @@ async function sendEmail(subject, content) {
 
   const authOptions = {
     username: "anystring",
-    password: process.env.mailchimp_key
+    password: process.env.mailchimp_key,
   };
 
   const campaign = await got
@@ -65,19 +66,19 @@ async function sendEmail(subject, content) {
         json: {
           type: "regular",
           recipients: {
-            list_id: "5cdb704e1c"
+            list_id: "5cdb704e1c",
           },
           settings: {
             subject_line: subject,
             from_name: "LeedsJS",
-            reply_to: "leedsjs@gmail.com"
-          }
+            reply_to: "leedsjs@gmail.com",
+          },
         },
         responseType: "json",
-        ...authOptions
+        ...authOptions,
       }
     )
-    .catch(error => {
+    .catch((error) => {
       console.log(error.response.body);
       process.exit();
     });
@@ -91,12 +92,12 @@ async function sendEmail(subject, content) {
         template: {
           id: 20713,
           sections: {
-            body: content
-          }
-        }
+            body: content,
+          },
+        },
       },
       responseType: "json",
-      ...authOptions
+      ...authOptions,
     }
   );
 
@@ -107,12 +108,12 @@ async function sendEmail(subject, content) {
         template: {
           id: 20713,
           sections: {
-            body: content
-          }
-        }
+            body: content,
+          },
+        },
       },
       responseType: "json",
-      ...authOptions
+      ...authOptions,
     }
   );
 }
@@ -122,5 +123,5 @@ module.exports = {
   ticket,
   dayBefore,
   dayAfter,
-  comms
+  comms,
 };
