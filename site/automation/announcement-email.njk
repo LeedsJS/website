@@ -30,7 +30,9 @@ permalink: automation/announcement-email.html
     {% endif %}
 
     <a href="https://leedsjs.com/events/{{ event.id }}" class="button button__primary">More details</a>
-    {% include "venue.njk" %}
+    {% if not (event.is_remote) %}
+        {% include "venue.njk" %}
+    {% endif %}
     {% if event.prizes.length > 0 %}
         <h2>Prize draw prizes</h2>
         <ul>

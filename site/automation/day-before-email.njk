@@ -27,7 +27,10 @@ permalink: automation/day-before-email.html
     {% include "tito-button.njk" %}
     <a href="https://leedsjs.com/events/{{ event.id }}" class="button">More details</a>
 
-    {% include "venue.njk" %}
+    {% if not (event.is_remote) %}
+        {% include "venue.njk" %}
+    {% endif %}
+
     {% if event.prizes.length > 0 %}
         <h2>Prize draw prizes</h2>
         <ul>
