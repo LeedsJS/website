@@ -4,7 +4,7 @@ const path = require("path");
 
 // Test segment:
 // segment_opts: {
-//   saved_segment_id: 486022
+//   saved_segment_id: 486022;
 // }
 
 async function announce(eventTitle) {
@@ -51,7 +51,28 @@ async function getTemplate(templateName) {
   );
 }
 
+async function checkSent(subject) {
+  console.log("checking if " + subject + " has been sent before");
+  const campaigns = await got.get(
+    `https://${process.env.mailchimp_server}.api.mailchimp.com/3.0/campaigns?sort_field=send_time&sort_dir=DESC`,
+    {
+      responseType: "json",
+      username: "anystring",
+      password: process.env.mailchimp_key,
+    }
+  );
+
+  return campaigns.body.campaigns.some(
+    (campaign) => campaign.settings.subject_line === subject
+  );
+}
+
 async function sendEmail(subject, content) {
+  if (checkSent(subject)) {
+    console.log(subject + " has been sent before, skipping");
+    return;
+  }
+
   console.log("sending " + subject);
 
   const authOptions = {
