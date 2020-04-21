@@ -79,4 +79,6 @@ async function commsMessages() {
   twitter.comms(commData.id, commData.tweet);
 }
 
-eventMessages();
+if (process.env.CONTEXT === "production") {
+  eventMessages();
+}
