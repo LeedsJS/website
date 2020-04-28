@@ -12,7 +12,7 @@ async function announce(eventTitle) {
   const subject = `Announcing our next event: ${eventTitle}`;
 
   const content = await getTemplate(templateName);
-  sendEmail(subject, content);
+  await sendEmail(subject, content);
 }
 
 async function ticket(eventTitle) {
@@ -20,7 +20,7 @@ async function ticket(eventTitle) {
   const subject = `Tickets are now available for our next event: ${eventTitle}`;
 
   const content = await getTemplate(templateName);
-  sendEmail(subject, content);
+  await sendEmail(subject, content);
 }
 
 async function dayBefore(eventTitle) {
@@ -28,7 +28,7 @@ async function dayBefore(eventTitle) {
   const subject = `Tomorrow is our next event: ${eventTitle}`;
 
   const content = await getTemplate(templateName);
-  sendEmail(subject, content);
+  await sendEmail(subject, content);
 }
 
 async function dayAfter(eventTitle) {
@@ -36,11 +36,11 @@ async function dayAfter(eventTitle) {
   const subject = `Please leave feedback about last night's event: ${eventTitle}`;
 
   const content = await getTemplate(templateName);
-  sendEmail(subject, content);
+  await sendEmail(subject, content);
 }
 
 async function comms(title, body) {
-  sendEmail(title, body);
+  await sendEmail(title, body);
 }
 
 async function getTemplate(templateName) {
@@ -62,13 +62,13 @@ async function checkSent(subject) {
     }
   );
 
-  return campaigns.body.campaigns.some(
-    (campaign) => campaign.settings.subject_line === subject
-  );
+  return campaigns.body.campaigns.some((campaign) => {
+    return campaign.settings.subject_line === subject;
+  });
 }
 
 async function sendEmail(subject, content) {
-  if (checkSent(subject)) {
+  if (await checkSent(subject)) {
     console.log(subject + " has been sent before, skipping");
     return;
   }
