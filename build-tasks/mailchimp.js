@@ -4,7 +4,7 @@ const path = require("path");
 
 // Test segment:
 // segment_opts: {
-//   saved_segment_id: 486022;
+//   saved_segment_id: 486022
 // }
 
 async function announce(eventTitle) {
@@ -13,6 +13,7 @@ async function announce(eventTitle) {
 
   const content = await getTemplate(templateName);
   await sendEmail(subject, content);
+  return;
 }
 
 async function ticket(eventTitle) {
@@ -21,6 +22,7 @@ async function ticket(eventTitle) {
 
   const content = await getTemplate(templateName);
   await sendEmail(subject, content);
+  return;
 }
 
 async function dayBefore(eventTitle) {
@@ -29,6 +31,7 @@ async function dayBefore(eventTitle) {
 
   const content = await getTemplate(templateName);
   await sendEmail(subject, content);
+  return;
 }
 
 async function dayAfter(eventTitle) {
@@ -37,10 +40,12 @@ async function dayAfter(eventTitle) {
 
   const content = await getTemplate(templateName);
   await sendEmail(subject, content);
+  return;
 }
 
 async function comms(title, body) {
   await sendEmail(title, body);
+  return;
 }
 
 async function getTemplate(templateName) {

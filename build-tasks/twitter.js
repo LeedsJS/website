@@ -9,6 +9,7 @@ const client = new Twitter({
 });
 
 async function announce(eventData) {
+  console.log("Sending announce tweet");
   const speakers = getSpeakers(eventData.talks);
   const message = `We've just announced our next event: ${eventData.title}
 
@@ -18,10 +19,12 @@ More details: https://leedsjs.com/events/${eventData.id}
 
 #LeedsDevs`;
 
-  sendTweet(message);
+  await sendTweet(message);
+  return;
 }
 
 async function ticket(eventData) {
+  console.log("Sending ticket tweet");
   const speakers = getSpeakers(eventData.talks);
 
   const message = `We've just released the tickets for our next event: ${
@@ -34,10 +37,12 @@ More details and tickets: https://leedsjs.com/events/${eventData.id}
 
 #LeedsDevs`;
 
-  sendTweet(message);
+  await sendTweet(message);
+  return;
 }
 
 async function ticketRemind(eventData) {
+  console.log("Sending ticketRemind tweet");
   const speakers = getSpeakers(eventData.talks);
 
   const message = `A few days ago we released the tickets for our next event: ${
@@ -50,10 +55,12 @@ More details and tickets: https://leedsjs.com/events/${eventData.id}
 
 #LeedsDevs`;
 
-  sendTweet(message);
+  await sendTweet(message);
+  return;
 }
 
 async function dayBefore(eventData) {
+  console.log("Sending dayBefore tweet");
   const speakers = getSpeakers(eventData.talks);
 
   const message = `Our next event is tomorrow: ${eventData.title}
@@ -65,10 +72,12 @@ More details${
   }: https://leedsjs.com/events/${eventData.id}
 
 #LeedsDevs `;
-  sendTweet(message);
+  await sendTweet(message);
+  return;
 }
 
 async function dayAfter(eventData) {
+  console.log("Sending dayAfter tweet");
   const speakers = getSpeakers(eventData.talks);
 
   const sponsors = getSponsors(eventData.sponsors);
@@ -88,10 +97,11 @@ We'll announce our next event soon!
 ${part2}`;
 
   if (message.length > 280) {
-    sendTweet([part1, part2]);
+    await sendTweet([part1, part2]);
   } else {
-    sendTweet(message);
+    await sendTweet(message);
   }
+  return;
 }
 
 async function comms(id, content) {
@@ -101,28 +111,32 @@ Read more: https://leedsjs.com/email/${id}
 
 #LeedsDevs`;
 
-  sendTweet(message);
+  await sendTweet(message);
+  return;
 }
 
-function sendTweet(tweet, replyTo) {
+async function sendTweet(tweet, replyTo) {
   let currentTweet = Array.isArray(tweet) ? tweet.shift() : tweet;
 
   if (replyTo) {
     currentTweet = `@leedsjs ${currentTweet}`;
   }
 
-  client.post(
-    "statuses/update",
-    { status: currentTweet, in_reply_to_status_id: replyTo },
-    function (error, postedTweet, response) {
-      if (error) {
-        return console.log(error);
-      }
-      if (Array.isArray(tweet) && tweet.length > 0) {
-        postTweet(tweet, postedTweet.id_str);
-      }
-    }
-  );
+  await client
+    .post("statuses/update", {
+      status: currentTweet,
+      in_reply_to_status_id: replyTo,
+    })
+    .catch((error) => {
+      return console.log(error);
+    });
+
+  if (Array.isArray(tweet) && tweet.length > 0) {
+    await postTweet(tweet, postedTweet.id_str);
+    return;
+  }
+
+  return;
 }
 
 function getSpeakers(talks) {
