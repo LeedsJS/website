@@ -26,8 +26,8 @@ async function eventMessages(publishDir) {
 
   if (today.isSame(eventData.announce_date, "day")) {
     console.log("It's announcement day!");
-    mailchimp.announce(eventData.title);
-    twitter.announce(eventData);
+    await mailchimp.announce(eventData.title);
+    await twitter.announce(eventData);
     if (!eventData.is_remote) {
       tito.announce(eventData);
     }
@@ -36,8 +36,8 @@ async function eventMessages(publishDir) {
     !eventData.is_remote
   ) {
     console.log("It's ticket day!");
-    mailchimp.ticket(eventData.title);
-    twitter.ticket(eventData);
+    await mailchimp.ticket(eventData.title);
+    await twitter.ticket(eventData);
   } else if (
     moment(today)
       .tz("Europe/London")
@@ -46,19 +46,19 @@ async function eventMessages(publishDir) {
     !eventData.is_remote
   ) {
     console.log("It's ticket reminder day!");
-    twitter.ticketRemind(eventData);
+    await twitter.ticketRemind(eventData);
   } else if (tomorrow.isSame(eventData.date, "day")) {
     console.log("It's the day before!");
-    mailchimp.dayBefore(eventData.title);
-    twitter.dayBefore(eventData);
+    await mailchimp.dayBefore(eventData.title);
+    await twitter.dayBefore(eventData);
   } else if (today.isSame(eventData.date, "day")) {
     console.log("It's event day!");
-    prizeDraw.setup();
-    prizeDraw.clear();
+    await prizeDraw.setup();
+    await prizeDraw.clear();
   } else if (yesterday.isSame(eventData.date, "day")) {
     console.log("It's the day after!");
-    mailchimp.dayAfter(eventData.title);
-    twitter.dayAfter(eventData);
+    await mailchimp.dayAfter(eventData.title);
+    await twitter.dayAfter(eventData);
   } else {
     console.log("No event stuff today, lets try comms!");
   }
@@ -76,8 +76,8 @@ async function commsMessages() {
 
   console.log(`Sending "${commData.title}"`);
 
-  mailchimp.comms(commData.title, commData.body);
-  twitter.comms(commData.id, commData.tweet);
+  await mailchimp.comms(commData.title, commData.body);
+  await twitter.comms(commData.id, commData.tweet);
 }
 
 module.exports = {
