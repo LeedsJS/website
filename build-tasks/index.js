@@ -11,9 +11,10 @@ const today = moment().tz("Europe/London");
 const tomorrow = moment().tz("Europe/London").add(1, "days");
 const yesterday = moment().tz("Europe/London").subtract(1, "days");
 
-async function eventMessages() {
+async function eventMessages(publishDir) {
+  console.log("Grabbing event data");
   const eventDataFile = await fs.readFile(
-    path.join(__dirname, "..", "build", "automation", "next-event.json"),
+    path.join(publishDir, "automation", "next-event.json"),
     "utf8"
   );
   const eventData = JSON.parse(eventDataFile);
@@ -48,16 +49,16 @@ async function eventMessages() {
     twitter.ticketRemind(eventData);
   } else if (tomorrow.isSame(eventData.date, "day")) {
     console.log("It's the day before!");
-    mailchimp.tomorrow(eventData.title);
-    twitter.tomorrow(eventData);
+    mailchimp.dayBefore(eventData.title);
+    twitter.dayBefore(eventData);
   } else if (today.isSame(eventData.date, "day")) {
     console.log("It's event day!");
     prizeDraw.setup();
     prizeDraw.clear();
   } else if (yesterday.isSame(eventData.date, "day")) {
     console.log("It's the day after!");
-    mailchimp.yesterday(eventData.title);
-    twitter.yesterday(eventData);
+    mailchimp.dayAfter(eventData.title);
+    twitter.dayAfter(eventData);
   } else {
     console.log("No event stuff today, lets try comms!");
   }
@@ -65,7 +66,7 @@ async function eventMessages() {
 
 async function commsMessages() {
   const commDataFile = await fs.readFile(
-    path.join(__dirname, "..", "build", "automation", "next-comm.json")
+    path.join(publishDir, "automation", "next-comm.json")
   );
   const commData = JSON.parse(commDataFile);
 
@@ -80,9 +81,9 @@ async function commsMessages() {
 }
 
 module.exports = {
-  onSuccess: () => {
+  onSuccess: async ({ constants }) => {
     if (process.env.CONTEXT === "production") {
-      eventMessages();
+      await eventMessages(constants.PUBLISH_DIR);
     }
   },
 };
