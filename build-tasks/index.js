@@ -79,6 +79,10 @@ async function commsMessages() {
   twitter.comms(commData.id, commData.tweet);
 }
 
-if (process.env.CONTEXT === "production") {
-  eventMessages();
-}
+module.exports = {
+  onSuccess: () => {
+    if (process.env.CONTEXT === "production") {
+      eventMessages();
+    }
+  },
+};
