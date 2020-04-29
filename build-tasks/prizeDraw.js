@@ -3,9 +3,9 @@ const got = require("got");
 async function setup() {
   console.log("Setting up prize draw");
   await got.post(
-    `https://leedsjs-prize-draw.glitch.me/setup/clear/${process.env.prize_draw_setup}`,
+    `https://leedsjs-prize-draw.glitch.me/admin/setup/${process.env.prize_draw_setup}`,
     {
-      json: {}
+      json: {},
     }
   );
 }
@@ -15,12 +15,12 @@ async function clear() {
   await got.post(
     `https://leedsjs-prize-draw.glitch.me/admin/clear/${process.env.prize_draw_clear}`,
     {
-      json: {}
+      json: {},
     }
   );
 }
 
 module.exports = {
   setup,
-  clear
+  clear,
 };
