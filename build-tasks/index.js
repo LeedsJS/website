@@ -21,7 +21,7 @@ async function eventMessages(publishDir) {
 
   if (!eventData.id) {
     console.log("No event data, lets try comms!");
-    return commsMessages();
+    return await commsMessages(publishDir);
   }
 
   if (today.isSame(eventData.announce_date, "day")) {
@@ -61,10 +61,11 @@ async function eventMessages(publishDir) {
     await twitter.dayAfter(eventData);
   } else {
     console.log("No event stuff today, lets try comms!");
+    return await commsMessages(publishDir);
   }
 }
 
-async function commsMessages() {
+async function commsMessages(publishDir) {
   const commDataFile = await fs.readFile(
     path.join(publishDir, "automation", "next-comm.json")
   );
