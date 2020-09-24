@@ -4,7 +4,7 @@ function jsonp(url, data, callback) {
   const script = document.createElement("script");
   script.type = "text/javascript";
 
-  window.jsonpCallback = data => {
+  window.jsonpCallback = (data) => {
     head.removeChild(script);
     callback(data);
   };
@@ -13,7 +13,7 @@ function jsonp(url, data, callback) {
 
   const params = [];
 
-  Object.keys(data).forEach(param => {
+  Object.keys(data).forEach((param) => {
     params.push(param + "=" + encodeURIComponent(data[param]));
   });
 
@@ -25,7 +25,7 @@ function jsonp(url, data, callback) {
 function getFormData(form) {
   const data = {};
 
-  Array.prototype.forEach.call(form.elements, el => {
+  Array.prototype.forEach.call(form.elements, (el) => {
     if (el.type === "checkbox" && el.checked === true) {
       data[el.name] = el.value;
     } else if (el.name.length > 0 && el.value.length > 0) {
@@ -40,13 +40,13 @@ function installMailchimp() {
   const form = document.querySelector("#mailchimp-form");
 
   if (form) {
-    form.addEventListener("submit", event => {
+    form.addEventListener("submit", (event) => {
       event.preventDefault();
 
       const data = getFormData(form);
       const url = form.action.replace("/post?", "/post-json?");
 
-      jsonp(url, data, data => {
+      jsonp(url, data, (data) => {
         const response = document.querySelector("#mailchimp-response");
 
         response.classList.remove("hidden", "success", "error");
@@ -71,13 +71,13 @@ function installPrizeDraw() {
   const form = document.querySelector("#prize-draw-form");
 
   if (form) {
-    form.addEventListener("submit", event => {
+    form.addEventListener("submit", (event) => {
       event.preventDefault();
 
       const data = getFormData(form);
       const url = form.action;
 
-      jsonp(url, data, data => {
+      jsonp(url, data, (data) => {
         const response = document.querySelector("#prize-draw-response");
 
         response.classList.remove("hidden", "success", "error");
@@ -93,21 +93,6 @@ function installPrizeDraw() {
       });
     });
   }
-}
-
-function lazyLoad() {
-  Array.prototype.forEach.call(
-    document.querySelectorAll('div[data-type="lazy"]'),
-    el => {
-      if (el.getBoundingClientRect().top - window.innerHeight <= 0) {
-        const newEl = document.createElement(el.dataset.tag);
-        Array.prototype.forEach.call(el.attributes, attr => {
-          newEl.setAttribute(attr.name, attr.value);
-        });
-        el.parentNode.replaceChild(newEl, el);
-      }
-    }
-  );
 }
 
 function initGoToTopBtn() {
@@ -143,8 +128,6 @@ function initGoToTopBtn() {
   goTopBtn.addEventListener("click", backToTop);
 }
 
-lazyLoad();
 installMailchimp();
 installPrizeDraw();
 initGoToTopBtn();
-window.addEventListener("scroll", lazyLoad, { passive: true });

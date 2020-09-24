@@ -23,13 +23,14 @@
         <meta name="msapplication-TileColor" content="#F7DF1E">
         <meta name="msapplication-config" content="/browserconfig.xml">
         <meta name="theme-color" content="#ffffff">
-        <link rel="preload" as="font" type="font/woff2" href="{{ '/fonts/libre-baskerville-v6-latin-regular.woff2' | url }}" crossorigin>
+        <link rel="preload" as="font" type="font/woff2" href="/fonts/libre-baskerville-v6-latin-regular.woff2" crossorigin>
         <link rel="stylesheet" href="{{ '/styles.css' | url }}">
     </head>
     <body>
         <header class="page-header">
             <a href="{{ '/' | url }}" class="page-header__logo-link">
-                <img src="{{ '/img/logo.png' | url }}" width="150" height="150" alt="LeedsJS Logo"  class="page-header__logo-image" />
+                <span class="u-alt-text">LeedsJS</span>
+                {% include "logo.njk" %}
             </a>
             <nav class="page-header__navigation">
                 <ul>
@@ -85,6 +86,5 @@
             }
         </script>
         <script type="text/javascript" src="{{ '/script.js' | url }}" defer></script>
-        <img src="https://leedsjs-emptyjar.glitch.me/ping.png" aria-hidden="true" alt="" height="0">
     </body>
 </html>

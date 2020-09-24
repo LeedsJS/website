@@ -14,13 +14,12 @@ renderData:
 <h1>{{ speaker.name }}</h1>
 <div class="card">
     {% if speaker.picture %}
-        <div
-            data-type="lazy"
-            data-tag="img"
+        <img
+            loading="lazy"
             src="/img/speakers/{{ speaker.picture }}"
             class="speaker-picture"
             alt="Picture of {{ speaker.name }}"
-        ></div>
+        >
     {% endif %}
     <h2>Bio</h2>
     {{ speaker.bio | markdown | safe }}

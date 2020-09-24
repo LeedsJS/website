@@ -78,13 +78,12 @@ renderData:
         {% set sponsor = sponsors.get(sponsor_id) %}
             <h3>{{ sponsor.name }}</h3>
             <p><b>Website:</b> <a href="{{ sponsor.url }}" target="_blank" rel="noopener noreferrer">{{ sponsor.url }}</a></p>
-            <div
-                data-type="lazy"
-                data-tag="img"
+            <img
+                loading="lazy"
                 class="event-sponsor-logo"
                 src="/img/sponsors/{{ sponsor.logo }}"
                 alt="{{ sponsor.name }} logo"
-            ></div>
+            >
         {% endfor %}
     {% endif %}
     {% if hasVideos %}

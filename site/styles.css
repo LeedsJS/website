@@ -3,13 +3,13 @@
     font-family: 'Libre Baskerville';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/libre-baskerville-v6-latin-regular.eot'); /* IE9 Compat Modes */
+    src: url('/fonts/libre-baskerville-v6-latin-regular.eot'); /* IE9 Compat Modes */
     src: local('Libre Baskerville'), local('LibreBaskerville-Regular'),
-         url('../fonts/libre-baskerville-v6-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('../fonts/libre-baskerville-v6-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-         url('../fonts/libre-baskerville-v6-latin-regular.woff') format('woff'), /* Modern Browsers */
-         url('../fonts/libre-baskerville-v6-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('../fonts/libre-baskerville-v6-latin-regular.svg#LibreBaskerville') format('svg'); /* Legacy iOS */
+         url('/fonts/libre-baskerville-v6-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/fonts/libre-baskerville-v6-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('/fonts/libre-baskerville-v6-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('/fonts/libre-baskerville-v6-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/fonts/libre-baskerville-v6-latin-regular.svg#LibreBaskerville') format('svg'); /* Legacy iOS */
     font-display: swap;
 }
 
@@ -78,6 +78,16 @@ p, ul, address {
     font-style: normal;
 }
 
+.u-alt-text {
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    display: inline-block;
+    background-color: #ffffff;
+    color: #000000;
+}
+
 .page-header {
     background: #ffffff;
     text-align: center;
@@ -86,7 +96,7 @@ p, ul, address {
 }
 
 .page-header__logo-link {
-    display: block;
+    display: flex;
     margin: 0 auto;
     width: 100px;
     border: none;
@@ -383,7 +393,7 @@ input[type="submit"]:hover {
         padding-top: 0;
     }
     .page-header__logo-link {
-        display: inline-block;
+        display: inline-flex;
         margin: 0 1.6rem 0 0;
         width: 150px;
         vertical-align: bottom;
