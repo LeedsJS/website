@@ -38,11 +38,7 @@ description: LeedsJS is a free, monthly meetup based in Leeds. We focus on JavaS
         {% endif %}
         <div class="button-container">
 
-            {% if event.ticket_link %}
-                <a href="{{ event.ticket_link }}" class="button button__primary">Get Your Ticket</a>
-                <a href="/events/{{ event.id }}/" class="button">More details</a>
-            {% elif event.ticketsAvailable() %}
-                {% set tito_event_id = event.id %}
+            {% if event.ticketsAvailable() %}
                 {% include "tito-button.njk" %}
                 <a href="/events/{{ event.id }}/" class="button">More details</a>
             {% else %}

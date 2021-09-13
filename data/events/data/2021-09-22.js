@@ -12,9 +12,9 @@ module.exports = () => {
     date: "2021-09-22",
     start_time: "17:30",
     end_time: "19:00",
-    ticket_date: "2021-10-10",
+    ticket_date: "2021-09-14",
     ticket_link: "https://share.hsforms.com/1Tta4n_yWSgSDfVKqbnVI3w5lgth",
-    announce_date: "2021-09-10",
+    announce_date: "2021-09-14",
     is_remote: false,
   };
 };
