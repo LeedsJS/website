@@ -11,11 +11,13 @@ renderData:
 ---
 {% set event = events.get(event_id) %}
 {% set hasVideos = false %}
+ 
 <h1>{{ event.title }}</h1>
+
 <div class="card">
     <p><b>Date:</b> {{ event.date | date("Do MMMM YYYY") }}</p>
     <p><b>Time:</b> {{ event.start_time }} - {{ event.end_time }}</p>
-    {{ event.blurb | markdown | safe }}
+  {{ event.blurb | markdown | safe }}
     {% if event.isUpcomingEvent() %}
         <p>
             <b>Please note:</b> LeedsJS is intended for people looking to expand their knowledge and meet the community.
@@ -24,6 +26,11 @@ renderData:
         </p>
         {% if event.is_remote %}
             <p><b>This event is remote and will take place on <a href="https://youtube.com/LeedsJS" target="_blank" rel="noopener noreferrer">the LeedsJS YouTube page</a></b></p>
+        {% elif event.ticket_link %}
+            <div class="button-container">
+                <a href="{{ event.ticket_link }}" class="button button__primary" target="_blank" rel="noopener noreferrer">Get your
+    ticket</a>
+            </div>
         {% elif event.ticketsAvailable() %}
             <div class="button-container">
                 {% set tito_event_id = event.id %}
@@ -36,6 +43,7 @@ renderData:
             </div>
         {% endif %}
     {% endif %}
+     
     {% if event.prizes.length > 0 %}
         <h2>Prize draw prizes</h2>
         <ul>
@@ -44,7 +52,7 @@ renderData:
             {% endfor %}
         </ul>
     {% endif %}
-    <h2>Talks</h2>
+   <h2>Talks</h2>
     {% for talk_id in event.talks %}
         {% set talk = talks.get(talk_id) %}
         {% if talk.youtube_video_id %}
@@ -67,8 +75,9 @@ renderData:
                 </span>
             </p>
         {% endfor %}
-        {{ talk.abstract | markdown | safe }}
+        {{ talk.abstract | safe  }}
     {% endfor %}
+     
     {% if event.isUpcomingEvent() and not event.is_remote %}
         {% include "venue.njk" %}
     {% endif %}
@@ -98,4 +107,4 @@ renderData:
             {% endif %}
         {% endfor %}
     {% endif %}
-</div>
+</div> 
