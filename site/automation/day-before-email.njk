@@ -23,14 +23,9 @@ permalink: automation/day-before-email.html
         </p>
     {% endfor %}
 
-    {% set tito_event_id = event.id %}
     {% if event.is_remote %}
         <p><b>This event is remote and will take place on <a href="https://youtube.com/LeedsJS">the LeedsJS YouTube page</a></b></p>
         <a href="https://leedsjs.com/events/{{ event.id }}" class="button__primary">More details</a>
-    {% elif event.ticket_link %}
-        <a href="{{ event.ticket_link }}" class="button">More details</a>
-        <a href="https://leedsjs.com/events/{{ event.id }}" class="button">More details</a>
-
     {% else %}
         {% include "ticket-button.njk" %}
         <a href="https://leedsjs.com/events/{{ event.id }}" class="button">More details</a>
