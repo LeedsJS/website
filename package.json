@@ -29,7 +29,7 @@
     "html-minifier": "^4.0.0",
     "moment-timezone": "^0.5.33",
     "purify-css": "^1.2.5",
-    "sharp": "^0.22.0",
+    "sharp": "^0.29.1",
     "slugify": "^1.6.0",
     "twitter": "^1.7.1"
   }
