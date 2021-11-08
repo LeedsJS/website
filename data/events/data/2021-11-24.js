@@ -1,7 +1,7 @@
 module.exports = () => {
   return {
     id: "2021-11-24",
-    title: "LeedJS is back....",
+    title: "Nov 2021 session!",
     blurb: `We are back with a hybrid offering and some great talks. Please do come along or tune in online and get back in touch with the community.`,
     talks: [
       "a-lightning-talk-about-lightning-talks",
