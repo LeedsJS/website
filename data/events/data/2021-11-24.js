@@ -1,8 +1,8 @@
 module.exports = () => {
   return {
-    id: "2021-09-22",
+    id: "2021-11-24",
     title: "Nov 2021 session!",
-    blurb: `We are back with a hybrid offfering and some great talks. Please do come along or tune in online and get back in touch with the community.`,
+    blurb: `We are back with a hybrid offering and some great talks. Please do come along or tune in online and get back in touch with the community.`,
     talks: [
       "a-lightning-talk-about-lightning-talks",
       "everything-i-didnt-know-about-babel-and-didnt-think-to-ask",
