@@ -23,7 +23,6 @@ renderData:
     {% endif %}
     <h2>Bio</h2>
     {{ speaker.bio | markdown | safe }}
-    <p><b>Pronouns:</b> {{ speaker.pronouns }}</p>
     {% if speaker.links or speaker.twitter %}
     <h2>Links</h2>
     <ul>
