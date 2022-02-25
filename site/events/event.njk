@@ -64,9 +64,6 @@ renderData:
                         <b>Twitter:</b> <a href="https://twitter.com/{{ speaker.twitter }}" target="_blank" rel="noopener noreferrer">@{{ speaker.twitter }}</a>
                     </span>
                 {% endif %}
-                <span class="event__speaker-detail">
-                    <b>Pronouns:</b> {{ speaker.pronouns }}
-                </span>
             </p>
         {% endfor %}
         {{ talk.abstract | safe  }}
