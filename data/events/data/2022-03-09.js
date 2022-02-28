@@ -12,7 +12,7 @@ module.exports = () => {
     date: "2022-03-09",
     start_time: "18:00",
     end_time: "19:30",
-    ticket_date: "2022-02-26",
-    announce_date: "2022-02-26",
+    ticket_date: "2022-02-28",
+    announce_date: "2022-02-28",
   };
 };
