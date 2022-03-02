@@ -13,7 +13,6 @@ module.exports = () => {
     start_time: "18:00",
     end_time: "19:30",
     ticket_date: "2022-02-28",
-    ticket_link: "https://ti.to/leedsjs/2021-11-24-copy",
     announce_date: "2022-02-28",
   };
 };
