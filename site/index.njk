@@ -4,7 +4,7 @@ layout: layouts/base.njk
 description: LeedsJS is a free, monthly meetup based in Leeds. We focus on JavaScript in all it's forms, whether that's frontend development, Node.js or hardware.
 ---
 {% set event = events.nextEvent %}
-<div class="card center">
+<div class="card">
     {% if event.id and event.isAnnounced() and event.isUpcomingEvent() %}
         <div class="card__header">
             <p>Our next event is...</p>
