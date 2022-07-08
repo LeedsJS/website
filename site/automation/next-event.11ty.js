@@ -37,6 +37,7 @@ class NextEvent {
 
       talk.speaker.forEach((talkSpeaker) => {
         const speaker = speakers.get(talkSpeaker);
+        console.log(speaker);
         const speakerObj = {
           name: speaker.name,
         };
