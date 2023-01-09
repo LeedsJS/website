@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/LeedsJS/website-eleventy#readme",
   "dependencies": {
-    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy": "^1.0.2",
     "dotenv": "^7.0.0",
     "find": "^0.3.0",
     "got": "^10.7.0",
