@@ -5,7 +5,7 @@ module.exports = () => {
     tweet: `LeedsJS is moving back to MeetUp. Register at https://www.meetup.com/leeds-js/ to stay in touch!`,
     body: `Hi folks!
 
-    We are moving back to MeetUp to stay in touch that little bit easier. Unfortunately will not be able to port over your current contact preferences automatically.
+    We are moving back to MeetUp to stay in touch that little bit easier. Unfortunately, will not be able to port over your current contact preferences automatically.
     
     So, please register at [https://www.meetup.com/leeds-js/](https://www.meetup.com/leeds-js/) to stay up to date. We will be updating the website to redirect to MeetUp in the next week or so.
     
