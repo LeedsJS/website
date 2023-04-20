@@ -7,8 +7,10 @@ package = "./build-tasks"
 from = "/"
 to = "https://meeetup.com/leeds-js/"
 status = 301
+force = true
 
 [[redirects]]
 from = "/*"
 to = "https://meeetup.com/leeds-js/"
 status = 301
+force = true
