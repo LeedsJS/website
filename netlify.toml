@@ -3,3 +3,13 @@ publish = "build"
 command = "npm run build"
 [[plugins]]
 package = "./build-tasks"
+[[redirects]]
+from = "/"
+to = "https://www.meetup.com/leeds-js/"
+status = 301
+force = true
+[[redirects]]
+from = "/*"
+to = "https://www.meetup.com/leeds-js/"
+status = 301
+force = true
